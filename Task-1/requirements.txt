@@ -1,0 +1,7 @@
+fastapi==0.128.0
+feedparser==6.0.12
+fitz==0.0.1.dev2
+openai==2.15.0
+pydantic==2.12.5
+python-dotenv==1.2.1
+Requests==2.32.5
