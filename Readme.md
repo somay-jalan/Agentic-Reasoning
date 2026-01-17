@@ -41,11 +41,9 @@ Create an agent that can automatically generate **PowerPoint (PPTX)** or **Beame
 **Key Features:**
 
 * Parses LaTeX research papers
-* Identifies structure such as title, abstract, sections, figures, and tables
 * Converts content into presentation-friendly slides
 * Supports:
 
-  * PowerPoint (`.pptx`)
   * Beamer (`.tex`) presentations
 * Modular and extensible agent design
 
