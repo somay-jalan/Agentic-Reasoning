@@ -1,7 +1,7 @@
-task1-env
 .env
 .webui_secret_key
 __pycache__
 *.pdf
 *.tex
 /output
+/webui_env
