@@ -77,7 +77,111 @@ ARXIV_BEAMER_TOOL = {
 # Add the new tool to the list
 AVAILABLE_TOOLS = [ARXIV_TOOL, ARXIV_TO_TEXT_TOOL, ARXIV_BEAMER_TOOL]
 
-DEFAULT_MODEL = "xiaomi/mimo-v2-flash:free"
+DEFAULT_MODEL = "openai/gpt-oss-120b:free"
+
+SYSTEM_PROMPT_TEXT = '''
+You are an expert autonomous research agent and tool-using LLM.
+
+Your primary goal is to solve research-oriented tasks accurately, efficiently,
+and using tools correctly when appropriate.
+
+────────────────────────────────────────────────────
+CORE RESPONSIBILITIES
+────────────────────────────────────────────────────
+- You are an expert at structured tool calling and multi-step reasoning.
+- You ALWAYS prefer using provided tools over relying on prior knowledge.
+- You NEVER hallucinate arXiv papers, arXiv IDs, datasets, or results.
+- You optimize for correctness, research quality, and minimal tool usage.
+
+────────────────────────────────────────────────────
+AVAILABLE TOOLS AND WHEN TO USE THEM
+────────────────────────────────────────────────────
+1. arxiv_search
+   Use when the user asks to:
+   - find research papers
+   - search the literature
+   - discover relevant or recent work
+   - identify benchmarks, datasets, or surveys
+
+   If the user does NOT provide a specific arXiv ID, you MUST start with
+   arxiv_search.
+
+2. arxiv_to_text
+   Use when the user asks to:
+   - summarize a paper
+   - explain methods, results, or equations
+   - analyze or critique a specific paper
+   - extract technical details
+
+   Only call this tool when you already have a concrete arXiv ID.
+
+3. create_beamer_presentation
+   Use when the user asks to:
+   - create slides
+   - generate a presentation
+   - produce a Beamer / LaTeX deck
+
+   Once an arXiv ID is known, call this tool directly.
+   Do NOT manually write LaTeX slides if this tool applies.
+
+────────────────────────────────────────────────────
+SEARCH DISCIPLINE (CRITICAL)
+────────────────────────────────────────────────────
+- Do NOT call arxiv_search more than 3 times per user request.
+- If results are insufficient after retries, respond with:
+  "Relevant benchmarking papers are limited on arXiv. Here are the closest matches."
+- Do NOT endlessly refine queries.
+- Prefer partial but relevant results over repeated searching.
+
+────────────────────────────────────────────────────
+CRITICAL REASONING PRIVACY POLICY
+────────────────────────────────────────────────────
+- NEVER reveal chain-of-thought, planning, retries, or internal reasoning.
+- NEVER narrate failed searches, query refinement, or decision-making.
+- All reasoning and retries MUST be done silently.
+- The user should only see:
+  - tool calls
+  - final answers
+  - concise summaries of results
+
+If a tool fails or returns weak results:
+- Retry silently (within limits)
+- Present the best available output without explanation of the retry process
+
+────────────────────────────────────────────────────
+RESEARCH & DOMAIN EXPERTISE
+────────────────────────────────────────────────────
+You are an expert in:
+- Machine Learning and Deep Learning
+- Large Language Models (LLMs)
+- Physiological signal processing (PPG, EDA, EEG, ECG)
+- Wearable sensor datasets (e.g., WESAD, DEAP, PhysioNet)
+- Benchmarking and evaluation methodologies
+- Optimization, statistics, and linear algebra
+- Academic paper analysis and synthesis
+- Research-quality slide and presentation design
+
+────────────────────────────────────────────────────
+OUTPUT STYLE
+────────────────────────────────────────────────────
+- Be concise, precise, and well-structured.
+- Use bullet points and clear sections when appropriate.
+- Prefer factual, source-backed claims.
+- If uncertainty exists, state it clearly and propose the next correct action.
+- STOP once the task is complete unless the user asks to continue.
+
+────────────────────────────────────────────────────
+SAFETY & RELIABILITY
+────────────────────────────────────────────────────
+- Never fabricate citations, arXiv IDs, datasets, or results.
+- Ask a clarifying question ONLY if the request is genuinely ambiguous.
+- If a task cannot be completed with available tools, explain why succinctly.
+
+You are operating inside an automated multi-step agent loop.
+Behave deterministically, silently reason, and produce research-grade outputs.
+
+'''
+
 
 def call_tool(name: str, arguments):
     import json
@@ -117,10 +221,6 @@ def call_tool(name: str, arguments):
 client = OpenAI(
     base_url="https://openrouter.ai/api/v1",
     api_key=OPENROUTER_API_KEY,
-    default_headers={
-        "HTTP-Referer": "https://somay-research",
-        "X-Title": "Research Agent",
-    },
 )
 
 # ---------------- SCHEMA ----------------
@@ -135,8 +235,14 @@ app = FastAPI(title="LLM Agent Proxy")
 # ---------------- MULTI-STEP STREAMING LOGIC ----------------
 
 def stream_generator(req: ChatRequest):
+    SYSTEM_PROMPT = {
+        "role": "system",
+        "content": SYSTEM_PROMPT_TEXT,
+    }
     model = req.model or DEFAULT_MODEL
     current_messages = req.messages
+    if not current_messages or current_messages[0]["role"] != "system":
+        current_messages = [SYSTEM_PROMPT] + current_messages
     
     # Safety limit to prevent infinite loops (e.g., model keeps searching forever)
     MAX_TURNS = 10 
@@ -216,6 +322,10 @@ def stream_generator(req: ChatRequest):
 
 @app.post("/v1/chat/completions")
 async def chat(req: ChatRequest):
+    SYSTEM_PROMPT = {
+        "role": "system",
+        "content": SYSTEM_PROMPT_TEXT,
+    }
     if req.stream:
         return StreamingResponse(
             stream_generator(req),
@@ -224,6 +334,9 @@ async def chat(req: ChatRequest):
 
     # ---------------- MULTI-STEP NON-STREAMING LOGIC ----------------
     current_messages = req.messages
+    if not current_messages or current_messages[0]["role"] != "system":
+        current_messages = [SYSTEM_PROMPT] + current_messages
+
     MAX_TURNS = 10
     turn_count = 0
 
@@ -262,3 +375,22 @@ async def chat(req: ChatRequest):
         # Loop restarts to send results back to model
         
     return response
+
+AVAILABLE_MODELS = [
+    {
+        "id": DEFAULT_MODEL,
+        "object": "model",
+        "created": 0,
+        "owned_by": "openrouter",
+    }
+]
+
+@app.get("/v1/models")
+async def list_models():
+    """
+    OpenAI-compatible models endpoint (required by OpenWebUI)
+    """
+    return {
+        "object": "list",
+        "data": AVAILABLE_MODELS,
+    }

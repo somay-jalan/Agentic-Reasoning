@@ -21,7 +21,7 @@ tool_client = OpenAI(
     },
 )
 
-TOOL_MODEL = "xiaomi/mimo-v2-flash:free"  # Or use a stronger model like gpt-4o
+TOOL_MODEL = "openai/gpt-oss-120b:free"  # Or use a stronger model like gpt-4o
 
 def arxiv_search(
     query: str,
