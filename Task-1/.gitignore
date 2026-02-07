@@ -4,3 +4,4 @@ task1-env
 __pycache__
 *.pdf
 *.tex
+/output
