@@ -43,11 +43,8 @@ pip install open-webui
 # System dependencies
 # --------------------------------------------------
 
-sudo apt-get update
 sudo apt-get install -y \
     texlive-xetex \
-    texlive-fonts-recommended \
-    texlive-latex-extra
 
 # --------------------------------------------------
 # tmux setup
