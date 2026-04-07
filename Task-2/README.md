@@ -780,9 +780,9 @@ python evaluate.py --models GLM5:z-ai/glm-5
 
 # Multiple models
 python evaluate.py \
-  --models gemini:google/gemini-flash-1.5 \
+  --models gemini:google/gemini-3-flash-preview \
            GLM5:z-ai/glm-5 \
-           qwen:qwen/qwen-2.5-coder-32b-instruct
+           qwen:qwen/qwen3-coder-next
 
 # Recompute CodeBLEU from cached samples only (no API calls, no pytest)
 python evaluate.py --models GLM5:z-ai/glm-5 --bleu-only
@@ -802,7 +802,7 @@ python evaluate_agent.py --models GLM5:z-ai/glm-5
 
 # Multiple models
 python evaluate_agent.py \
-  --models gemini:google/gemini-flash-1.5 \
+  --models gemini:google/gemini-3-flash-preview \
            GLM5:z-ai/glm-5
 
 # More samples for tighter Pass@1 estimate
@@ -826,15 +826,15 @@ python evaluate_agent.py --models GLM5:z-ai/glm-5 --rescore
 # Step 1: Zero-shot evaluation — all three models, 10 samples each
 # Domain weights are built automatically on first run
 python evaluate.py \
-  --models gemini:google/gemini-flash-1.5 \
+  --models gemini:google/gemini-3-flash-preview \
            GLM5:z-ai/glm-5 \
-           qwen:qwen/qwen-2.5-coder-32b-instruct
+           qwen:qwen/qwen3-coder-next
 
 # Step 2: Agent evaluation — all three models, 3 samples each
 python evaluate_agent.py \
-  --models gemini:google/gemini-flash-1.5 \
+  --models gemini:google/gemini-3-flash-preview \
            GLM5:z-ai/glm-5 \
-           qwen:qwen/qwen-2.5-coder-32b-instruct \
+           qwen:qwen/qwen3-coder-next \
   --n-samples 3 \
   --max-iter 3
 
