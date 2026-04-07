@@ -1,0 +1,22 @@
+{
+  "physical_errors": [
+    "The _surjective_fp_kernel method is never called - it exists as dead code and is not integrated into the kernel computation workflow",
+    "The method does not validate that domain and codomain are FpGroups before attempting to access FpGroup-specific attributes like relators"
+  ],
+  "numerical_errors": [
+    "_compute_kernel raises NotImplementedError for infinite groups, but _surjective_fp_kernel could handle infinite FpGroups since it only computes preimages of relators without requiring finite order"
+  ],
+  "missing_cases": [
+    "No type validation that self.domain is an FpGroup",
+    "No type validation that self.codomain is an FpGroup",
+    "No check or documentation that the homomorphism must be surjective for the mathematical result to hold",
+    "No integration logic in _compute_kernel or kernel() to dispatch to _surjective_fp_kernel when appropriate"
+  ],
+  "severity": "high",
+  "actionable_fixes": [
+    "Add type checks at the start of _surjective_fp_kernel: verify isinstance(self.domain, FpGroup) and isinstance(self.codomain, FpGroup), raise TypeError or return appropriate value if not",
+    "Modify _compute_kernel to check for FpGroup domain/codomain and call _surjective_fp_kernel for surjective homomorphisms, especially to handle infinite groups",
+    "Add a check for surjectivity or document clearly that the caller must ensure the homomorphism is surjective for correct results",
+    "Consider adding logic: if isinstance(G, FpGroup) and isinstance(self.codomain, FpGroup) and self.is_surjective(): return self._surjective_fp_kernel()"
+  ]
+}

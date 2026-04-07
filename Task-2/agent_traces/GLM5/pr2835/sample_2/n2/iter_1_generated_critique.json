@@ -1,0 +1,13 @@
+{
+  "physical_errors": [],
+  "numerical_errors": [],
+  "missing_cases": [
+    "Cannot validate that input is actually in Pauli basis representation since QuTiP lacks a superrep marker for this format",
+    "Edge case of 1-dimensional system (nq=0) passes isqubitdims check but represents trivial non-qubit system"
+  ],
+  "severity": "low",
+  "actionable_fixes": [
+    "AST checker floor division warnings at lines ~120 and ~653 are FALSE POSITIVES: the // operator is mathematically correct here since _int_log_two returns integer and dividing by 2 gives integer qubit count - no changes needed",
+    "Import errors in tool report are testing environment issues, not code bugs"
+  ]
+}

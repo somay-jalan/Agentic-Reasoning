@@ -1,0 +1,9 @@
+{
+  "id": "n2",
+  "title": "Implement _eval_derivative_n_times for sin class",
+  "description": "Add the _eval_derivative_n_times method to the sin class. The method signature is def _eval_derivative_n_times(self, s, n): where s is the symbol being differentiated with respect to and n is the number of derivatives. Implementation should check if n.is_Integer and n.is_nonnegative, and if self.args[0] equals s, then return sin(self.args[0] + n*pi/2). Otherwise return None to fall back to default repeated differentiation.",
+  "dependencies": [
+    "n1"
+  ],
+  "expected_output": "Python method with signature def _eval_derivative_n_times(self, s, n): within the sin class that returns sin(self.args[0] + n*pi/2) when conditions are met, or None otherwise."
+}

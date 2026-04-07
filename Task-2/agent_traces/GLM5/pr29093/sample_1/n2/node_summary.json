@@ -1,0 +1,25 @@
+{
+  "node_id": "n2",
+  "node_title": "Extend _compute_kernel for surjective FpGroup homomorphisms",
+  "n_iterations": 2,
+  "final_passed": true,
+  "best_code_length": 24630,
+  "iteration_scores": [
+    {
+      "iteration": 1,
+      "role": "generated",
+      "code_length": 24593,
+      "all_passed": false,
+      "severity": "high",
+      "n_fixes": 3
+    },
+    {
+      "iteration": 2,
+      "role": "debugged",
+      "code_length": 24630,
+      "all_passed": true,
+      "severity": "none",
+      "n_fixes": 0
+    }
+  ]
+}

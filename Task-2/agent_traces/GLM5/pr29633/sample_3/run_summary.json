@@ -1,0 +1,13 @@
+{
+  "task_type": "bugfix",
+  "n_nodes": 1,
+  "final_code_length": 49001,
+  "nodes": [
+    {
+      "id": "n1",
+      "title": "Fix eigenvals rational flag processing order",
+      "n_iters": 3,
+      "final_passed": false
+    }
+  ]
+}

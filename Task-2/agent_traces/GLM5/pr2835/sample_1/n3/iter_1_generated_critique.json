@@ -1,0 +1,12 @@
+{
+  "physical_errors": [],
+  "numerical_errors": [],
+  "missing_cases": [
+    "superpauli_to_super does not validate that input is a Qobj before accessing .issuper attribute, causing AttributeError when passed non-Qobj types like numpy arrays"
+  ],
+  "severity": "high",
+  "actionable_fixes": [
+    "In superpauli_to_super (around line 680), add type validation before accessing q_oper.issuper. Replace 'if not q_oper.issuper:' with 'if not isinstance(q_oper, Qobj) or not q_oper.issuper:' to properly raise TypeError for invalid inputs instead of AttributeError",
+    "The floor division '//' flagged by AST at lines ~121 and ~680 is intentional and correct for extracting number of qubits from superoperator dimensions - no change needed there"
+  ]
+}

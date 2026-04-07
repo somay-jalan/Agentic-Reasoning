@@ -1,0 +1,17 @@
+{
+  "physical_errors": [],
+  "numerical_errors": [],
+  "missing_cases": [
+    "sqrt_rational_rule does not handle edge case where b=0 (constant numerator) or d=0 (constant denominator)",
+    "No validation that the transformation sqrt((a+bx)/(c+dx)) -> (a+bx)/sqrt((a+bx)*(c+dx)) doesn't introduce singularities when (a+bx)*(c+dx) = 0",
+    "The alternative rewrite pattern sqrt((a+bx)*(c+dx))/(c+dx) is not considered, which might be more suitable for some integrands",
+    "No handling for the case where the fraction inside sqrt is already simplified or has common factors"
+  ],
+  "severity": "medium",
+  "actionable_fixes": [
+    "Add validation in sqrt_rational_rule to check that b_val and d_val are non-zero before applying the transformation",
+    "Add a check: if b_val == 0 or d_val == 0, return None to let other rules handle the case",
+    "Consider adding Piecewise handling for domain restrictions where the sqrt argument might be negative",
+    "The AST pattern warnings about 'count = count + 1' and floor division are false positives - count is a debug counter and no floor division is used in physics formulas"
+  ]
+}

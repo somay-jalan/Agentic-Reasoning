@@ -1,0 +1,40 @@
+{
+  "task_type": "feature",
+  "nodes": [
+    {
+      "id": "n1",
+      "title": "Mathematical foundation for n-th derivative",
+      "description": "Analyze the cyclic derivative pattern for sin and cos functions. The n-th derivative follows a periodic pattern: d^n/dx^n sin(x) = sin(x + n*pi/2) and d^n/dx^n cos(x) = cos(x + n*pi/2). For sin, derivatives cycle: sin\u2192cos\u2192(-sin)\u2192(-cos)\u2192sin (period 4). For cos, derivatives cycle: cos\u2192(-sin)\u2192(-cos)\u2192sin\u2192cos (period 4). The implementation should use this angle-shift formula for efficient computation.",
+      "dependencies": [],
+      "expected_output": "Mathematical formulas documenting the n-th derivative pattern for sin and cos functions, including the angle-shift implementation approach: sin(arg + n*pi/2) and cos(arg + n*pi/2)."
+    },
+    {
+      "id": "n2",
+      "title": "Implement _eval_derivative_n_times for sin class",
+      "description": "Add the _eval_derivative_n_times method to the sin class in the trigonometric.py file. The method signature should be _eval_derivative_n_times(self, s, n) where s is the symbol and n is the number of derivatives. When the argument equals the symbol s, return sin(arg + n*pi/2). Handle the case where n is an integer or symbolic. Return None if the derivative cannot be computed symbolically.",
+      "dependencies": [
+        "n1"
+      ],
+      "expected_output": "The sin class with the new _eval_derivative_n_times method implementation that computes the n-th derivative using the formula sin(arg + n*pi/2)."
+    },
+    {
+      "id": "n3",
+      "title": "Implement _eval_derivative_n_times for cos class",
+      "description": "Add the _eval_derivative_n_times method to the cos class in the trigonometric.py file. The method signature should be _eval_derivative_n_times(self, s, n) where s is the symbol and n is the number of derivatives. When the argument equals the symbol s, return cos(arg + n*pi/2). Handle the case where n is an integer or symbolic. Return None if the derivative cannot be computed symbolically.",
+      "dependencies": [
+        "n1"
+      ],
+      "expected_output": "The cos class with the new _eval_derivative_n_times method implementation that computes the n-th derivative using the formula cos(arg + n*pi/2)."
+    },
+    {
+      "id": "n4",
+      "title": "Complete file with both implementations",
+      "description": "Integrate the _eval_derivative_n_times methods for both sin and cos classes into the complete trigonometric.py file. Place each method within its respective class (sin and cos), after the existing fdiff methods or in an appropriate location within the class definition. Ensure all existing functionality is preserved.",
+      "dependencies": [
+        "n2",
+        "n3"
+      ],
+      "expected_output": "The COMPLETE modified Python file with both _eval_derivative_n_times methods added to the sin and cos classes. The file must be returned in its entirety from the first import statement to the last line, not just the modified sections."
+    }
+  ]
+}

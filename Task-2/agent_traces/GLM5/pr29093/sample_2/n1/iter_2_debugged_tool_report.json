@@ -1,0 +1,38 @@
+{
+  "all_passed": false,
+  "has_critical_failure": true,
+  "syntax": {
+    "passed": true,
+    "syntax_errors": [],
+    "warnings": []
+  },
+  "ast_patterns": {
+    "passed": false,
+    "issues": [
+      "Line ~423: 'omega' assigned without a 2\u03c0 factor. Angular frequency should be \u03c9 = 2\u03c0\u00b7f."
+    ]
+  },
+  "physics": {
+    "passed": true,
+    "ran_successfully": true,
+    "nan_inf_detected": false,
+    "stability_ok": true,
+    "issues": [],
+    "stdout_snippet": ""
+  },
+  "pytest": {
+    "passed": false,
+    "failures": [
+      {
+        "test_file": "test_homomorphisms.py",
+        "test_name": "test_fpgroup_kernel_surjective",
+        "assertion": "",
+        "location": "unknown",
+        "error_type": "unknown",
+        "explanation": "assert (b ** 3) in <fp subgroup on the generators []>",
+        "snippet": "    assert b**3 in kernel\nE   assert (b ** 3) in <fp subgroup on the generators []>\n=========================== short test summary info ============================\nFAILED manual_corpus/test-1/pr29093/test_homomorphisms.py::test_fpgroup_kernel_surjective\n========================= 1 failed, 4 passed in 1.54s =========================="
+      }
+    ],
+    "tail": "93/test_homomorphisms.py:126: in test_fpgroup_kernel_surjective\n    assert b**3 in kernel\nE   assert (b ** 3) in <fp subgroup on the generators []>\n=========================== short test summary info ============================\nFAILED manual_corpus/test-1/pr29093/test_homomorphisms.py::test_fpgroup_kernel_surjective\n========================= 1 failed, 4 passed in 1.54s ==========================\n"
+  }
+}

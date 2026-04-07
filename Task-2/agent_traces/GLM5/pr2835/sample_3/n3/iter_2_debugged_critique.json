@@ -1,0 +1,13 @@
+{
+  "physical_errors": [],
+  "numerical_errors": [],
+  "missing_cases": [
+    "Test test_SuperPauliInvalidArgs is failing - the function raises TypeError for non-superoperator input but test may expect different exception type or message format"
+  ],
+  "severity": "medium",
+  "actionable_fixes": [
+    "Investigate test_superop_reps.py::TestSuperopReps::test_SuperPauliInvalidArgs to determine expected exception type - may need to raise ValueError instead of TypeError for consistency with other conversion functions",
+    "The AST warnings about floor division (lines ~120, ~741) are FALSE POSITIVES - nq = _int_log_two(shape[0]) // 2 is correct physics: for n-qubit superoperator, dimension = 4^n, so nq = log2(4^n)/2 = n (integer)",
+    "Verify error message format matches test expectations - current message uses {0.type} placeholder which should work but test may expect specific wording"
+  ]
+}

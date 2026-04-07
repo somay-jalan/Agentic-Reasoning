@@ -1,0 +1,10 @@
+{
+  "id": "n3",
+  "title": "Integrate new functions into module exports",
+  "description": "Add both to_superpauli and superpauli_to_super to the __all__ export list. Place the new function implementations in the module at an appropriate location (near other to_* functions like to_super, to_choi, to_chi). Return the complete modified Python file with: (1) Updated __all__ list containing 'to_superpauli' and 'superpauli_to_super', (2) Both new function implementations integrated into the module, (3) All existing functionality and imports preserved.",
+  "dependencies": [
+    "n1",
+    "n2"
+  ],
+  "expected_output": "The COMPLETE modified Python file with both new functions added and __all__ updated to include 'to_superpauli' and 'superpauli_to_super'. Not a fragment. Not just the new functions. The entire file from the first import to the last line."
+}

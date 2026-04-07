@@ -1,0 +1,15 @@
+{
+  "physical_errors": [],
+  "numerical_errors": [],
+  "missing_cases": [
+    "superpauli_to_super does not validate or mention the input's superrep attribute in error messages",
+    "The error message for non-superoperator input should include superrep information to match test expectations",
+    "No validation that input is actually in Pauli basis representation (could accept column-stacking superoperator by mistake)"
+  ],
+  "severity": "medium",
+  "actionable_fixes": [
+    "Update superpauli_to_super error message to include superrep information: change 'got type X' to 'got type X with superrep=Y' so the error mentions superrep='pauli' when applicable",
+    "The floor division (//) at lines ~120 and ~754 is CORRECT for computing nq from superoperator dimensions - do NOT change to regular division. The AST warning is a false positive for this physics application.",
+    "Consider adding a check in superpauli_to_super for q_oper.superrep to provide more informative errors or warnings if input is not in Pauli basis"
+  ]
+}

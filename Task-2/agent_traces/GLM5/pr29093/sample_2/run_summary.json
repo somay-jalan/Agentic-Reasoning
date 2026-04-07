@@ -1,0 +1,25 @@
+{
+  "task_type": "feature",
+  "n_nodes": 3,
+  "final_code_length": 23878,
+  "nodes": [
+    {
+      "id": "n1",
+      "title": "Implement core logic for kernel computation using relator lifts",
+      "n_iters": 3,
+      "final_passed": false
+    },
+    {
+      "id": "n2",
+      "title": "Integrate relator-lift approach into _compute_kernel method",
+      "n_iters": 3,
+      "final_passed": false
+    },
+    {
+      "id": "n3",
+      "title": "Provide complete modified Python file",
+      "n_iters": 3,
+      "final_passed": false
+    }
+  ]
+}

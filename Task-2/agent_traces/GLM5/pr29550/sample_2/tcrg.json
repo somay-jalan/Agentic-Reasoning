@@ -1,0 +1,12 @@
+{
+  "task_type": "bugfix",
+  "nodes": [
+    {
+      "id": "n1",
+      "title": "Fix magnitude calculation in bode_magnitude_numerical_data",
+      "description": "Modify the `bode_magnitude_numerical_data` function in sympy/physics/control/control_plots.py. The current implementation uses `mag = 20*log(Abs(w_expr), 10)` which produces `nan` values when computing Bode magnitude for transfer functions with complex coefficients. The fix requires: (1) Adding `re`, `im`, and `sqrt` to the imports from `sympy.functions` (the import line currently reads `from sympy.functions import arg, Abs`), (2) Replacing the magnitude calculation with a more robust approach: `mag_re = re(w_expr)`, `mag_im = im(w_expr)`, `mag = sqrt(mag_re**2 + mag_im**2)`, `mag = 20*log(mag, 10)`. This computes the magnitude as sqrt(real^2 + imag^2) which is numerically more stable for complex expressions.",
+      "dependencies": [],
+      "expected_output": "The COMPLETE modified Python file with the fix applied. Not a fragment. Not just the fixed function. The entire file from the first import to the last line."
+    }
+  ]
+}

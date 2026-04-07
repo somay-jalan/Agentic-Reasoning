@@ -1,0 +1,14 @@
+{
+  "physical_errors": [],
+  "numerical_errors": [],
+  "missing_cases": [
+    "superpauli_to_super does not validate that input is a Qobj before accessing .issuper attribute - causes AttributeError when passed numpy array or other non-Qobj types",
+    "to_superpauli lacks explicit input type validation before delegating to _to_superpauli"
+  ],
+  "severity": "medium",
+  "actionable_fixes": [
+    "Add isinstance check at start of superpauli_to_super: if not isinstance(q_oper, Qobj): raise TypeError('Input must be a Qobj, got {0}'.format(type(q_oper)))",
+    "Add similar isinstance validation to to_superpauli for consistent error handling",
+    "Note: The floor division warnings at lines ~120 and ~737 are false positives - nq = _int_log_two(shape[0]) // 2 is mathematically correct since shape[0] = 4^nq and log2(4^nq) = 2*nq is always even"
+  ]
+}

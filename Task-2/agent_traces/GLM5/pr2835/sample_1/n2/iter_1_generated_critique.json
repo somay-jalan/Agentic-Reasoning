@@ -1,0 +1,16 @@
+{
+  "physical_errors": [],
+  "numerical_errors": [
+    "The AST checker flagged floor division '//' on lines ~121 and ~680 as potential bugs, but these are actually correct: nq = _int_log_two(shape[0]) // 2 correctly computes the number of qubits from superoperator dimension (4^n = 2^(2n), so log2(4^n)/2 = n). This is a false positive from the AST pattern checker."
+  ],
+  "missing_cases": [
+    "superpauli_to_super() does not validate that q_oper is a Qobj before accessing the 'issuper' attribute. If a numpy array or other type is passed, it raises AttributeError instead of a proper TypeError.",
+    "to_superpauli() delegates to _to_superpauli() which calls to_super(), but there's no explicit type validation at the public API boundary."
+  ],
+  "severity": "medium",
+  "actionable_fixes": [
+    "Add isinstance(q_oper, Qobj) check at the start of superpauli_to_super() before accessing q_oper.issuper. Raise TypeError with a clear message if the input is not a Qobj.",
+    "Consider adding similar type validation in to_superpauli() for consistency, even though to_super() handles some validation internally.",
+    "The __all__ list update is correct - 'superpauli_to_super' and 'to_superpauli' are properly added in alphabetical order."
+  ]
+}

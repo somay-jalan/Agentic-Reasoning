@@ -1,0 +1,10 @@
+{
+  "name": "pr29550",
+  "repo_url": "https://github.com/sympy/sympy.git",
+  "checkout": "master",
+  "target_relpath": "sympy/physics/control/control_plots.py",
+  "before_file": "control_plots_before.py",
+  "after_file": "control_plots_after.py",
+  "test_file": "test_control_plots.py",
+  "prompt_file":"prompt.txt"
+}

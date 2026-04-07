@@ -1,0 +1,10 @@
+{
+  "name": "pr29263",
+  "repo_url": "https://github.com/sympy/sympy.git",
+  "checkout": "master",
+  "target_relpath": "sympy/integrals/manualintegrate.py",
+  "before_file": "sympy_integrals_manualintegrate_before.py",
+  "after_file": "sympy_integrals_manualintegrate_after.py",
+  "test_files": ["test_integrals.py", "test_manual.py"],
+  "prompt_file":"prompt.txt"
+}

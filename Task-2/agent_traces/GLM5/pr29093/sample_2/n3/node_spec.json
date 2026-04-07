@@ -1,0 +1,9 @@
+{
+  "id": "n3",
+  "title": "Provide complete modified Python file",
+  "description": "Assemble the complete Python file with the implemented feature. Combine the modified `_compute_kernel` method with all existing code in the file. Ensure all imports remain correct and the file structure is preserved. The file should be a drop-in replacement that adds the new kernel computation capability for surjective FpGroup homomorphisms while maintaining backward compatibility with existing functionality.",
+  "dependencies": [
+    "n2"
+  ],
+  "expected_output": "The COMPLETE modified Python file with the feature implemented. Not a fragment. Not just the modified function. The entire file from the first import to the last line."
+}

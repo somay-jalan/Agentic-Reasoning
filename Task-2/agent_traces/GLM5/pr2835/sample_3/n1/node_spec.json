@@ -1,0 +1,7 @@
+{
+  "id": "n1",
+  "title": "Update exports and implement to_superpauli",
+  "description": "Update the __all__ list to include 'to_superpauli' and 'superpauli_to_super'. Implement the public to_superpauli function that converts a superoperator from column-stacking basis to Pauli basis. This function should leverage the existing _to_superpauli internal function but provide proper public documentation with full docstring. The function should accept a Qobj representing a quantum map (superoperator, Choi matrix, or unitary operator) and return a Qobj representing the same map in the Pauli basis. It should validate that the input has qubit dimensions.",
+  "dependencies": [],
+  "expected_output": "Updated __all__ list containing 'to_superpauli' and 'superpauli_to_super', and a public function with signature to_superpauli(q_oper: Qobj) -> Qobj with comprehensive docstring documenting parameters, returns, raises, and examples."
+}

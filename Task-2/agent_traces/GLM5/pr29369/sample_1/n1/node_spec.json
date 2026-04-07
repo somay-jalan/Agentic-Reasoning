@@ -1,0 +1,7 @@
+{
+  "id": "n1",
+  "title": "Fix linprog function to handle case with no constraints",
+  "description": "Fix the `linprog` function in simplex.py. The bug occurs when calling `linprog([-1])` without providing constraints A and b. The error 'ValueError: must give A and B' is raised because when A is None, the code incorrectly sets `b = zeros(C.cols, 1)` which creates a non-empty matrix, while `A = zeros(0, C.cols)` is empty. The `_simplex` function then raises an error because it receives an empty A but non-empty b. The fix is on line 1028: change `A, b = zeros(0, C.cols), zeros(C.cols, 1)` to `A, b = zeros(0, C.cols), zeros(0, 1)` so that both A and b are empty matrices when no constraints are given, allowing `_simplex` to handle the no-constraints case correctly.",
+  "dependencies": [],
+  "expected_output": "The COMPLETE modified Python file with the fix applied. Not a fragment. Not just the fixed function. The entire file from the first import to the last line."
+}

@@ -1,0 +1,17 @@
+{
+  "node_id": "n1",
+  "node_title": "Mathematical formulas for nth derivatives",
+  "n_iterations": 1,
+  "final_passed": true,
+  "best_code_length": 125355,
+  "iteration_scores": [
+    {
+      "iteration": 1,
+      "role": "generated",
+      "code_length": 125355,
+      "all_passed": true,
+      "severity": "none",
+      "n_fixes": 0
+    }
+  ]
+}

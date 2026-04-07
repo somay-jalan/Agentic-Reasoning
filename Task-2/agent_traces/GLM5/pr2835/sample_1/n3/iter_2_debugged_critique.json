@@ -1,0 +1,11 @@
+{
+  "physical_errors": [],
+  "numerical_errors": [],
+  "missing_cases": [],
+  "severity": "low",
+  "actionable_fixes": [
+    "The floor division '//' at lines ~121 and ~684 in _to_superpauli and superpauli_to_super is intentional and correct for computing number of qubits from superoperator dimension (4^n = 2^(2n), so log2/2 = n). This is a false positive from the AST checker.",
+    "The pytest failure shows a regex mismatch: test expects pattern 'must be a Qobj.' but code produces 'Expected a Qobj, got ndarray.'. Either update the test regex to match the actual error message, or change the error message in superpauli_to_super to match the expected pattern.",
+    "The ImportError and SyntaxWarning in physics check are test environment artifacts from running the module directly with relative imports - not actual code issues."
+  ]
+}

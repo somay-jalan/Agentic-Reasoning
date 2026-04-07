@@ -1,0 +1,22 @@
+{
+  "all_passed": true,
+  "has_critical_failure": false,
+  "syntax": {
+    "passed": true,
+    "syntax_errors": [],
+    "warnings": []
+  },
+  "ast_patterns": {
+    "passed": true,
+    "issues": []
+  },
+  "physics": {
+    "passed": true,
+    "ran_successfully": true,
+    "nan_inf_detected": false,
+    "stability_ok": true,
+    "issues": [],
+    "stdout_snippet": ""
+  },
+  "pytest": {}
+}

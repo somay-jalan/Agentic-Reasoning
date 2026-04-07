@@ -1,0 +1,1 @@
+mag = 20*log(Abs(w_expr), 10)

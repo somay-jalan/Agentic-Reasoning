@@ -1,0 +1,7 @@
+{
+  "id": "n1",
+  "title": "Implement to_superpauli conversion function",
+  "description": "Implement the public to_superpauli function that converts a superoperator to the Pauli basis representation. The function should: (1) Accept Qobj inputs of type 'super' (with superrep 'super', 'choi', or 'chi') or type 'oper', (2) For 'super' superrep, directly apply the basis transformation using the existing _superpauli_basis helper and the pattern from _to_superpauli, (3) For other representations, convert to super first then apply transformation, (4) Validate that dimensions are qubit dimensions using isqubitdims, (5) Follow the pattern of existing to_* functions (to_super, to_choi, to_chi) with proper docstring and error handling.",
+  "dependencies": [],
+  "expected_output": "A complete to_superpauli function implementation with signature to_superpauli(q_oper: Qobj) -> Qobj, including comprehensive docstring documenting parameters, return value, raises section, and notes about Pauli basis representation."
+}

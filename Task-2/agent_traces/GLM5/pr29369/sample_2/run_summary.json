@@ -1,0 +1,13 @@
+{
+  "task_type": "bugfix",
+  "n_nodes": 1,
+  "final_code_length": 33846,
+  "nodes": [
+    {
+      "id": "n1",
+      "title": "Fix linprog empty constraint matrix initialization",
+      "n_iters": 1,
+      "final_passed": true
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "node_id": "n2",
+  "node_title": "Implement superpauli_to_super",
+  "n_iterations": 3,
+  "final_passed": false,
+  "best_code_length": 24766,
+  "iteration_scores": [
+    {
+      "iteration": 1,
+      "role": "generated",
+      "code_length": 24766,
+      "all_passed": false,
+      "severity": "high",
+      "n_fixes": 2
+    },
+    {
+      "iteration": 2,
+      "role": "debugged",
+      "code_length": 24912,
+      "all_passed": false,
+      "severity": "medium",
+      "n_fixes": 3
+    },
+    {
+      "iteration": 3,
+      "role": "debugged",
+      "code_length": 25304,
+      "all_passed": false,
+      "severity": "medium",
+      "n_fixes": 3
+    }
+  ]
+}

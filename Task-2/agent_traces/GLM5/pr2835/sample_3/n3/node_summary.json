@@ -1,0 +1,33 @@
+{
+  "node_id": "n3",
+  "node_title": "Final file assembly",
+  "n_iterations": 3,
+  "final_passed": false,
+  "best_code_length": 24766,
+  "iteration_scores": [
+    {
+      "iteration": 1,
+      "role": "generated",
+      "code_length": 24766,
+      "all_passed": false,
+      "severity": "high",
+      "n_fixes": 1
+    },
+    {
+      "iteration": 2,
+      "role": "debugged",
+      "code_length": 24903,
+      "all_passed": false,
+      "severity": "medium",
+      "n_fixes": 3
+    },
+    {
+      "iteration": 3,
+      "role": "debugged",
+      "code_length": 24806,
+      "all_passed": false,
+      "severity": "medium",
+      "n_fixes": 2
+    }
+  ]
+}

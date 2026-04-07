@@ -1,0 +1,31 @@
+{
+  "task_type": "feature",
+  "nodes": [
+    {
+      "id": "n1",
+      "title": "Implement Pauli basis conversion functions",
+      "description": "Implement the public functions `to_superpauli` and `superpauli_to_super` for converting between column-stacking superoperator representation and Pauli basis representation. The `to_superpauli` function should convert a superoperator from column-stacking basis to Pauli basis (wrapping or replacing the existing internal `_to_superpauli`). The `superpauli_to_super` function should implement the inverse transformation, converting from Pauli basis back to column-stacking basis. Both functions should validate that the input has qubit dimensions using `isqubitdims`, and should include proper docstrings with Parameters, Returns, and Raises sections following the existing code style.",
+      "dependencies": [],
+      "expected_output": "Function definitions with signatures `to_superpauli(q_oper: Qobj) -> Qobj` and `superpauli_to_super(q_oper: Qobj) -> Qobj`, with comprehensive docstrings explaining the conversion, parameters, return values, and potential exceptions."
+    },
+    {
+      "id": "n2",
+      "title": "Update module exports",
+      "description": "Add the new function names 'to_superpauli' and 'superpauli_to_super' to the module's `__all__` list to make them part of the public API, maintaining alphabetical order with existing exports.",
+      "dependencies": [
+        "n1"
+      ],
+      "expected_output": "Updated `__all__` list containing all existing exports plus 'superpauli_to_super' and 'to_superpauli' in alphabetical order."
+    },
+    {
+      "id": "n3",
+      "title": "Final assembly of complete file",
+      "description": "Integrate the new conversion functions and updated exports into the complete Python file. Place the new public functions in an appropriate location within the module (near other `to_*` conversion functions), ensure all existing imports and functions remain intact, and verify the file structure is consistent with the original.",
+      "dependencies": [
+        "n1",
+        "n2"
+      ],
+      "expected_output": "The complete modified Python file with all changes integrated, from the first import to the last line, including the new `to_superpauli` and `superpauli_to_super` functions and updated `__all__` list."
+    }
+  ]
+}

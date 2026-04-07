@@ -1,0 +1,17 @@
+{
+  "node_id": "n4",
+  "node_title": "Complete file with both implementations",
+  "n_iterations": 1,
+  "final_passed": true,
+  "best_code_length": 125731,
+  "iteration_scores": [
+    {
+      "iteration": 1,
+      "role": "generated",
+      "code_length": 125731,
+      "all_passed": true,
+      "severity": "none",
+      "n_fixes": 0
+    }
+  ]
+}

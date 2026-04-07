@@ -1,0 +1,10 @@
+{
+  "id": "n3",
+  "title": "Complete modified homomorphisms.py file",
+  "description": "Assemble and return the complete modified Python file with the surjective kernel computation feature implemented. The file must include: all original imports, the GroupHomomorphism class with the new _surjective_fp_kernel method added, the modified _compute_kernel method, and all other existing classes and functions unchanged.",
+  "dependencies": [
+    "n1",
+    "n2"
+  ],
+  "expected_output": "The COMPLETE modified Python file with the surjective kernel computation feature. Not a fragment. Not just the modified methods. The entire file from 'from collections import defaultdict' to the end of the is_isomorphic function."
+}

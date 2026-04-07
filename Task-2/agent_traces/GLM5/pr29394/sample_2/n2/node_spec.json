@@ -1,0 +1,9 @@
+{
+  "id": "n2",
+  "title": "Implement _eval_derivative_n_times for sin class",
+  "description": "Add the _eval_derivative_n_times method to the sin class in the trigonometric.py file. The method signature should be _eval_derivative_n_times(self, s, n) where s is the symbol and n is the number of derivatives. When the argument equals the symbol s, return sin(arg + n*pi/2). Handle the case where n is an integer or symbolic. Return None if the derivative cannot be computed symbolically.",
+  "dependencies": [
+    "n1"
+  ],
+  "expected_output": "The sin class with the new _eval_derivative_n_times method implementation that computes the n-th derivative using the formula sin(arg + n*pi/2)."
+}

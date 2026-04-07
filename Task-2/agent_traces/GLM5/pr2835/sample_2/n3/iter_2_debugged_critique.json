@@ -1,0 +1,14 @@
+{
+  "physical_errors": [],
+  "numerical_errors": [],
+  "missing_cases": [
+    "superpauli_to_super does not validate that input is a Qobj before accessing .issuper attribute, causing AttributeError when passed non-Qobj objects like numpy arrays",
+    "to_superpauli similarly lacks type validation before accessing .type attribute"
+  ],
+  "severity": "medium",
+  "actionable_fixes": [
+    "In superpauli_to_super, add isinstance check before accessing q_oper.issuper: if not isinstance(q_oper, Qobj): raise TypeError(\"Input must be a Qobj, got {}.\".format(type(q_oper).__name__))",
+    "In to_superpauli, add similar isinstance check before accessing q_oper.type to match the error handling pattern expected by tests",
+    "The AST warnings about floor division (//) are false positives - nq = _int_log_two(sqobj.shape[0]) // 2 correctly computes integer qubit count since superoperator dimension is 4^nq = 2^(2nq), so log2(dimension)/2 = nq is intentionally integer"
+  ]
+}

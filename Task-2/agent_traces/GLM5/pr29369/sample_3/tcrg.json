@@ -1,0 +1,12 @@
+{
+  "task_type": "bugfix",
+  "nodes": [
+    {
+      "id": "n1",
+      "title": "Fix linprog function to handle case with no constraints",
+      "description": "Fix the `linprog` function in simplex.py. The bug is on line 1008 where `A, b = zeros(0, C.cols), zeros(C.cols, 1)` is incorrectly defined. When A is not provided (no inequality constraints), the code creates A as a 0-row matrix but incorrectly creates b with C.cols rows instead of 0 rows. This causes `_simplex` to raise 'ValueError: must give A and B' because the truthiness check `if A or B` fails - A (0 rows) is falsy but b (non-zero rows) is truthy. The fix is to change `zeros(C.cols, 1)` to `zeros(0, 1)` so both A and b have 0 rows when there are no inequality constraints, allowing `_simplex` to correctly handle the no-constraints case.",
+      "dependencies": [],
+      "expected_output": "The COMPLETE modified Python file with the fix applied. Not a fragment. Not just the fixed function. The entire file from the first import to the last line."
+    }
+  ]
+}

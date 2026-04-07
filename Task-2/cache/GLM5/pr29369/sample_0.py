@@ -1,0 +1,1 @@
+A, b = zeros(0, C.cols), zeros(0, 1)

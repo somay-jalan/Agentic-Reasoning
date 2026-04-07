@@ -1,0 +1,7 @@
+{
+  "id": "n1",
+  "title": "Mathematical formulas for nth derivatives",
+  "description": "Document the mathematical formulas for the nth derivatives of sin(x) and cos(x). The nth derivative of sin(x) with respect to x follows the cyclic pattern: sin(x), cos(x), -sin(x), -cos(x), sin(x), ... with period 4. This can be expressed as: d^n/dx^n sin(x) = sin(x + n*pi/2). Similarly, d^n/dx^n cos(x) = cos(x + n*pi/2). These formulas follow from the fundamental derivative relationships d/dx sin(x) = cos(x) and d/dx cos(x) = -sin(x).",
+  "dependencies": [],
+  "expected_output": "Mathematical documentation establishing that sin^(n)(x) = sin(x + n*pi/2) and cos^(n)(x) = cos(x + n*pi/2), providing the theoretical foundation for the implementation."
+}

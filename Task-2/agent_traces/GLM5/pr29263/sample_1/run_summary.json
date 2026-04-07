@@ -1,0 +1,13 @@
+{
+  "task_type": "bugfix",
+  "n_nodes": 1,
+  "final_code_length": 90581,
+  "nodes": [
+    {
+      "id": "n1",
+      "title": "Add sqrt_rational_rule to handle sqrt of rational functions with linear numerator and denominator",
+      "n_iters": 3,
+      "final_passed": false
+    }
+  ]
+}

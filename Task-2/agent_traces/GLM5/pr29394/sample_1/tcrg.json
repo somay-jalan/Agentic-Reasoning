@@ -1,0 +1,40 @@
+{
+  "task_type": "feature",
+  "nodes": [
+    {
+      "id": "n1",
+      "title": "Mathematical foundation for nth derivative of sin/cos",
+      "description": "Define the mathematical formula for computing the nth derivative of sine and cosine functions. The derivatives follow a cyclic pattern with period 4: sin -> cos -> -sin -> -cos -> sin. The general formula is d^n/dx^n sin(x) = sin(x + n*pi/2) and d^n/dx^n cos(x) = cos(x + n*pi/2). This allows efficient computation of repeated derivatives without applying the chain rule n times.",
+      "dependencies": [],
+      "expected_output": "Mathematical specification documenting: d^n/dx^n sin(x) = sin(x + n*pi/2) and d^n/dx^n cos(x) = cos(x + n*pi/2) for non-negative integer n. The implementation must validate that n is a non-negative integer and handle the case where the argument equals the differentiation variable."
+    },
+    {
+      "id": "n2",
+      "title": "Implement _eval_derivative_n_times for sin class",
+      "description": "Add the _eval_derivative_n_times method to the sin class. The method signature is def _eval_derivative_n_times(self, s, n): where s is the symbol being differentiated with respect to and n is the number of derivatives. Implementation should check if n.is_Integer and n.is_nonnegative, and if self.args[0] equals s, then return sin(self.args[0] + n*pi/2). Otherwise return None to fall back to default repeated differentiation.",
+      "dependencies": [
+        "n1"
+      ],
+      "expected_output": "Python method with signature def _eval_derivative_n_times(self, s, n): within the sin class that returns sin(self.args[0] + n*pi/2) when conditions are met, or None otherwise."
+    },
+    {
+      "id": "n3",
+      "title": "Implement _eval_derivative_n_times for cos class",
+      "description": "Add the _eval_derivative_n_times method to the cos class. The method signature is def _eval_derivative_n_times(self, s, n): where s is the symbol being differentiated with respect to and n is the number of derivatives. Implementation should check if n.is_Integer and n.is_nonnegative, and if self.args[0] equals s, then return cos(self.args[0] + n*pi/2). Otherwise return None to fall back to default repeated differentiation.",
+      "dependencies": [
+        "n1"
+      ],
+      "expected_output": "Python method with signature def _eval_derivative_n_times(self, s, n): within the cos class that returns cos(self.args[0] + n*pi/2) when conditions are met, or None otherwise."
+    },
+    {
+      "id": "n4",
+      "title": "Complete modified trigonometric.py file",
+      "description": "Assemble the complete modified Python file with both _eval_derivative_n_times implementations integrated into the sin and cos classes. The methods should be placed appropriately within each class definition, following the existing code style and maintaining all other functionality.",
+      "dependencies": [
+        "n2",
+        "n3"
+      ],
+      "expected_output": "The COMPLETE modified Python file with _eval_derivative_n_times methods added to both sin and cos classes. Not a fragment. Not just the new methods. The entire file from the first import to the last line."
+    }
+  ]
+}

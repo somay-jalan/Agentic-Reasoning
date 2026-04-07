@@ -1,0 +1,14 @@
+{
+  "physical_errors": [],
+  "numerical_errors": [],
+  "missing_cases": [
+    "Error message in to_superpauli does not match expected test regex pattern 'only defined for qubits.' - actual message is 'Pauli basis representation is only defined for qubit systems (dimensions must be integer powers of 2).'",
+    "Error message in superpauli_to_super similarly does not match expected pattern for qubit validation"
+  ],
+  "severity": "medium",
+  "actionable_fixes": [
+    "Change the ValueError message in to_superpauli (around line 580) from 'Pauli basis representation is only defined for qubit systems (dimensions must be integer powers of 2).' to 'Pauli basis is only defined for qubits.' to match the expected test regex",
+    "Change the ValueError message in superpauli_to_super (around line 680) from 'Pauli basis is only defined for qubit systems. All subsystem dimensions must be integer powers of 2.' to 'Pauli basis is only defined for qubits.' for consistency",
+    "Note: The AST warnings about floor division '//' are false positives - integer division is correct here since nq (number of qubits) must be an integer, and shape[0] = 4^nq gives 2*nq when log2 is applied"
+  ]
+}

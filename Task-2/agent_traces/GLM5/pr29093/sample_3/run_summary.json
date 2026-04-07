@@ -1,0 +1,25 @@
+{
+  "task_type": "feature",
+  "n_nodes": 3,
+  "final_code_length": 23623,
+  "nodes": [
+    {
+      "id": "n1",
+      "title": "Implement surjective FpGroup kernel computation helper",
+      "n_iters": 3,
+      "final_passed": false
+    },
+    {
+      "id": "n2",
+      "title": "Modify _compute_kernel for surjective FpGroup optimization",
+      "n_iters": 3,
+      "final_passed": false
+    },
+    {
+      "id": "n3",
+      "title": "Complete modified homomorphisms.py file",
+      "n_iters": 3,
+      "final_passed": false
+    }
+  ]
+}

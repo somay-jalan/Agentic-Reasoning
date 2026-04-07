@@ -1,0 +1,22 @@
+{
+  "physical_errors": [],
+  "numerical_errors": [
+    "The relator-lift approach is incomplete: kernel_gens only contains lifts of codomain relators, but omits domain relators which also map to identity",
+    "Generator order relations are not computed: for each generator g where \u03c6(g) has finite order n, g^n should be in the kernel but is never added",
+    "When codomain is FreeGroup (relators=[]), kernel_gens remains empty regardless of the actual kernel structure"
+  ],
+  "missing_cases": [
+    "Domain relators (G.relators) are not included in kernel generators - they always map to identity and belong in the kernel",
+    "Generator image orders: if \u03c6(g) has order n in codomain, then g^n is in kernel but this is never computed",
+    "Fallback path when use_relator_lift=False due to ValueError does not properly continue to permutation group conversion - it just breaks out of the loop",
+    "No validation that kernel_gens is non-empty before returning FpSubgroup for non-trivial kernels"
+  ],
+  "severity": "high",
+  "actionable_fixes": [
+    "Add domain relators to kernel_gens: insert 'kernel_gens.extend(G.relators)' before the relator loop",
+    "Add generator order relations: for each generator g in G.generators, compute order of self(g) and append g^order to kernel_gens if finite",
+    "Fix the ValueError handling: when use_relator_lift becomes False, the code should fall through to the permutation group conversion path, not just break",
+    "For FreeGroup codomain, compute kernel from generator images directly since there are no relators to lift",
+    "Ensure the return statement after the relator loop only executes when kernel_gens is properly populated or when the kernel is genuinely trivial"
+  ]
+}

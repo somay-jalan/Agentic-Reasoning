@@ -1,0 +1,10 @@
+{
+  "id": "n3",
+  "title": "Final file assembly",
+  "description": "Integrate all changes into the complete Python file. Place the new public functions after the existing conversion functions (to_super, to_choi, to_chi, etc.) to maintain logical organization. Ensure consistent code style with the existing file, proper indentation, and that all functions work together. The complete file should include the updated __all__ list and both new functions properly integrated into the module structure.",
+  "dependencies": [
+    "n1",
+    "n2"
+  ],
+  "expected_output": "The COMPLETE modified Python file with all changes applied. Not a fragment. Not just the new functions. The entire file from '# -*- coding: utf-8 -*-' to the last line, including the updated __all__ list and the new to_superpauli and superpauli_to_super functions properly positioned in the file."
+}

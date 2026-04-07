@@ -1,0 +1,7 @@
+{
+  "id": "n1",
+  "title": "Implement Pauli basis conversion functions",
+  "description": "Implement the public functions `to_superpauli` and `superpauli_to_super` for converting between column-stacking superoperator representation and Pauli basis representation. The `to_superpauli` function should convert a superoperator from column-stacking basis to Pauli basis (wrapping or replacing the existing internal `_to_superpauli`). The `superpauli_to_super` function should implement the inverse transformation, converting from Pauli basis back to column-stacking basis. Both functions should validate that the input has qubit dimensions using `isqubitdims`, and should include proper docstrings with Parameters, Returns, and Raises sections following the existing code style.",
+  "dependencies": [],
+  "expected_output": "Function definitions with signatures `to_superpauli(q_oper: Qobj) -> Qobj` and `superpauli_to_super(q_oper: Qobj) -> Qobj`, with comprehensive docstrings explaining the conversion, parameters, return values, and potential exceptions."
+}

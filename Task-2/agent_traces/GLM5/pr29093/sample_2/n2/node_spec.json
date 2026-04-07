@@ -1,0 +1,9 @@
+{
+  "id": "n2",
+  "title": "Integrate relator-lift approach into _compute_kernel method",
+  "description": "Modify the `_compute_kernel` method in the `GroupHomomorphism` class to use the relator-lift approach for FpGroup to FpGroup/FreeGroup homomorphisms. The implementation should: (1) Add a new branch at the beginning of `_compute_kernel` to check if both domain and codomain are FpGroup or FreeGroup instances, (2) Check surjectivity using `is_surjective()` method - if True or None (unknown for infinite groups), use the relator-lift approach, (3) Handle FreeGroup codomain which has no relators (empty generator list), (4) For non-surjective homomorphisms of finite groups, fall through to existing permutation group conversion approach, (5) Ensure the existing code paths for PermutationGroup domains and non-surjective finite FpGroups remain functional.",
+  "dependencies": [
+    "n1"
+  ],
+  "expected_output": "The complete modified `_compute_kernel` method with the new branch for FpGroup homomorphisms, surjectivity checks, edge case handling, and proper fallback to existing methods."
+}

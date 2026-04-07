@@ -1,0 +1,15 @@
+{
+  "physical_errors": [],
+  "numerical_errors": [
+    "AST checker flagged floor division at lines ~121 and ~684 as potential bugs, but these are intentional: nq = _int_log_two(shape[0]) // 2 correctly computes integer number of qubits from superoperator dimension (4^n qubits -> 2n bits -> n qubits). These are false positives."
+  ],
+  "missing_cases": [
+    "Docstring for to_superpauli() at line ~570 contains invalid escape sequence '\\{' in LaTeX notation - should use raw string r\"\"\" or escape backslashes"
+  ],
+  "severity": "medium",
+  "actionable_fixes": [
+    "Change docstring of to_superpauli() from triple-quote to raw triple-quote (r\"\"\") to handle LaTeX backslashes like \\{, \\sqrt, etc.",
+    "The __all__ list update is correct: 'superpauli_to_super' and 'to_superpauli' are properly added in alphabetical order.",
+    "Floor division warnings can be ignored - integer division is correct for computing qubit count."
+  ]
+}

@@ -1,0 +1,1518 @@
+{
+  "model": "z-ai/glm-5",
+  "alias": "GLM5",
+  "mode": "agent",
+  "n_samples": 3,
+  "max_iter": 3,
+  "results": [
+    {
+      "item": "test-1/pr29550",
+      "name": "pr29550",
+      "model": "z-ai/glm-5",
+      "alias": "GLM5",
+      "status": "OK",
+      "mode": "agent",
+      "n_samples": 3,
+      "max_iter": 3,
+      "n_passed": 3,
+      "pass_at_1": 1.0,
+      "avg_codebleu": {
+        "codebleu": 0.8383,
+        "ngram_match": 0.9799,
+        "weighted_ngram_match": 0.9803,
+        "syntax_match": 0.9875,
+        "dataflow_match": 0.4055,
+        "domain_delta": 0.15,
+        "domain_codebleu_raw": 0.9883,
+        "execution_penalty": 1.0,
+        "domain_codebleu": 0.9883,
+        "n_domain_tokens": 894.0
+      },
+      "per_sample": [
+        {
+          "sample": 0,
+          "passed": true,
+          "code_length": 37641,
+          "failures": [],
+          "pytest_tail": "rol_plots.py::test_nyquist_plot_expr PASSED [ 77%]\nmanual_corpus/test-1/pr29550/test_control_plots.py::test_nichols_expr PASSED [ 88%]\nmanual_corpus/test-1/pr29550/test_control_plots.py::test_issue_29530 PASSED [100%]\n\n============================== 9 passed in 6.81s ===============================\n",
+          "codebleu": {
+            "codebleu": 0.8383,
+            "ngram_match": 0.9799,
+            "weighted_ngram_match": 0.9803,
+            "syntax_match": 0.9875,
+            "dataflow_match": 0.4055,
+            "domain_delta": 0.15,
+            "domain_codebleu_raw": 0.9883,
+            "execution_penalty": 1.0,
+            "domain_codebleu": 0.9883,
+            "n_domain_tokens": 894
+          },
+          "elapsed_s": 75.2,
+          "n_nodes": 1,
+          "tcrg": {
+            "task_type": "bugfix",
+            "nodes": [
+              {
+                "id": "n1",
+                "title": "Fix magnitude calculation in bode_magnitude_numerical_data",
+                "description": "Modify the `bode_magnitude_numerical_data` function in sympy/physics/control/control_plots.py. The current implementation uses `mag = 20*log(Abs(w_expr), 10)` which produces `nan` values when computing Bode magnitude for transfer functions with complex coefficients. The fix requires: (1) Update the import statement from `from sympy.functions import arg, Abs` to `from sympy.functions import arg, Abs, re, im, sqrt`. (2) Replace the magnitude calculation `mag = 20*log(Abs(w_expr), 10)` with a more robust approach: `mag_re = re(w_expr)`, `mag_im = im(w_expr)`, `mag = sqrt(mag_re**2 + mag_im**2)`, `mag = 20*log(mag, 10)`. This computes the magnitude as the square root of the sum of squared real and imaginary parts, which is numerically more stable for complex expressions.",
+                "dependencies": [],
+                "expected_output": "The COMPLETE modified Python file with the fix applied. Not a fragment. Not just the fixed function. The entire file from the first import to the last line."
+              }
+            ]
+          },
+          "node_summary": [
+            {
+              "node_id": "n1",
+              "node_title": "Fix magnitude calculation in bode_magnitude_numerical_data",
+              "n_iters": 1,
+              "final_passed": true
+            }
+          ]
+        },
+        {
+          "sample": 1,
+          "passed": true,
+          "code_length": 37641,
+          "failures": [],
+          "pytest_tail": "rol_plots.py::test_nyquist_plot_expr PASSED [ 77%]\nmanual_corpus/test-1/pr29550/test_control_plots.py::test_nichols_expr PASSED [ 88%]\nmanual_corpus/test-1/pr29550/test_control_plots.py::test_issue_29530 PASSED [100%]\n\n============================== 9 passed in 6.83s ===============================\n",
+          "codebleu": {
+            "codebleu": 0.8383,
+            "ngram_match": 0.9799,
+            "weighted_ngram_match": 0.9803,
+            "syntax_match": 0.9875,
+            "dataflow_match": 0.4055,
+            "domain_delta": 0.15,
+            "domain_codebleu_raw": 0.9883,
+            "execution_penalty": 1.0,
+            "domain_codebleu": 0.9883,
+            "n_domain_tokens": 894
+          },
+          "elapsed_s": 73.3,
+          "n_nodes": 1,
+          "tcrg": {
+            "task_type": "bugfix",
+            "nodes": [
+              {
+                "id": "n1",
+                "title": "Fix magnitude calculation in bode_magnitude_numerical_data",
+                "description": "Modify the `bode_magnitude_numerical_data` function in sympy/physics/control/control_plots.py. The current implementation uses `mag = 20*log(Abs(w_expr), 10)` which produces `nan` values when computing Bode magnitude for transfer functions with complex coefficients. The fix requires: (1) Adding `re`, `im`, and `sqrt` to the imports from `sympy.functions` (the import line currently reads `from sympy.functions import arg, Abs`), (2) Replacing the magnitude calculation with a more robust approach: `mag_re = re(w_expr)`, `mag_im = im(w_expr)`, `mag = sqrt(mag_re**2 + mag_im**2)`, `mag = 20*log(mag, 10)`. This computes the magnitude as sqrt(real^2 + imag^2) which is numerically more stable for complex expressions.",
+                "dependencies": [],
+                "expected_output": "The COMPLETE modified Python file with the fix applied. Not a fragment. Not just the fixed function. The entire file from the first import to the last line."
+              }
+            ]
+          },
+          "node_summary": [
+            {
+              "node_id": "n1",
+              "node_title": "Fix magnitude calculation in bode_magnitude_numerical_data",
+              "n_iters": 1,
+              "final_passed": true
+            }
+          ]
+        },
+        {
+          "sample": 2,
+          "passed": true,
+          "code_length": 37641,
+          "failures": [],
+          "pytest_tail": "rol_plots.py::test_nyquist_plot_expr PASSED [ 77%]\nmanual_corpus/test-1/pr29550/test_control_plots.py::test_nichols_expr PASSED [ 88%]\nmanual_corpus/test-1/pr29550/test_control_plots.py::test_issue_29530 PASSED [100%]\n\n============================== 9 passed in 6.44s ===============================\n",
+          "codebleu": {
+            "codebleu": 0.8383,
+            "ngram_match": 0.9799,
+            "weighted_ngram_match": 0.9803,
+            "syntax_match": 0.9875,
+            "dataflow_match": 0.4055,
+            "domain_delta": 0.15,
+            "domain_codebleu_raw": 0.9883,
+            "execution_penalty": 1.0,
+            "domain_codebleu": 0.9883,
+            "n_domain_tokens": 894
+          },
+          "elapsed_s": 75.1,
+          "n_nodes": 1,
+          "tcrg": {
+            "task_type": "bugfix",
+            "nodes": [
+              {
+                "id": "n1",
+                "title": "Fix NaN values in bode_magnitude_numerical_data by using robust magnitude computation",
+                "description": "Modify the `bode_magnitude_numerical_data` function in `sympy/physics/control/control_plots.py`. The current implementation uses `mag = 20*log(Abs(w_expr), 10)` which produces `nan` values when computing the Bode magnitude for transfer functions with complex coefficients. The fix requires: (1) Update the import statement `from sympy.functions import arg, Abs` to `from sympy.functions import arg, Abs, re, im, sqrt`. (2) Replace the magnitude calculation `mag = 20*log(Abs(w_expr), 10)` with a more robust approach: compute the real and imaginary parts separately using `re(w_expr)` and `im(w_expr)`, then compute magnitude as `sqrt(mag_re**2 + mag_im**2)`, and finally apply the dB conversion `20*log(mag, 10)`. This approach avoids numerical issues with the symbolic `Abs()` function when dealing with complex coefficient polynomials.",
+                "dependencies": [],
+                "expected_output": "The COMPLETE modified Python file with the fix applied. Not a fragment. Not just the fixed function. The entire file from the first import to the last line."
+              }
+            ]
+          },
+          "node_summary": [
+            {
+              "node_id": "n1",
+              "node_title": "Fix NaN values in bode_magnitude_numerical_data by using robust magnitude computation",
+              "n_iters": 1,
+              "final_passed": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item": "test-1/pr29633",
+      "name": "pr29633",
+      "model": "z-ai/glm-5",
+      "alias": "GLM5",
+      "status": "OK",
+      "mode": "agent",
+      "n_samples": 3,
+      "max_iter": 3,
+      "n_passed": 3,
+      "pass_at_1": 1.0,
+      "avg_codebleu": {
+        "codebleu": 1.0,
+        "ngram_match": 1.0,
+        "weighted_ngram_match": 1.0,
+        "syntax_match": 1.0,
+        "dataflow_match": 1.0,
+        "domain_delta": 0.1067,
+        "domain_codebleu_raw": 1.0,
+        "execution_penalty": 1.0,
+        "domain_codebleu": 1.0,
+        "n_domain_tokens": 1968.0
+      },
+      "per_sample": [
+        {
+          "sample": 0,
+          "passed": true,
+          "code_length": 49001,
+          "failures": [],
+          "pytest_tail": "r29633/test_eigen.py::test_issue_20752 PASSED      [ 90%]\nmanual_corpus/test-1/pr29633/test_eigen.py::test_issue_25282 PASSED      [ 95%]\nmanual_corpus/test-1/pr29633/test_eigen.py::test_issue_28793 PASSED      [100%]\n\n======================== 21 passed in 109.85s (0:01:49) ========================\n",
+          "codebleu": {
+            "codebleu": 1.0,
+            "ngram_match": 1.0,
+            "weighted_ngram_match": 1.0,
+            "syntax_match": 1.0,
+            "dataflow_match": 1.0,
+            "domain_delta": 0.1067,
+            "domain_codebleu_raw": 1.0,
+            "execution_penalty": 1.0,
+            "domain_codebleu": 1.0,
+            "n_domain_tokens": 1968
+          },
+          "elapsed_s": 325.9,
+          "n_nodes": 1,
+          "tcrg": {
+            "task_type": "bugfix",
+            "nodes": [
+              {
+                "id": "n1",
+                "title": "Fix eigenvals rational=True parameter not converting float eigenvalues to integers",
+                "description": "The issue is in the `_eigenvals` function. When `rational=True` is passed, the current code checks if the matrix has Float values and delegates to `_eigenvals_mpmath` BEFORE applying the `nsimplify` conversion. This means the rational conversion never happens for matrices with floats. The fix is to move the `if rational:` block (lines that apply `nsimplify` to convert floats to rationals) BEFORE the check `if M._rep.domain not in (ZZ, QQ):` that triggers the mpmath path. The incorrect behavior is: `Matrix([[1.0, 0.0], [0.0, 2.0]]).eigenvals(rational=True)` returns `{1.00000000000000: 1, 2.00000000000000: 1}`. The correct behavior should be: `{1: 1, 2: 1}` - returning integer eigenvalues when rational=True is specified.",
+                "dependencies": [],
+                "expected_output": "The COMPLETE modified Python file with the fix applied. Not a fragment. Not just the fixed function. The entire file from the first import to the last line."
+              }
+            ]
+          },
+          "node_summary": [
+            {
+              "node_id": "n1",
+              "node_title": "Fix eigenvals rational=True parameter not converting float eigenvalues to integers",
+              "n_iters": 3,
+              "final_passed": false
+            }
+          ]
+        },
+        {
+          "sample": 1,
+          "passed": true,
+          "code_length": 49001,
+          "failures": [],
+          "pytest_tail": "r29633/test_eigen.py::test_issue_20752 PASSED      [ 90%]\nmanual_corpus/test-1/pr29633/test_eigen.py::test_issue_25282 PASSED      [ 95%]\nmanual_corpus/test-1/pr29633/test_eigen.py::test_issue_28793 PASSED      [100%]\n\n======================== 21 passed in 108.77s (0:01:48) ========================\n",
+          "codebleu": {
+            "codebleu": 1.0,
+            "ngram_match": 1.0,
+            "weighted_ngram_match": 1.0,
+            "syntax_match": 1.0,
+            "dataflow_match": 1.0,
+            "domain_delta": 0.1067,
+            "domain_codebleu_raw": 1.0,
+            "execution_penalty": 1.0,
+            "domain_codebleu": 1.0,
+            "n_domain_tokens": 1968
+          },
+          "elapsed_s": 333.2,
+          "n_nodes": 1,
+          "tcrg": {
+            "task_type": "bugfix",
+            "nodes": [
+              {
+                "id": "n1",
+                "title": "Fix eigenvals rational flag processing order",
+                "description": "Modify the `_eigenvals` function in the provided file. The current incorrect behavior is that when calling `Matrix([[1.0, 0.0], [0.0, 2.0]]).eigenvals(rational=True)`, the output is `{1.00000000000000: 1, 2.00000000000000: 1}` (float eigenvalues) instead of the expected `{1: 1, 2: 1}` (integer eigenvalues). The bug is that the check for Float matrices that routes to `_eigenvals_mpmath` happens BEFORE the `rational` flag is processed. The fix is to move the `if rational:` block (which applies `nsimplify` to convert floats to rationals) to execute BEFORE the check that routes to `_eigenvals_mpmath`. This ensures that when `rational=True`, the matrix is first converted to rationals, then the `M.has(Float)` check will be False, preventing the mpmath path and allowing proper rational eigenvalue computation.",
+                "dependencies": [],
+                "expected_output": "The COMPLETE modified Python file with the fix applied. Not a fragment. Not just the fixed function. The entire file from the first import to the last line."
+              }
+            ]
+          },
+          "node_summary": [
+            {
+              "node_id": "n1",
+              "node_title": "Fix eigenvals rational flag processing order",
+              "n_iters": 3,
+              "final_passed": false
+            }
+          ]
+        },
+        {
+          "sample": 2,
+          "passed": true,
+          "code_length": 49001,
+          "failures": [],
+          "pytest_tail": "r29633/test_eigen.py::test_issue_20752 PASSED      [ 90%]\nmanual_corpus/test-1/pr29633/test_eigen.py::test_issue_25282 PASSED      [ 95%]\nmanual_corpus/test-1/pr29633/test_eigen.py::test_issue_28793 PASSED      [100%]\n\n======================== 21 passed in 101.82s (0:01:41) ========================\n",
+          "codebleu": {
+            "codebleu": 1.0,
+            "ngram_match": 1.0,
+            "weighted_ngram_match": 1.0,
+            "syntax_match": 1.0,
+            "dataflow_match": 1.0,
+            "domain_delta": 0.1067,
+            "domain_codebleu_raw": 1.0,
+            "execution_penalty": 1.0,
+            "domain_codebleu": 1.0,
+            "n_domain_tokens": 1968
+          },
+          "elapsed_s": 317.7,
+          "n_nodes": 1,
+          "tcrg": {
+            "task_type": "bugfix",
+            "nodes": [
+              {
+                "id": "n1",
+                "title": "Fix eigenvals rational flag processing order",
+                "description": "Modify the `_eigenvals` function to process the `rational=True` flag BEFORE the mpmath early-return check. Currently, when a matrix contains floats, the code returns early via `_eigenvals_mpmath()` before the rational conversion is applied. The incorrect behavior is: `Matrix([[1.0, 0.0], [0.0, 2.0]]).eigenvals(rational=True)` returns `{1.00000000000000: 1, 2.00000000000000: 1}` (float eigenvalues). The correct behavior should return `{1: 1, 2: 1}` (integer eigenvalues). The fix requires moving the `if rational:` block (lines that apply nsimplify to convert floats to rationals) to execute BEFORE the `if M._rep.domain not in (ZZ, QQ):` block that checks for mpmath path. After this reordering, when rational=True, floats are converted to rationals first, so M.has(Float) will be False and the mpmath path will be skipped, allowing the standard eigenvalue computation to return simplified integer/rationals results.",
+                "dependencies": [],
+                "expected_output": "The COMPLETE modified Python file with the fix applied. Not a fragment. Not just the fixed function. The entire file from the first import to the last line."
+              }
+            ]
+          },
+          "node_summary": [
+            {
+              "node_id": "n1",
+              "node_title": "Fix eigenvals rational flag processing order",
+              "n_iters": 3,
+              "final_passed": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item": "test-1/pr29394",
+      "name": "pr29394",
+      "model": "z-ai/glm-5",
+      "alias": "GLM5",
+      "status": "OK",
+      "mode": "agent",
+      "n_samples": 3,
+      "max_iter": 3,
+      "n_passed": 3,
+      "pass_at_1": 1.0,
+      "avg_codebleu": {
+        "codebleu": 0.9398,
+        "ngram_match": 0.9665,
+        "weighted_ngram_match": 0.9911,
+        "syntax_match": 0.9939,
+        "dataflow_match": 0.8076,
+        "domain_delta": 0.15,
+        "domain_codebleu_raw": 1.0,
+        "execution_penalty": 1.0,
+        "domain_codebleu": 1.0,
+        "n_domain_tokens": 7204.0
+      },
+      "per_sample": [
+        {
+          "sample": 0,
+          "passed": true,
+          "code_length": 124765,
+          "failures": [],
+          "pytest_tail": "st_trigonometric.py::test_issue_25833 PASSED [ 97%]\nmanual_corpus/test-1/pr29394/test_trigonometric.py::test_issue_25847 PASSED [ 98%]\nmanual_corpus/test-1/pr29394/test_trigonometric.py::test_issue_23843 PASSED [100%]\n\n============================= 97 passed in 47.50s ==============================\n",
+          "codebleu": {
+            "codebleu": 0.9454,
+            "ngram_match": 0.9697,
+            "weighted_ngram_match": 0.9905,
+            "syntax_match": 0.994,
+            "dataflow_match": 0.8273,
+            "domain_delta": 0.15,
+            "domain_codebleu_raw": 1.0,
+            "execution_penalty": 1.0,
+            "domain_codebleu": 1.0,
+            "n_domain_tokens": 7178
+          },
+          "elapsed_s": 1240.4,
+          "n_nodes": 4,
+          "tcrg": {
+            "task_type": "feature",
+            "nodes": [
+              {
+                "id": "n1",
+                "title": "Mathematical foundation for nth derivative of sin/cos",
+                "description": "Define the mathematical formula for computing the nth derivative of sine and cosine functions. The derivatives follow a cyclic pattern with period 4: sin -> cos -> -sin -> -cos -> sin. The general formula is d^n/dx^n sin(x) = sin(x + n*pi/2) and d^n/dx^n cos(x) = cos(x + n*pi/2). This allows efficient computation of repeated derivatives without applying the chain rule n times.",
+                "dependencies": [],
+                "expected_output": "Mathematical specification documenting: d^n/dx^n sin(x) = sin(x + n*pi/2) and d^n/dx^n cos(x) = cos(x + n*pi/2) for non-negative integer n. The implementation must validate that n is a non-negative integer and handle the case where the argument equals the differentiation variable."
+              },
+              {
+                "id": "n2",
+                "title": "Implement _eval_derivative_n_times for sin class",
+                "description": "Add the _eval_derivative_n_times method to the sin class. The method signature is def _eval_derivative_n_times(self, s, n): where s is the symbol being differentiated with respect to and n is the number of derivatives. Implementation should check if n.is_Integer and n.is_nonnegative, and if self.args[0] equals s, then return sin(self.args[0] + n*pi/2). Otherwise return None to fall back to default repeated differentiation.",
+                "dependencies": [
+                  "n1"
+                ],
+                "expected_output": "Python method with signature def _eval_derivative_n_times(self, s, n): within the sin class that returns sin(self.args[0] + n*pi/2) when conditions are met, or None otherwise."
+              },
+              {
+                "id": "n3",
+                "title": "Implement _eval_derivative_n_times for cos class",
+                "description": "Add the _eval_derivative_n_times method to the cos class. The method signature is def _eval_derivative_n_times(self, s, n): where s is the symbol being differentiated with respect to and n is the number of derivatives. Implementation should check if n.is_Integer and n.is_nonnegative, and if self.args[0] equals s, then return cos(self.args[0] + n*pi/2). Otherwise return None to fall back to default repeated differentiation.",
+                "dependencies": [
+                  "n1"
+                ],
+                "expected_output": "Python method with signature def _eval_derivative_n_times(self, s, n): within the cos class that returns cos(self.args[0] + n*pi/2) when conditions are met, or None otherwise."
+              },
+              {
+                "id": "n4",
+                "title": "Complete modified trigonometric.py file",
+                "description": "Assemble the complete modified Python file with both _eval_derivative_n_times implementations integrated into the sin and cos classes. The methods should be placed appropriately within each class definition, following the existing code style and maintaining all other functionality.",
+                "dependencies": [
+                  "n2",
+                  "n3"
+                ],
+                "expected_output": "The COMPLETE modified Python file with _eval_derivative_n_times methods added to both sin and cos classes. Not a fragment. Not just the new methods. The entire file from the first import to the last line."
+              }
+            ]
+          },
+          "node_summary": [
+            {
+              "node_id": "n1",
+              "node_title": "Mathematical foundation for nth derivative of sin/cos",
+              "n_iters": 1,
+              "final_passed": true
+            },
+            {
+              "node_id": "n2",
+              "node_title": "Implement _eval_derivative_n_times for sin class",
+              "n_iters": 1,
+              "final_passed": true
+            },
+            {
+              "node_id": "n3",
+              "node_title": "Implement _eval_derivative_n_times for cos class",
+              "n_iters": 1,
+              "final_passed": true
+            },
+            {
+              "node_id": "n4",
+              "node_title": "Complete modified trigonometric.py file",
+              "n_iters": 1,
+              "final_passed": true
+            }
+          ]
+        },
+        {
+          "sample": 1,
+          "passed": true,
+          "code_length": 125731,
+          "failures": [],
+          "pytest_tail": "st_trigonometric.py::test_issue_25833 PASSED [ 97%]\nmanual_corpus/test-1/pr29394/test_trigonometric.py::test_issue_25847 PASSED [ 98%]\nmanual_corpus/test-1/pr29394/test_trigonometric.py::test_issue_23843 PASSED [100%]\n\n============================= 97 passed in 48.88s ==============================\n",
+          "codebleu": {
+            "codebleu": 0.9296,
+            "ngram_match": 0.9644,
+            "weighted_ngram_match": 0.9908,
+            "syntax_match": 0.9926,
+            "dataflow_match": 0.7707,
+            "domain_delta": 0.15,
+            "domain_codebleu_raw": 1.0,
+            "execution_penalty": 1.0,
+            "domain_codebleu": 1.0,
+            "n_domain_tokens": 7218
+          },
+          "elapsed_s": 1258.2,
+          "n_nodes": 4,
+          "tcrg": {
+            "task_type": "feature",
+            "nodes": [
+              {
+                "id": "n1",
+                "title": "Mathematical foundation for n-th derivative",
+                "description": "Analyze the cyclic derivative pattern for sin and cos functions. The n-th derivative follows a periodic pattern: d^n/dx^n sin(x) = sin(x + n*pi/2) and d^n/dx^n cos(x) = cos(x + n*pi/2). For sin, derivatives cycle: sin\u2192cos\u2192(-sin)\u2192(-cos)\u2192sin (period 4). For cos, derivatives cycle: cos\u2192(-sin)\u2192(-cos)\u2192sin\u2192cos (period 4). The implementation should use this angle-shift formula for efficient computation.",
+                "dependencies": [],
+                "expected_output": "Mathematical formulas documenting the n-th derivative pattern for sin and cos functions, including the angle-shift implementation approach: sin(arg + n*pi/2) and cos(arg + n*pi/2)."
+              },
+              {
+                "id": "n2",
+                "title": "Implement _eval_derivative_n_times for sin class",
+                "description": "Add the _eval_derivative_n_times method to the sin class in the trigonometric.py file. The method signature should be _eval_derivative_n_times(self, s, n) where s is the symbol and n is the number of derivatives. When the argument equals the symbol s, return sin(arg + n*pi/2). Handle the case where n is an integer or symbolic. Return None if the derivative cannot be computed symbolically.",
+                "dependencies": [
+                  "n1"
+                ],
+                "expected_output": "The sin class with the new _eval_derivative_n_times method implementation that computes the n-th derivative using the formula sin(arg + n*pi/2)."
+              },
+              {
+                "id": "n3",
+                "title": "Implement _eval_derivative_n_times for cos class",
+                "description": "Add the _eval_derivative_n_times method to the cos class in the trigonometric.py file. The method signature should be _eval_derivative_n_times(self, s, n) where s is the symbol and n is the number of derivatives. When the argument equals the symbol s, return cos(arg + n*pi/2). Handle the case where n is an integer or symbolic. Return None if the derivative cannot be computed symbolically.",
+                "dependencies": [
+                  "n1"
+                ],
+                "expected_output": "The cos class with the new _eval_derivative_n_times method implementation that computes the n-th derivative using the formula cos(arg + n*pi/2)."
+              },
+              {
+                "id": "n4",
+                "title": "Complete file with both implementations",
+                "description": "Integrate the _eval_derivative_n_times methods for both sin and cos classes into the complete trigonometric.py file. Place each method within its respective class (sin and cos), after the existing fdiff methods or in an appropriate location within the class definition. Ensure all existing functionality is preserved.",
+                "dependencies": [
+                  "n2",
+                  "n3"
+                ],
+                "expected_output": "The COMPLETE modified Python file with both _eval_derivative_n_times methods added to the sin and cos classes. The file must be returned in its entirety from the first import statement to the last line, not just the modified sections."
+              }
+            ]
+          },
+          "node_summary": [
+            {
+              "node_id": "n1",
+              "node_title": "Mathematical foundation for n-th derivative",
+              "n_iters": 1,
+              "final_passed": true
+            },
+            {
+              "node_id": "n2",
+              "node_title": "Implement _eval_derivative_n_times for sin class",
+              "n_iters": 1,
+              "final_passed": true
+            },
+            {
+              "node_id": "n3",
+              "node_title": "Implement _eval_derivative_n_times for cos class",
+              "n_iters": 1,
+              "final_passed": true
+            },
+            {
+              "node_id": "n4",
+              "node_title": "Complete file with both implementations",
+              "n_iters": 1,
+              "final_passed": true
+            }
+          ]
+        },
+        {
+          "sample": 2,
+          "passed": true,
+          "code_length": 125355,
+          "failures": [],
+          "pytest_tail": "st_trigonometric.py::test_issue_25833 PASSED [ 97%]\nmanual_corpus/test-1/pr29394/test_trigonometric.py::test_issue_25847 PASSED [ 98%]\nmanual_corpus/test-1/pr29394/test_trigonometric.py::test_issue_23843 PASSED [100%]\n\n============================= 97 passed in 46.01s ==============================\n",
+          "codebleu": {
+            "codebleu": 0.9443,
+            "ngram_match": 0.9654,
+            "weighted_ngram_match": 0.992,
+            "syntax_match": 0.9951,
+            "dataflow_match": 0.8248,
+            "domain_delta": 0.15,
+            "domain_codebleu_raw": 1.0,
+            "execution_penalty": 1.0,
+            "domain_codebleu": 1.0,
+            "n_domain_tokens": 7216
+          },
+          "elapsed_s": 1002.8,
+          "n_nodes": 3,
+          "tcrg": {
+            "task_type": "feature",
+            "nodes": [
+              {
+                "id": "n1",
+                "title": "Mathematical formulas for nth derivatives",
+                "description": "Document the mathematical formulas for the nth derivatives of sin(x) and cos(x). The nth derivative of sin(x) with respect to x follows the cyclic pattern: sin(x), cos(x), -sin(x), -cos(x), sin(x), ... with period 4. This can be expressed as: d^n/dx^n sin(x) = sin(x + n*pi/2). Similarly, d^n/dx^n cos(x) = cos(x + n*pi/2). These formulas follow from the fundamental derivative relationships d/dx sin(x) = cos(x) and d/dx cos(x) = -sin(x).",
+                "dependencies": [],
+                "expected_output": "Mathematical documentation establishing that sin^(n)(x) = sin(x + n*pi/2) and cos^(n)(x) = cos(x + n*pi/2), providing the theoretical foundation for the implementation."
+              },
+              {
+                "id": "n2",
+                "title": "Implement _eval_derivative_n_times for sin class",
+                "description": "Add the `_eval_derivative_n_times` method to the `sin` class in the trigonometric.py file. The method signature is `_eval_derivative_n_times(self, s, n)` where `s` is the symbol to differentiate with respect to and `n` is the number of derivatives. Implementation: if the argument equals `s`, return `sin(self.args[0] + n*pi/2)`. Otherwise return `None` to fall back to sympy's default repeated differentiation. The method should be added after the existing methods in the sin class, before the class definition ends.",
+                "dependencies": [
+                  "n1"
+                ],
+                "expected_output": "The complete modified Python file with the `_eval_derivative_n_times` method added to the `sin` class. The method returns sin(arg + n*pi/2) when differentiating with respect to the argument variable."
+              },
+              {
+                "id": "n3",
+                "title": "Implement _eval_derivative_n_times for cos class",
+                "description": "Add the `_eval_derivative_n_times` method to the `cos` class in the trigonometric.py file. The method signature is `_eval_derivative_n_times(self, s, n)` where `s` is the symbol to differentiate with respect to and `n` is the number of derivatives. Implementation: if the argument equals `s`, return `cos(self.args[0] + n*pi/2)`. Otherwise return `None` to fall back to sympy's default repeated differentiation. The method should be added after the existing methods in the cos class, before the class definition ends.",
+                "dependencies": [
+                  "n2"
+                ],
+                "expected_output": "The complete modified Python file with the `_eval_derivative_n_times` method added to both the `sin` and `cos` classes. The file should be complete from the first import to the last line, with both trigonometric functions now supporting efficient nth derivative computation."
+              }
+            ]
+          },
+          "node_summary": [
+            {
+              "node_id": "n1",
+              "node_title": "Mathematical formulas for nth derivatives",
+              "n_iters": 1,
+              "final_passed": true
+            },
+            {
+              "node_id": "n2",
+              "node_title": "Implement _eval_derivative_n_times for sin class",
+              "n_iters": 1,
+              "final_passed": true
+            },
+            {
+              "node_id": "n3",
+              "node_title": "Implement _eval_derivative_n_times for cos class",
+              "n_iters": 1,
+              "final_passed": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item": "test-1/pr29369",
+      "name": "pr29369",
+      "model": "z-ai/glm-5",
+      "alias": "GLM5",
+      "status": "OK",
+      "mode": "agent",
+      "n_samples": 3,
+      "max_iter": 3,
+      "n_passed": 3,
+      "pass_at_1": 1.0,
+      "avg_codebleu": {
+        "codebleu": 0.9978,
+        "ngram_match": 0.9995,
+        "weighted_ngram_match": 0.9995,
+        "syntax_match": 0.9945,
+        "dataflow_match": 0.9977,
+        "domain_delta": 0.15,
+        "domain_codebleu_raw": 1.0,
+        "execution_penalty": 1.0,
+        "domain_codebleu": 1.0,
+        "n_domain_tokens": 893.0
+      },
+      "per_sample": [
+        {
+          "sample": 0,
+          "passed": true,
+          "code_length": 33846,
+          "failures": [],
+          "pytest_tail": "r29369/test_simplex.py::test_28089 PASSED          [ 71%]\nmanual_corpus/test-1/pr29369/test_simplex.py::test_28104 PASSED          [ 85%]\nmanual_corpus/test-1/pr29369/test_simplex.py::test_29368 PASSED          [100%]\n\n============================== 7 passed in 1.79s ===============================\n",
+          "codebleu": {
+            "codebleu": 0.9978,
+            "ngram_match": 0.9995,
+            "weighted_ngram_match": 0.9995,
+            "syntax_match": 0.9945,
+            "dataflow_match": 0.9977,
+            "domain_delta": 0.15,
+            "domain_codebleu_raw": 1.0,
+            "execution_penalty": 1.0,
+            "domain_codebleu": 1.0,
+            "n_domain_tokens": 893
+          },
+          "elapsed_s": 80.9,
+          "n_nodes": 1,
+          "tcrg": {
+            "task_type": "bugfix",
+            "nodes": [
+              {
+                "id": "n1",
+                "title": "Fix linprog function to handle case with no constraints",
+                "description": "Fix the `linprog` function in simplex.py. The bug occurs when calling `linprog([-1])` without providing constraints A and b. The error 'ValueError: must give A and B' is raised because when A is None, the code incorrectly sets `b = zeros(C.cols, 1)` which creates a non-empty matrix, while `A = zeros(0, C.cols)` is empty. The `_simplex` function then raises an error because it receives an empty A but non-empty b. The fix is on line 1028: change `A, b = zeros(0, C.cols), zeros(C.cols, 1)` to `A, b = zeros(0, C.cols), zeros(0, 1)` so that both A and b are empty matrices when no constraints are given, allowing `_simplex` to handle the no-constraints case correctly.",
+                "dependencies": [],
+                "expected_output": "The COMPLETE modified Python file with the fix applied. Not a fragment. Not just the fixed function. The entire file from the first import to the last line."
+              }
+            ]
+          },
+          "node_summary": [
+            {
+              "node_id": "n1",
+              "node_title": "Fix linprog function to handle case with no constraints",
+              "n_iters": 1,
+              "final_passed": true
+            }
+          ]
+        },
+        {
+          "sample": 1,
+          "passed": true,
+          "code_length": 33846,
+          "failures": [],
+          "pytest_tail": "r29369/test_simplex.py::test_28089 PASSED          [ 71%]\nmanual_corpus/test-1/pr29369/test_simplex.py::test_28104 PASSED          [ 85%]\nmanual_corpus/test-1/pr29369/test_simplex.py::test_29368 PASSED          [100%]\n\n============================== 7 passed in 0.96s ===============================\n",
+          "codebleu": {
+            "codebleu": 0.9978,
+            "ngram_match": 0.9995,
+            "weighted_ngram_match": 0.9995,
+            "syntax_match": 0.9945,
+            "dataflow_match": 0.9977,
+            "domain_delta": 0.15,
+            "domain_codebleu_raw": 1.0,
+            "execution_penalty": 1.0,
+            "domain_codebleu": 1.0,
+            "n_domain_tokens": 893
+          },
+          "elapsed_s": 86.4,
+          "n_nodes": 1,
+          "tcrg": {
+            "task_type": "bugfix",
+            "nodes": [
+              {
+                "id": "n1",
+                "title": "Fix linprog empty constraint matrix initialization",
+                "description": "Fix the `linprog` function in simplex.py. The bug is on line 1018 where `b = zeros(C.cols, 1)` creates a matrix with non-zero rows when A is empty. When `linprog([-1])` is called without constraints, the code sets `A = zeros(0, C.cols)` (0 rows) but incorrectly sets `b = zeros(C.cols, 1)` (C.cols rows, which is 1). This causes `_simplex` to raise 'ValueError: must give A and B' because the check `if A or B:` evaluates to True (B has rows while A doesn't). The fix is to change line 1018 from `b = zeros(C.cols, 1)` to `b = zeros(0, 1)` so both A and b have 0 rows when there are no constraints, allowing `_simplex` to correctly handle the no-constraints case.",
+                "dependencies": [],
+                "expected_output": "The COMPLETE modified Python file with the fix applied. Not a fragment. Not just the fixed function. The entire file from the first import to the last line."
+              }
+            ]
+          },
+          "node_summary": [
+            {
+              "node_id": "n1",
+              "node_title": "Fix linprog empty constraint matrix initialization",
+              "n_iters": 1,
+              "final_passed": true
+            }
+          ]
+        },
+        {
+          "sample": 2,
+          "passed": true,
+          "code_length": 33846,
+          "failures": [],
+          "pytest_tail": "r29369/test_simplex.py::test_28089 PASSED          [ 71%]\nmanual_corpus/test-1/pr29369/test_simplex.py::test_28104 PASSED          [ 85%]\nmanual_corpus/test-1/pr29369/test_simplex.py::test_29368 PASSED          [100%]\n\n============================== 7 passed in 1.06s ===============================\n",
+          "codebleu": {
+            "codebleu": 0.9978,
+            "ngram_match": 0.9995,
+            "weighted_ngram_match": 0.9995,
+            "syntax_match": 0.9945,
+            "dataflow_match": 0.9977,
+            "domain_delta": 0.15,
+            "domain_codebleu_raw": 1.0,
+            "execution_penalty": 1.0,
+            "domain_codebleu": 1.0,
+            "n_domain_tokens": 893
+          },
+          "elapsed_s": 80.7,
+          "n_nodes": 1,
+          "tcrg": {
+            "task_type": "bugfix",
+            "nodes": [
+              {
+                "id": "n1",
+                "title": "Fix linprog function to handle case with no constraints",
+                "description": "Fix the `linprog` function in simplex.py. The bug is on line 1008 where `A, b = zeros(0, C.cols), zeros(C.cols, 1)` is incorrectly defined. When A is not provided (no inequality constraints), the code creates A as a 0-row matrix but incorrectly creates b with C.cols rows instead of 0 rows. This causes `_simplex` to raise 'ValueError: must give A and B' because the truthiness check `if A or B` fails - A (0 rows) is falsy but b (non-zero rows) is truthy. The fix is to change `zeros(C.cols, 1)` to `zeros(0, 1)` so both A and b have 0 rows when there are no inequality constraints, allowing `_simplex` to correctly handle the no-constraints case.",
+                "dependencies": [],
+                "expected_output": "The COMPLETE modified Python file with the fix applied. Not a fragment. Not just the fixed function. The entire file from the first import to the last line."
+              }
+            ]
+          },
+          "node_summary": [
+            {
+              "node_id": "n1",
+              "node_title": "Fix linprog function to handle case with no constraints",
+              "n_iters": 1,
+              "final_passed": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item": "test-1/pr29093",
+      "name": "pr29093",
+      "model": "z-ai/glm-5",
+      "alias": "GLM5",
+      "status": "OK",
+      "mode": "agent",
+      "n_samples": 3,
+      "max_iter": 3,
+      "n_passed": 1,
+      "pass_at_1": 0.3333,
+      "avg_codebleu": {
+        "codebleu": 0.8954,
+        "ngram_match": 0.9063,
+        "weighted_ngram_match": 0.9624,
+        "syntax_match": 0.9755,
+        "dataflow_match": 0.7372,
+        "domain_delta": 0.15,
+        "domain_codebleu_raw": 1.0,
+        "execution_penalty": 1.0,
+        "domain_codebleu": 1.0,
+        "n_domain_tokens": 1133.3333
+      },
+      "per_sample": [
+        {
+          "sample": 0,
+          "passed": true,
+          "code_length": 24630,
+          "failures": [],
+          "pytest_tail": "ck_homomorphism PASSED [ 60%]\nmanual_corpus/test-1/pr29093/test_homomorphisms.py::test_fpgroup_kernel_surjective PASSED [ 80%]\nmanual_corpus/test-1/pr29093/test_homomorphisms.py::test_fpgroup_isomorphism PASSED [100%]\n\n============================== 5 passed in 1.64s ===============================\n",
+          "codebleu": {
+            "codebleu": 0.8811,
+            "ngram_match": 0.8722,
+            "weighted_ngram_match": 0.9633,
+            "syntax_match": 0.9743,
+            "dataflow_match": 0.7147,
+            "domain_delta": 0.15,
+            "domain_codebleu_raw": 1.0,
+            "execution_penalty": 1.0,
+            "domain_codebleu": 1.0,
+            "n_domain_tokens": 1143
+          },
+          "elapsed_s": 1108.5,
+          "n_nodes": 3,
+          "tcrg": {
+            "task_type": "feature",
+            "nodes": [
+              {
+                "id": "n1",
+                "title": "Implement _lift_relator helper method",
+                "description": "Add a helper method `_lift_relator(self, relator)` to the GroupHomomorphism class. This method computes the 'lift' of a relator from the codomain to the domain. Given a relator (a word in the codomain's free group that equals identity in the codomain), the lift is obtained by replacing each generator symbol in the relator with a preimage under the homomorphism. The method should: (1) Create a mapping from symbols to generators of the codomain, (2) For each symbol-power pair in the relator's array_form, get a preimage using the `invert` method, (3) Multiply the preimages together according to the relator's word structure to form the lift.",
+                "dependencies": [],
+                "expected_output": "The `_lift_relator` method implementation with signature `def _lift_relator(self, relator)` that returns a FreeGroupElement representing the lift of the relator in the domain."
+              },
+              {
+                "id": "n2",
+                "title": "Extend _compute_kernel for surjective FpGroup homomorphisms",
+                "description": "Modify the `_compute_kernel` method to handle surjective homomorphisms between FpGroups. The mathematical principle is: for a surjective homomorphism \u03c6: G \u2192 H where G and H are FpGroups, the kernel is the normal closure in G of the lifts of the relators of H. The implementation should: (1) Add a new branch at the beginning of `_compute_kernel` that checks if both domain and codomain are FpGroups, (2) Check if the homomorphism is surjective using `is_surjective()`, (3) If surjective (or surjectivity cannot be determined for infinite groups), compute kernel generators by calling `_lift_relator` on each relator of the codomain, (4) Return an FpSubgroup with these lifts as generators and `normal=True`. This enables kernel computation for infinite FpGroups when the homomorphism is surjective.",
+                "dependencies": [
+                  "n1"
+                ],
+                "expected_output": "The modified `_compute_kernel` method that uses `_lift_relator` for surjective homomorphisms between FpGroups, properly handling both finite and infinite groups."
+              },
+              {
+                "id": "n3",
+                "title": "Assemble complete modified homomorphisms.py",
+                "description": "Combine the new `_lift_relator` method (from n1) and the modified `_compute_kernel` method (from n2) with the rest of the existing code to produce the complete modified Python file. The `_lift_relator` method should be added to the GroupHomomorphism class after the `_invs` method. The `_compute_kernel` method should have the new surjective FpGroup case added before the existing infinity check. Ensure all imports, existing methods, and the module structure remain intact.",
+                "dependencies": [
+                  "n1",
+                  "n2"
+                ],
+                "expected_output": "The COMPLETE modified Python file with the feature implemented. Not a fragment. Not just the modified methods. The entire file from the first import to the last line."
+              }
+            ]
+          },
+          "node_summary": [
+            {
+              "node_id": "n1",
+              "node_title": "Implement _lift_relator helper method",
+              "n_iters": 3,
+              "final_passed": false
+            },
+            {
+              "node_id": "n2",
+              "node_title": "Extend _compute_kernel for surjective FpGroup homomorphisms",
+              "n_iters": 2,
+              "final_passed": true
+            },
+            {
+              "node_id": "n3",
+              "node_title": "Assemble complete modified homomorphisms.py",
+              "n_iters": 1,
+              "final_passed": true
+            }
+          ]
+        },
+        {
+          "sample": 1,
+          "passed": false,
+          "code_length": 23878,
+          "failures": [
+            {
+              "test_file": "test_homomorphisms.py",
+              "test_name": "test_fpgroup_kernel_surjective",
+              "assertion": "",
+              "location": "unknown",
+              "error_type": "unknown",
+              "explanation": "assert (b ** 3) in <fp subgroup on the generators []>",
+              "snippet": "    assert b**3 in kernel\nE   assert (b ** 3) in <fp subgroup on the generators []>\n=========================== short test summary info ============================\nFAILED manual_corpus/test-1/pr29093/test_homomorphisms.py::test_fpgroup_kernel_surjective\n========================= 1 failed, 4 passed in 1.58s =========================="
+            }
+          ],
+          "pytest_tail": " (b ** 3) in <fp subgroup on the generators []>\n=========================== short test summary info ============================\nFAILED manual_corpus/test-1/pr29093/test_homomorphisms.py::test_fpgroup_kernel_surjective\n========================= 1 failed, 4 passed in 1.58s ==========================\n",
+          "codebleu": {
+            "codebleu": 0.9073,
+            "ngram_match": 0.9295,
+            "weighted_ngram_match": 0.9621,
+            "syntax_match": 0.9761,
+            "dataflow_match": 0.7615,
+            "domain_delta": 0.15,
+            "domain_codebleu_raw": 1.0,
+            "execution_penalty": 1.0,
+            "domain_codebleu": 1.0,
+            "n_domain_tokens": 1123
+          },
+          "elapsed_s": 1549.9,
+          "n_nodes": 3,
+          "tcrg": {
+            "task_type": "feature",
+            "nodes": [
+              {
+                "id": "n1",
+                "title": "Implement core logic for kernel computation using relator lifts",
+                "description": "Implement the mathematical core for computing the kernel of a surjective homomorphism between FpGroups. For a surjective homomorphism \u03c6: G \u2192 H where G and H are FpGroups, the kernel is generated by lifts of H's relators. The implementation should: (1) Iterate through the relators of the codomain FpGroup, (2) Use the `invert` method to compute the lift (preimage) of each relator in the domain, (3) Collect these lifts as generators for the kernel, (4) Return an FpSubgroup generated by these lifts with normal=True. This approach works for both finite and infinite groups since it doesn't require computing orders.",
+                "dependencies": [],
+                "expected_output": "The core algorithm logic as Python code that computes kernel generators from relator lifts, suitable for integration into the _compute_kernel method."
+              },
+              {
+                "id": "n2",
+                "title": "Integrate relator-lift approach into _compute_kernel method",
+                "description": "Modify the `_compute_kernel` method in the `GroupHomomorphism` class to use the relator-lift approach for FpGroup to FpGroup/FreeGroup homomorphisms. The implementation should: (1) Add a new branch at the beginning of `_compute_kernel` to check if both domain and codomain are FpGroup or FreeGroup instances, (2) Check surjectivity using `is_surjective()` method - if True or None (unknown for infinite groups), use the relator-lift approach, (3) Handle FreeGroup codomain which has no relators (empty generator list), (4) For non-surjective homomorphisms of finite groups, fall through to existing permutation group conversion approach, (5) Ensure the existing code paths for PermutationGroup domains and non-surjective finite FpGroups remain functional.",
+                "dependencies": [
+                  "n1"
+                ],
+                "expected_output": "The complete modified `_compute_kernel` method with the new branch for FpGroup homomorphisms, surjectivity checks, edge case handling, and proper fallback to existing methods."
+              },
+              {
+                "id": "n3",
+                "title": "Provide complete modified Python file",
+                "description": "Assemble the complete Python file with the implemented feature. Combine the modified `_compute_kernel` method with all existing code in the file. Ensure all imports remain correct and the file structure is preserved. The file should be a drop-in replacement that adds the new kernel computation capability for surjective FpGroup homomorphisms while maintaining backward compatibility with existing functionality.",
+                "dependencies": [
+                  "n2"
+                ],
+                "expected_output": "The COMPLETE modified Python file with the feature implemented. Not a fragment. Not just the modified function. The entire file from the first import to the last line."
+              }
+            ]
+          },
+          "node_summary": [
+            {
+              "node_id": "n1",
+              "node_title": "Implement core logic for kernel computation using relator lifts",
+              "n_iters": 3,
+              "final_passed": false
+            },
+            {
+              "node_id": "n2",
+              "node_title": "Integrate relator-lift approach into _compute_kernel method",
+              "n_iters": 3,
+              "final_passed": false
+            },
+            {
+              "node_id": "n3",
+              "node_title": "Provide complete modified Python file",
+              "n_iters": 3,
+              "final_passed": false
+            }
+          ]
+        },
+        {
+          "sample": 2,
+          "passed": false,
+          "code_length": 23623,
+          "failures": [
+            {
+              "test_file": "test_homomorphisms.py",
+              "test_name": "test_fpgroup_kernel_surjective",
+              "assertion": "",
+              "location": "unknown",
+              "error_type": "unknown",
+              "explanation": "NotImplementedError: Kernel computation is not implemented for infinite groups",
+              "snippet": "    raise NotImplementedError(\nE   NotImplementedError: Kernel computation is not implemented for infinite groups\n=========================== short test summary info ============================\nFAILED manual_corpus/test-1/pr29093/test_homomorphisms.py::test_fpgroup_kernel_surjective\n========================= 1 failed, 4 passed in 1.60s =========================="
+            }
+          ],
+          "pytest_tail": "putation is not implemented for infinite groups\n=========================== short test summary info ============================\nFAILED manual_corpus/test-1/pr29093/test_homomorphisms.py::test_fpgroup_kernel_surjective\n========================= 1 failed, 4 passed in 1.60s ==========================\n",
+          "codebleu": {
+            "codebleu": 0.8977,
+            "ngram_match": 0.9172,
+            "weighted_ngram_match": 0.9619,
+            "syntax_match": 0.9761,
+            "dataflow_match": 0.7355,
+            "domain_delta": 0.15,
+            "domain_codebleu_raw": 1.0,
+            "execution_penalty": 1.0,
+            "domain_codebleu": 1.0,
+            "n_domain_tokens": 1134
+          },
+          "elapsed_s": 1191.9,
+          "n_nodes": 3,
+          "tcrg": {
+            "task_type": "feature",
+            "nodes": [
+              {
+                "id": "n1",
+                "title": "Implement surjective FpGroup kernel computation helper",
+                "description": "Add a helper method `_surjective_fp_kernel` to the GroupHomomorphism class that computes the kernel for surjective homomorphisms between FpGroups. According to group theory, for a surjective homomorphism \u03c6: G \u2192 H where G and H are FpGroups, the kernel is generated by lifts (preimages) of the relators of H. The method should: (1) Get the relators of the codomain FpGroup using self.codomain.relators, (2) For each relator r, compute its preimage using self.invert(r), (3) Collect these preimages as kernel generators, (4) Return an FpSubgroup of the domain generated by these preimages with normal=True.",
+                "dependencies": [],
+                "expected_output": "A new method `_surjective_fp_kernel(self)` in the GroupHomomorphism class that returns an FpSubgroup representing the kernel for surjective FpGroup homomorphisms. The method signature should be `def _surjective_fp_kernel(self):` and it should return `FpSubgroup(self.domain, kernel_gens, normal=True)`."
+              },
+              {
+                "id": "n2",
+                "title": "Modify _compute_kernel for surjective FpGroup optimization",
+                "description": "Modify the existing `_compute_kernel` method to detect and efficiently handle surjective homomorphisms between FpGroups. The modified method should: (1) First check if both domain and codomain are FpGroups using isinstance checks, (2) Check if the homomorphism is surjective by calling self.is_surjective(), (3) If both conditions are true, call self._surjective_fp_kernel() and return its result, (4) Otherwise, fall through to the existing logic that converts to permutation groups. This provides a more direct and efficient computation for the surjective case.",
+                "dependencies": [
+                  "n1"
+                ],
+                "expected_output": "The modified `_compute_kernel` method with the surjective FpGroup case handled at the beginning of the method, before the existing FpGroup branch that converts to permutation groups."
+              },
+              {
+                "id": "n3",
+                "title": "Complete modified homomorphisms.py file",
+                "description": "Assemble and return the complete modified Python file with the surjective kernel computation feature implemented. The file must include: all original imports, the GroupHomomorphism class with the new _surjective_fp_kernel method added, the modified _compute_kernel method, and all other existing classes and functions unchanged.",
+                "dependencies": [
+                  "n1",
+                  "n2"
+                ],
+                "expected_output": "The COMPLETE modified Python file with the surjective kernel computation feature. Not a fragment. Not just the modified methods. The entire file from 'from collections import defaultdict' to the end of the is_isomorphic function."
+              }
+            ]
+          },
+          "node_summary": [
+            {
+              "node_id": "n1",
+              "node_title": "Implement surjective FpGroup kernel computation helper",
+              "n_iters": 3,
+              "final_passed": false
+            },
+            {
+              "node_id": "n2",
+              "node_title": "Modify _compute_kernel for surjective FpGroup optimization",
+              "n_iters": 3,
+              "final_passed": false
+            },
+            {
+              "node_id": "n3",
+              "node_title": "Complete modified homomorphisms.py file",
+              "n_iters": 3,
+              "final_passed": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item": "test-1/pr29263",
+      "name": "pr29263",
+      "model": "z-ai/glm-5",
+      "alias": "GLM5",
+      "status": "OK",
+      "mode": "agent",
+      "n_samples": 3,
+      "max_iter": 3,
+      "n_passed": 0,
+      "pass_at_1": 0.0,
+      "avg_codebleu": {
+        "codebleu": 0.8248,
+        "ngram_match": 0.9545,
+        "weighted_ngram_match": 0.9581,
+        "syntax_match": 0.983,
+        "dataflow_match": 0.4036,
+        "domain_delta": 0.15,
+        "domain_codebleu_raw": 0.9748,
+        "execution_penalty": 1.0,
+        "domain_codebleu": 0.9748,
+        "n_domain_tokens": 5856.6667
+      },
+      "per_sample": [
+        {
+          "sample": 0,
+          "passed": false,
+          "code_length": 90581,
+          "failures": [
+            {
+              "test_file": "test_integrals.py",
+              "test_name": "test_sqrt_quadratic",
+              "assertion": "",
+              "location": "unknown",
+              "error_type": "unknown",
+              "explanation": "assert Piecewise(((-b*e/(2*c) + d)*Piecewise((log(b + 2*sqrt(c)*sqrt(a + b*x + c*x**2) + 2*c*x)/sqrt(c), Ne(a - b**2/(4*c), 0)), ((b/(2*c) + x)*log(b/(2*c) + x)/sqrt(c*(b/(2*c) + x)**2), True)) + e*sqrt(a + b*x + c*x**2)/c, Ne(c, 0)), ((2*d*sqrt(a + b*x) + 2*e*(-a*sqrt(a + b*x) + (a + b*x)**(3/2)/3)/b)/b, Ne(b, 0)), ((d*x + e*x**2/2)/sqrt(a), True)) == Piecewise(((-b*e/(2*c) + d)*Piecewise((log(b + 2*sqrt(c)*sqrt(a + b*x + c*x**2) + 2*c*x)/sqrt(c), Ne(a - b**2/(4*c), 0)), ((b/(2*c) + x)*log(b/(2*c) + x)/sqrt(c*(b/(2*c) + x)**2), True)) + e*sqrt(a + b*x + c*x**2)/c, Ne(c, 0)), (2*(d*sqrt(a + b*x) - e*(a*sqrt(a + b*x) - (a + b*x)**(3/2)/3)/b)/b, Ne(b, 0)), ((d*x + e*x**2/2)/sqrt(a), True))\n+  where Piecewise(((-b*e/(2*c) + d)*Piecewise((log(b + 2*sqrt(c)*sqrt(a + b*x + c*x**2) + 2*c*x)/sqrt(c), Ne(a - b**2/(4*c), 0)), ((b/(2*c) + x)*log(b/(2*c) + x)/sqrt(c*(b/(2*c) + x)**2), True)) + e*sqrt(a + b*x + c*x**2)/c, Ne(c, 0)), ((2*d*sqrt(a + b*x) + 2*e*(-a*sqrt(a + b*x) + (a + b*x)**(3/2)/3)/b)/b, Ne(b, 0)), ((d*x + e*x**2/2)/sqrt(a), True)) = integrate(((d + (e * x)) / sqrt(a + b*x + c*x**2)), x)\n+    where sqrt(a + b*x + c*x**2) = sqrt(((a + (b * x)) + (c * (x ** 2))))\n+  and   Piecewise(((-b*e/(2*c) + d)*Piecewise((log(b + 2*sqrt(c)*sqrt(a + b*x + c*x**2) + 2*c*x)/sqrt(c), Ne(a - b**2/(4*c), 0)), ((b/(2*c) + x)*log(b/(2*c) + x)/sqrt(c*(b/(2*c) + x)**2), True)) + e*sqrt(a + b*x + c*x**2)/c, Ne(c, 0)), (2*(d*sqrt(a + b*x) - e*(a*sqrt(a + b*x) - (a + b*x)**(3/2)/3)/b)/b, Ne(b, 0)), ((d*x + e*x**2/2)/sqrt(a), True)) = Piecewise(((-b*e/(2*c) + d)*Piecewise((log(b + 2*sqrt(c)*sqrt(a + b*x + c*x**2) + 2*c*x)/sqrt(c), Ne(a - b**2/(4*c), 0)), ((b/(2*c) + x)*log(b/(2*c) + x)/sqrt(c*(b/(2*c) + x)**2), True)) + e*sqrt(a + b*x + c*x**2)/c, Ne(c, 0)), (2*(d*sqrt(a + b*x) - e*(a*sqrt(a + b*x) - (a + b*x)**(3/2)/3)/b)/b, Ne(b, 0)), ((d*x + e*x**2/2)/sqrt(a), True))",
+              "snippet": "E    +    where sqrt(a + b*x + c*x**2) = sqrt(((a + (b * x)) + (c * (x ** 2))))\nE    +  and   Piecewise(((-b*e/(2*c) + d)*Piecewise((log(b + 2*sqrt(c)*sqrt(a + b*x + c*x**2) + 2*c*x)/sqrt(c), Ne(a - b**2/(4*c), 0)), ((b/(2*c) + x)*log(b/(2*c) + x)/sqrt(c*(b/(2*c) + x)**2), True)) + e*sqrt(a + b*x + c*x**2)/c, Ne(c, 0)), (2*(d*sqrt(a + b*x) - e*(a*sqrt(a + b*x) - (a + b*x)**(3/2)/3)/b)/b, Ne(b, 0)), ((d*x + e*x**2/2)/sqrt(a), True)) = Piecewise(((-b*e/(2*c) + d)*Piecewise((log(b + 2*sqrt(c)*sqrt(a + b*x + c*x**2) + 2*c*x)/sqrt(c), Ne(a - b**2/(4*c), 0)), ((b/(2*c) + x)*log(b/(2*c) + x)/sqrt(c*(b/(2*c) + x)**2), True)) + e*sqrt(a + b*x + c*x**2)/c, Ne(c, 0)), (2*(d*sqrt(a + b*x) - e*(a*sqrt(a + b*x) - (a + b*x)**(3/2)/3)/b)/b, Ne(b, 0)), ((d*x + e*x**2/2)/sqrt(a), True))\n=========================== short test summary info ============================\nFAILED manual_corpus/test-1/pr29263/test_integrals.py::test_sqrt_quadratic - ...\n================== 1 failed, 206 passed in 342.67s (0:05:42) ==================="
+            },
+            {
+              "test_file": "test_manual.py",
+              "test_name": "test_manualintegrate_sqrt_linear",
+              "assertion": "",
+              "location": "unknown",
+              "error_type": "unknown",
+              "explanation": "assert Piecewise((2*(a/sqrt(a + b*x) + sqrt(a + b*x))/b**2, Ne(b, 0)), (x**2/(2*a**(3/2)), True)) == Piecewise((-2*(-a/sqrt(a + b*x) - sqrt(a + b*x))/b**2, Ne(b, 0)), (x**2/(2*a**(3/2)), True))\n+  where Piecewise((2*(a/sqrt(a + b*x) + sqrt(a + b*x))/b**2, Ne(b, 0)), (x**2/(2*a**(3/2)), True)) = manualintegrate((x / (sqrt(a + b*x) ** 3)), x)\n+    where sqrt(a + b*x) = sqrt((a + (b * x)))\n+  and   Piecewise((-2*(-a/sqrt(a + b*x) - sqrt(a + b*x))/b**2, Ne(b, 0)), (x**2/(2*a**(3/2)), True)) = Piecewise((-2*(-a/sqrt(a + b*x) - sqrt(a + b*x))/b**2, Ne(b, 0)), (x**2/(2*a**(3/2)), True))",
+              "snippet": "    assert manualintegrate(x/sqrt(a+b*x)**3, x) == \\\nE   assert Piecewise((2*(a/sqrt(a + b*x) + sqrt(a + b*x))/b**2, Ne(b, 0)), (x**2/(2*a**(3/2)), True)) == Piecewise((-2*(-a/sqrt(a + b*x) - sqrt(a + b*x))/b**2, Ne(b, 0)), (x**2/(2*a**(3/2)), True))\nE    +  where Piecewise((2*(a/sqrt(a + b*x) + sqrt(a + b*x))/b**2, Ne(b, 0)), (x**2/(2*a**(3/2)), True)) = manualintegrate((x / (sqrt(a + b*x) ** 3)), x)\nE    +    where sqrt(a + b*x) = sqrt((a + (b * x)))\nE    +  and   Piecewise((-2*(-a/sqrt(a + b*x) - sqrt(a + b*x))/b**2, Ne(b, 0)), (x**2/(2*a**(3/2)), True)) = Piecewise((-2*(-a/sqrt(a + b*x) - sqrt(a + b*x))/b**2, Ne(b, 0)), (x**2/(2*a**(3/2)), True))"
+            },
+            {
+              "test_file": "test_manual.py",
+              "test_name": "test_manualintegrate_sqrt_fractional_linear",
+              "assertion": "",
+              "location": "unknown",
+              "error_type": "unknown",
+              "explanation": "assert Integral(sqrt((a - x)/(a + x))/x, x) == Piecewise((-4*a*(-log(sqrt((a - x)/(a + x)) - 1)/(4*a) + log(sqrt((a - x)/(a + x)) + 1)/(4*a) - atan(sqrt((a - x)/(a + x)))/(2*a)), Ne(a, 0)), (I*log(x), True))\n+  where Integral(sqrt((a - x)/(a + x))/x, x) = manualintegrate(sqrt((a - x)/(a + x))/x, x)\n+  and   Piecewise((-4*a*(-log(sqrt((a - x)/(a + x)) - 1)/(4*a) + log(sqrt((a - x)/(a + x)) + 1)/(4*a) - atan(sqrt((a - x)/(a + x)))/(2*a)), Ne(a, 0)), (I*log(x), True)) = Piecewise((-4*a*(-log(sqrt((a - x)/(a + x)) - 1)/(4*a) + log(sqrt((a - x)/(a + x)) + 1)/(4*a) - atan(sqrt((a - x)/(a + x)))/(2*a)), Ne(a, 0)), (I*log(x), True))",
+              "snippet": "manual_corpus/test-1/pr29263/test_manual.py:753: in test_manualintegrate_sqrt_fractional_linear\n    assert manualintegrate(f, x) == Piecewise((F1, Ne(a, 0)), (F2, True))\nE   assert Integral(sqrt((a - x)/(a + x))/x, x) == Piecewise((-4*a*(-log(sqrt((a - x)/(a + x)) - 1)/(4*a) + log(sqrt((a - x)/(a + x)) + 1)/(4*a) - atan(sqrt((a - x)/(a + x)))/(2*a)), Ne(a, 0)), (I*log(x), True))\nE    +  where Integral(sqrt((a - x)/(a + x))/x, x) = manualintegrate(sqrt((a - x)/(a + x))/x, x)\nE    +  and   Piecewise((-4*a*(-log(sqrt((a - x)/(a + x)) - 1)/(4*a) + log(sqrt((a - x)/(a + x)) + 1)/(4*a) - atan(sqrt((a - x)/(a + x)))/(2*a)), Ne(a, 0)), (I*log(x), True)) = Piecewise((-4*a*(-log(sqrt((a - x)/(a + x)) - 1)/(4*a) + log(sqrt((a - x)/(a + x)) + 1)/(4*a) - atan(sqrt((a - x)/(a + x)))/(2*a)), Ne(a, 0)), (I*log(x), True))"
+            },
+            {
+              "test_file": "test_manual.py",
+              "test_name": "test_manualintegrate_sqrt_quadratic",
+              "assertion": "",
+              "location": "unknown",
+              "error_type": "unknown",
+              "explanation": "assert Piecewise(((-b*e/(2*c) + d)*Piecewise((log(b + 2*sqrt(c)*sqrt(a + b*x + c*x**2) + 2*c*x)/sqrt(c), Ne(a - b**2/(4*c), 0)), ((b/(2*c) + x)*log(b/(2*c) + x)/sqrt(c*(b/(2*c) + x)**2), True)) + e*sqrt(a + b*x + c*x**2)/c, Ne(c, 0)), ((2*d*sqrt(a + b*x) + 2*e*(-a*sqrt(a + b*x) + (a + b*x)**(3/2)/3)/b)/b, Ne(b, 0)), ((d*x + e*x**2/2)/sqrt(a), True)) == Piecewise(((-b*e/(2*c) + d)*Piecewise((log(b + 2*sqrt(c)*sqrt(a + b*x + c*x**2) + 2*c*x)/sqrt(c), Ne(a - b**2/(4*c), 0)), ((b/(2*c) + x)*log(b/(2*c) + x)/sqrt(c*(b/(2*c) + x)**2), True)) + e*sqrt(a + b*x + c*x**2)/c, Ne(c, 0)), (2*(d*sqrt(a + b*x) - e*(a*sqrt(a + b*x) - (a + b*x)**(3/2)/3)/b)/b, Ne(b, 0)), ((d*x + e*x**2/2)/sqrt(a), True))\n+  where Piecewise(((-b*e/(2*c) + d)*Piecewise((log(b + 2*sqrt(c)*sqrt(a + b*x + c*x**2) + 2*c*x)/sqrt(c), Ne(a - b**2/(4*c), 0)), ((b/(2*c) + x)*log(b/(2*c) + x)/sqrt(c*(b/(2*c) + x)**2), True)) + e*sqrt(a + b*x + c*x**2)/c, Ne(c, 0)), ((2*d*sqrt(a + b*x) + 2*e*(-a*sqrt(a + b*x) + (a + b*x)**(3/2)/3)/b)/b, Ne(b, 0)), ((d*x + e*x**2/2)/sqrt(a), True)) = manualintegrate(((d + (e * x)) / sqrt(a + b*x + c*x**2)), x)\n+    where sqrt(a + b*x + c*x**2) = sqrt(((a + (b * x)) + (c * (x ** 2))))\n+  and   Piecewise(((-b*e/(2*c) + d)*Piecewise((log(b + 2*sqrt(c)*sqrt(a + b*x + c*x**2) + 2*c*x)/sqrt(c), Ne(a - b**2/(4*c), 0)), ((b/(2*c) + x)*log(b/(2*c) + x)/sqrt(c*(b/(2*c) + x)**2), True)) + e*sqrt(a + b*x + c*x**2)/c, Ne(c, 0)), (2*(d*sqrt(a + b*x) - e*(a*sqrt(a + b*x) - (a + b*x)**(3/2)/3)/b)/b, Ne(b, 0)), ((d*x + e*x**2/2)/sqrt(a), True)) = Piecewise(((-b*e/(2*c) + d)*Piecewise((log(b + 2*sqrt(c)*sqrt(a + b*x + c*x**2) + 2*c*x)/sqrt(c), Ne(a - b**2/(4*c), 0)), ((b/(2*c) + x)*log(b/(2*c) + x)/sqrt(c*(b/(2*c) + x)**2), True)) + e*sqrt(a + b*x + c*x**2)/c, Ne(c, 0)), (2*(d*sqrt(a + b*x) - e*(a*sqrt(a + b*x) - (a + b*x)**(3/2)/3)/b)/b, Ne(b, 0)), ((d*x + e*x**2/2)/sqrt(a), True))",
+              "snippet": "=========================== short test summary info ============================\nFAILED manual_corpus/test-1/pr29263/test_manual.py::test_manualintegrate_sqrt_linear\nFAILED manual_corpus/test-1/pr29263/test_manual.py::test_manualintegrate_sqrt_fractional_linear\nFAILED manual_corpus/test-1/pr29263/test_manual.py::test_manualintegrate_sqrt_quadratic\n=================== 3 failed, 42 passed in 233.45s (0:03:53) ==================="
+            }
+          ],
+          "pytest_tail": "::test_manualintegrate_sqrt_linear\nFAILED manual_corpus/test-1/pr29263/test_manual.py::test_manualintegrate_sqrt_fractional_linear\nFAILED manual_corpus/test-1/pr29263/test_manual.py::test_manualintegrate_sqrt_quadratic\n=================== 3 failed, 42 passed in 233.45s (0:03:53) ===================\n",
+          "codebleu": {
+            "codebleu": 0.8252,
+            "ngram_match": 0.9574,
+            "weighted_ngram_match": 0.9574,
+            "syntax_match": 0.9832,
+            "dataflow_match": 0.4028,
+            "domain_delta": 0.15,
+            "domain_codebleu_raw": 0.9752,
+            "execution_penalty": 1.0,
+            "domain_codebleu": 0.9752,
+            "n_domain_tokens": 5852
+          },
+          "elapsed_s": 1308.2,
+          "n_nodes": 1,
+          "tcrg": {
+            "task_type": "bugfix",
+            "nodes": [
+              {
+                "id": "n1",
+                "title": "Add sqrt_rational_rule to handle sqrt of rational functions with linear numerator and denominator",
+                "description": "The issue is that `sympy.integrate(sqrt((a-x)/(a+x))/x, x)` returns an unevaluated integral instead of a closed-form expression. The integrand `sqrt((a-x)/(a+x))/x` is not recognized by any existing rule. The fix requires adding a new `sqrt_rational_rule` function that rewrites `sqrt((a+bx)/(c+dx))` patterns to `(a+bx)/sqrt((a+bx)(c+dx))` or `sqrt((a+bx)(c+dx))/(c+dx)`. For the specific case `sqrt((a-x)/(a+x))`, this rewrites to `(a-x)/sqrt(a^2-x^2)`, which can then be handled by `trig_substitution_rule`. The function must be added after `sqrt_linear_rule` and before `sqrt_quadratic_rule`, and `null_safe(sqrt_rational_rule)` must be added to both the `Pow` and `Mul` cases in the `integral_steps` function.",
+                "dependencies": [],
+                "expected_output": "The COMPLETE modified Python file with the fix applied. Not a fragment. Not just the fixed function. The entire file from the first import to the last line."
+              }
+            ]
+          },
+          "node_summary": [
+            {
+              "node_id": "n1",
+              "node_title": "Add sqrt_rational_rule to handle sqrt of rational functions with linear numerator and denominator",
+              "n_iters": 3,
+              "final_passed": false
+            }
+          ]
+        },
+        {
+          "sample": 1,
+          "passed": false,
+          "code_length": 91192,
+          "failures": [
+            {
+              "test_file": "test_integrals.py",
+              "test_name": "test_sqrt_quadratic",
+              "assertion": "",
+              "location": "unknown",
+              "error_type": "unknown",
+              "explanation": "assert Piecewise(((-b*e/(2*c) + d)*Piecewise((log(b + 2*sqrt(c)*sqrt(a + b*x + c*x**2) + 2*c*x)/sqrt(c), Ne(a - b**2/(4*c), 0)), ((b/(2*c) + x)*log(b/(2*c) + x)/sqrt(c*(b/(2*c) + x)**2), True)) + e*sqrt(a + b*x + c*x**2)/c, Ne(c, 0)), ((2*d*sqrt(a + b*x) + 2*e*(-a*sqrt(a + b*x) + (a + b*x)**(3/2)/3)/b)/b, Ne(b, 0)), ((d*x + e*x**2/2)/sqrt(a), True)) == Piecewise(((-b*e/(2*c) + d)*Piecewise((log(b + 2*sqrt(c)*sqrt(a + b*x + c*x**2) + 2*c*x)/sqrt(c), Ne(a - b**2/(4*c), 0)), ((b/(2*c) + x)*log(b/(2*c) + x)/sqrt(c*(b/(2*c) + x)**2), True)) + e*sqrt(a + b*x + c*x**2)/c, Ne(c, 0)), (2*(d*sqrt(a + b*x) - e*(a*sqrt(a + b*x) - (a + b*x)**(3/2)/3)/b)/b, Ne(b, 0)), ((d*x + e*x**2/2)/sqrt(a), True))\n+  where Piecewise(((-b*e/(2*c) + d)*Piecewise((log(b + 2*sqrt(c)*sqrt(a + b*x + c*x**2) + 2*c*x)/sqrt(c), Ne(a - b**2/(4*c), 0)), ((b/(2*c) + x)*log(b/(2*c) + x)/sqrt(c*(b/(2*c) + x)**2), True)) + e*sqrt(a + b*x + c*x**2)/c, Ne(c, 0)), ((2*d*sqrt(a + b*x) + 2*e*(-a*sqrt(a + b*x) + (a + b*x)**(3/2)/3)/b)/b, Ne(b, 0)), ((d*x + e*x**2/2)/sqrt(a), True)) = integrate(((d + (e * x)) / sqrt(a + b*x + c*x**2)), x)\n+    where sqrt(a + b*x + c*x**2) = sqrt(((a + (b * x)) + (c * (x ** 2))))\n+  and   Piecewise(((-b*e/(2*c) + d)*Piecewise((log(b + 2*sqrt(c)*sqrt(a + b*x + c*x**2) + 2*c*x)/sqrt(c), Ne(a - b**2/(4*c), 0)), ((b/(2*c) + x)*log(b/(2*c) + x)/sqrt(c*(b/(2*c) + x)**2), True)) + e*sqrt(a + b*x + c*x**2)/c, Ne(c, 0)), (2*(d*sqrt(a + b*x) - e*(a*sqrt(a + b*x) - (a + b*x)**(3/2)/3)/b)/b, Ne(b, 0)), ((d*x + e*x**2/2)/sqrt(a), True)) = Piecewise(((-b*e/(2*c) + d)*Piecewise((log(b + 2*sqrt(c)*sqrt(a + b*x + c*x**2) + 2*c*x)/sqrt(c), Ne(a - b**2/(4*c), 0)), ((b/(2*c) + x)*log(b/(2*c) + x)/sqrt(c*(b/(2*c) + x)**2), True)) + e*sqrt(a + b*x + c*x**2)/c, Ne(c, 0)), (2*(d*sqrt(a + b*x) - e*(a*sqrt(a + b*x) - (a + b*x)**(3/2)/3)/b)/b, Ne(b, 0)), ((d*x + e*x**2/2)/sqrt(a), True))",
+              "snippet": "E    +    where sqrt(a + b*x + c*x**2) = sqrt(((a + (b * x)) + (c * (x ** 2))))\nE    +  and   Piecewise(((-b*e/(2*c) + d)*Piecewise((log(b + 2*sqrt(c)*sqrt(a + b*x + c*x**2) + 2*c*x)/sqrt(c), Ne(a - b**2/(4*c), 0)), ((b/(2*c) + x)*log(b/(2*c) + x)/sqrt(c*(b/(2*c) + x)**2), True)) + e*sqrt(a + b*x + c*x**2)/c, Ne(c, 0)), (2*(d*sqrt(a + b*x) - e*(a*sqrt(a + b*x) - (a + b*x)**(3/2)/3)/b)/b, Ne(b, 0)), ((d*x + e*x**2/2)/sqrt(a), True)) = Piecewise(((-b*e/(2*c) + d)*Piecewise((log(b + 2*sqrt(c)*sqrt(a + b*x + c*x**2) + 2*c*x)/sqrt(c), Ne(a - b**2/(4*c), 0)), ((b/(2*c) + x)*log(b/(2*c) + x)/sqrt(c*(b/(2*c) + x)**2), True)) + e*sqrt(a + b*x + c*x**2)/c, Ne(c, 0)), (2*(d*sqrt(a + b*x) - e*(a*sqrt(a + b*x) - (a + b*x)**(3/2)/3)/b)/b, Ne(b, 0)), ((d*x + e*x**2/2)/sqrt(a), True))\n=========================== short test summary info ============================\nFAILED manual_corpus/test-1/pr29263/test_integrals.py::test_sqrt_quadratic - ...\n================== 1 failed, 206 passed in 197.26s (0:03:17) ==================="
+            },
+            {
+              "test_file": "test_manual.py",
+              "test_name": "test_manualintegrate_sqrt_linear",
+              "assertion": "",
+              "location": "unknown",
+              "error_type": "unknown",
+              "explanation": "assert Piecewise((2*(a/sqrt(a + b*x) + sqrt(a + b*x))/b**2, Ne(b, 0)), (x**2/(2*a**(3/2)), True)) == Piecewise((-2*(-a/sqrt(a + b*x) - sqrt(a + b*x))/b**2, Ne(b, 0)), (x**2/(2*a**(3/2)), True))\n+  where Piecewise((2*(a/sqrt(a + b*x) + sqrt(a + b*x))/b**2, Ne(b, 0)), (x**2/(2*a**(3/2)), True)) = manualintegrate((x / (sqrt(a + b*x) ** 3)), x)\n+    where sqrt(a + b*x) = sqrt((a + (b * x)))\n+  and   Piecewise((-2*(-a/sqrt(a + b*x) - sqrt(a + b*x))/b**2, Ne(b, 0)), (x**2/(2*a**(3/2)), True)) = Piecewise((-2*(-a/sqrt(a + b*x) - sqrt(a + b*x))/b**2, Ne(b, 0)), (x**2/(2*a**(3/2)), True))",
+              "snippet": "    assert manualintegrate(x/sqrt(a+b*x)**3, x) == \\\nE   assert Piecewise((2*(a/sqrt(a + b*x) + sqrt(a + b*x))/b**2, Ne(b, 0)), (x**2/(2*a**(3/2)), True)) == Piecewise((-2*(-a/sqrt(a + b*x) - sqrt(a + b*x))/b**2, Ne(b, 0)), (x**2/(2*a**(3/2)), True))\nE    +  where Piecewise((2*(a/sqrt(a + b*x) + sqrt(a + b*x))/b**2, Ne(b, 0)), (x**2/(2*a**(3/2)), True)) = manualintegrate((x / (sqrt(a + b*x) ** 3)), x)\nE    +    where sqrt(a + b*x) = sqrt((a + (b * x)))\nE    +  and   Piecewise((-2*(-a/sqrt(a + b*x) - sqrt(a + b*x))/b**2, Ne(b, 0)), (x**2/(2*a**(3/2)), True)) = Piecewise((-2*(-a/sqrt(a + b*x) - sqrt(a + b*x))/b**2, Ne(b, 0)), (x**2/(2*a**(3/2)), True))"
+            },
+            {
+              "test_file": "test_manual.py",
+              "test_name": "test_manualintegrate_sqrt_fractional_linear",
+              "assertion": "",
+              "location": "unknown",
+              "error_type": "unknown",
+              "explanation": "assert Integral(sqrt((a - x)/(a + x))/x, x) == Piecewise((-4*a*(-log(sqrt((a - x)/(a + x)) - 1)/(4*a) + log(sqrt((a - x)/(a + x)) + 1)/(4*a) - atan(sqrt((a - x)/(a + x)))/(2*a)), Ne(a, 0)), (I*log(x), True))\n+  where Integral(sqrt((a - x)/(a + x))/x, x) = manualintegrate(sqrt((a - x)/(a + x))/x, x)\n+  and   Piecewise((-4*a*(-log(sqrt((a - x)/(a + x)) - 1)/(4*a) + log(sqrt((a - x)/(a + x)) + 1)/(4*a) - atan(sqrt((a - x)/(a + x)))/(2*a)), Ne(a, 0)), (I*log(x), True)) = Piecewise((-4*a*(-log(sqrt((a - x)/(a + x)) - 1)/(4*a) + log(sqrt((a - x)/(a + x)) + 1)/(4*a) - atan(sqrt((a - x)/(a + x)))/(2*a)), Ne(a, 0)), (I*log(x), True))",
+              "snippet": "manual_corpus/test-1/pr29263/test_manual.py:753: in test_manualintegrate_sqrt_fractional_linear\n    assert manualintegrate(f, x) == Piecewise((F1, Ne(a, 0)), (F2, True))\nE   assert Integral(sqrt((a - x)/(a + x))/x, x) == Piecewise((-4*a*(-log(sqrt((a - x)/(a + x)) - 1)/(4*a) + log(sqrt((a - x)/(a + x)) + 1)/(4*a) - atan(sqrt((a - x)/(a + x)))/(2*a)), Ne(a, 0)), (I*log(x), True))\nE    +  where Integral(sqrt((a - x)/(a + x))/x, x) = manualintegrate(sqrt((a - x)/(a + x))/x, x)\nE    +  and   Piecewise((-4*a*(-log(sqrt((a - x)/(a + x)) - 1)/(4*a) + log(sqrt((a - x)/(a + x)) + 1)/(4*a) - atan(sqrt((a - x)/(a + x)))/(2*a)), Ne(a, 0)), (I*log(x), True)) = Piecewise((-4*a*(-log(sqrt((a - x)/(a + x)) - 1)/(4*a) + log(sqrt((a - x)/(a + x)) + 1)/(4*a) - atan(sqrt((a - x)/(a + x)))/(2*a)), Ne(a, 0)), (I*log(x), True))"
+            },
+            {
+              "test_file": "test_manual.py",
+              "test_name": "test_manualintegrate_sqrt_quadratic",
+              "assertion": "",
+              "location": "unknown",
+              "error_type": "unknown",
+              "explanation": "assert Piecewise(((-b*e/(2*c) + d)*Piecewise((log(b + 2*sqrt(c)*sqrt(a + b*x + c*x**2) + 2*c*x)/sqrt(c), Ne(a - b**2/(4*c), 0)), ((b/(2*c) + x)*log(b/(2*c) + x)/sqrt(c*(b/(2*c) + x)**2), True)) + e*sqrt(a + b*x + c*x**2)/c, Ne(c, 0)), ((2*d*sqrt(a + b*x) + 2*e*(-a*sqrt(a + b*x) + (a + b*x)**(3/2)/3)/b)/b, Ne(b, 0)), ((d*x + e*x**2/2)/sqrt(a), True)) == Piecewise(((-b*e/(2*c) + d)*Piecewise((log(b + 2*sqrt(c)*sqrt(a + b*x + c*x**2) + 2*c*x)/sqrt(c), Ne(a - b**2/(4*c), 0)), ((b/(2*c) + x)*log(b/(2*c) + x)/sqrt(c*(b/(2*c) + x)**2), True)) + e*sqrt(a + b*x + c*x**2)/c, Ne(c, 0)), (2*(d*sqrt(a + b*x) - e*(a*sqrt(a + b*x) - (a + b*x)**(3/2)/3)/b)/b, Ne(b, 0)), ((d*x + e*x**2/2)/sqrt(a), True))\n+  where Piecewise(((-b*e/(2*c) + d)*Piecewise((log(b + 2*sqrt(c)*sqrt(a + b*x + c*x**2) + 2*c*x)/sqrt(c), Ne(a - b**2/(4*c), 0)), ((b/(2*c) + x)*log(b/(2*c) + x)/sqrt(c*(b/(2*c) + x)**2), True)) + e*sqrt(a + b*x + c*x**2)/c, Ne(c, 0)), ((2*d*sqrt(a + b*x) + 2*e*(-a*sqrt(a + b*x) + (a + b*x)**(3/2)/3)/b)/b, Ne(b, 0)), ((d*x + e*x**2/2)/sqrt(a), True)) = manualintegrate(((d + (e * x)) / sqrt(a + b*x + c*x**2)), x)\n+    where sqrt(a + b*x + c*x**2) = sqrt(((a + (b * x)) + (c * (x ** 2))))\n+  and   Piecewise(((-b*e/(2*c) + d)*Piecewise((log(b + 2*sqrt(c)*sqrt(a + b*x + c*x**2) + 2*c*x)/sqrt(c), Ne(a - b**2/(4*c), 0)), ((b/(2*c) + x)*log(b/(2*c) + x)/sqrt(c*(b/(2*c) + x)**2), True)) + e*sqrt(a + b*x + c*x**2)/c, Ne(c, 0)), (2*(d*sqrt(a + b*x) - e*(a*sqrt(a + b*x) - (a + b*x)**(3/2)/3)/b)/b, Ne(b, 0)), ((d*x + e*x**2/2)/sqrt(a), True)) = Piecewise(((-b*e/(2*c) + d)*Piecewise((log(b + 2*sqrt(c)*sqrt(a + b*x + c*x**2) + 2*c*x)/sqrt(c), Ne(a - b**2/(4*c), 0)), ((b/(2*c) + x)*log(b/(2*c) + x)/sqrt(c*(b/(2*c) + x)**2), True)) + e*sqrt(a + b*x + c*x**2)/c, Ne(c, 0)), (2*(d*sqrt(a + b*x) - e*(a*sqrt(a + b*x) - (a + b*x)**(3/2)/3)/b)/b, Ne(b, 0)), ((d*x + e*x**2/2)/sqrt(a), True))",
+              "snippet": "=========================== short test summary info ============================\nFAILED manual_corpus/test-1/pr29263/test_manual.py::test_manualintegrate_sqrt_linear\nFAILED manual_corpus/test-1/pr29263/test_manual.py::test_manualintegrate_sqrt_fractional_linear\nFAILED manual_corpus/test-1/pr29263/test_manual.py::test_manualintegrate_sqrt_quadratic\n=================== 3 failed, 42 passed in 166.99s (0:02:46) ==================="
+            }
+          ],
+          "pytest_tail": "::test_manualintegrate_sqrt_linear\nFAILED manual_corpus/test-1/pr29263/test_manual.py::test_manualintegrate_sqrt_fractional_linear\nFAILED manual_corpus/test-1/pr29263/test_manual.py::test_manualintegrate_sqrt_quadratic\n=================== 3 failed, 42 passed in 166.99s (0:02:46) ===================\n",
+          "codebleu": {
+            "codebleu": 0.8261,
+            "ngram_match": 0.9581,
+            "weighted_ngram_match": 0.9585,
+            "syntax_match": 0.9835,
+            "dataflow_match": 0.4043,
+            "domain_delta": 0.15,
+            "domain_codebleu_raw": 0.9761,
+            "execution_penalty": 1.0,
+            "domain_codebleu": 0.9761,
+            "n_domain_tokens": 5862
+          },
+          "elapsed_s": 834.2,
+          "n_nodes": 1,
+          "tcrg": {
+            "task_type": "bugfix",
+            "nodes": [
+              {
+                "id": "n1",
+                "title": "Add sqrt_quadratic_ratio_rule to handle sqrt((a-x)/(a+x)) integrals",
+                "description": "The issue is that sympy.integrate returns an unevaluated integral for sqrt((a-x)/(a+x))/x instead of computing a closed-form result. The integrand sqrt((a-x)/(a+x)) can be rewritten as (a-x)/sqrt(a^2-x^2) when (a-x)(a+x) = a^2-x^2. This is a special case where sqrt((a+b*x)/(c+d*x)) with a*d + b*c = 0 can be simplified. The fix requires: (1) Adding a new function `sqrt_quadratic_ratio_rule` that recognizes sqrt((a+b*x)/(c+d*x)) patterns where a*d + b*c = 0 and rewrites them to (a+b*x)/sqrt(a*c + b*d*x^2). (2) Integrating this rule into the `integral_steps` function for both Pow and Mul type integrands. The function should be placed after `sqrt_quadratic_rule` definition. The expected result for the test case is: ln((a - sqrt(a^2-x^2))/|x|) - asin(x/a) + C.",
+                "dependencies": [],
+                "expected_output": "The COMPLETE modified Python file with the fix applied. Not a fragment. Not just the fixed function. The entire file from the first import to the last line."
+              }
+            ]
+          },
+          "node_summary": [
+            {
+              "node_id": "n1",
+              "node_title": "Add sqrt_quadratic_ratio_rule to handle sqrt((a-x)/(a+x)) integrals",
+              "n_iters": 3,
+              "final_passed": false
+            }
+          ]
+        },
+        {
+          "sample": 2,
+          "passed": false,
+          "code_length": 91921,
+          "failures": [
+            {
+              "test_file": "test_integrals.py",
+              "test_name": "test_sqrt_quadratic",
+              "assertion": "",
+              "location": "unknown",
+              "error_type": "unknown",
+              "explanation": "assert Piecewise(((-b*e/(2*c) + d)*Piecewise((log(b + 2*sqrt(c)*sqrt(a + b*x + c*x**2) + 2*c*x)/sqrt(c), Ne(a - b**2/(4*c), 0)), ((b/(2*c) + x)*log(b/(2*c) + x)/sqrt(c*(b/(2*c) + x)**2), True)) + e*sqrt(a + b*x + c*x**2)/c, Ne(c, 0)), ((2*d*sqrt(a + b*x) + 2*e*(-a*sqrt(a + b*x) + (a + b*x)**(3/2)/3)/b)/b, Ne(b, 0)), ((d*x + e*x**2/2)/sqrt(a), True)) == Piecewise(((-b*e/(2*c) + d)*Piecewise((log(b + 2*sqrt(c)*sqrt(a + b*x + c*x**2) + 2*c*x)/sqrt(c), Ne(a - b**2/(4*c), 0)), ((b/(2*c) + x)*log(b/(2*c) + x)/sqrt(c*(b/(2*c) + x)**2), True)) + e*sqrt(a + b*x + c*x**2)/c, Ne(c, 0)), (2*(d*sqrt(a + b*x) - e*(a*sqrt(a + b*x) - (a + b*x)**(3/2)/3)/b)/b, Ne(b, 0)), ((d*x + e*x**2/2)/sqrt(a), True))\n+  where Piecewise(((-b*e/(2*c) + d)*Piecewise((log(b + 2*sqrt(c)*sqrt(a + b*x + c*x**2) + 2*c*x)/sqrt(c), Ne(a - b**2/(4*c), 0)), ((b/(2*c) + x)*log(b/(2*c) + x)/sqrt(c*(b/(2*c) + x)**2), True)) + e*sqrt(a + b*x + c*x**2)/c, Ne(c, 0)), ((2*d*sqrt(a + b*x) + 2*e*(-a*sqrt(a + b*x) + (a + b*x)**(3/2)/3)/b)/b, Ne(b, 0)), ((d*x + e*x**2/2)/sqrt(a), True)) = integrate(((d + (e * x)) / sqrt(a + b*x + c*x**2)), x)\n+    where sqrt(a + b*x + c*x**2) = sqrt(((a + (b * x)) + (c * (x ** 2))))\n+  and   Piecewise(((-b*e/(2*c) + d)*Piecewise((log(b + 2*sqrt(c)*sqrt(a + b*x + c*x**2) + 2*c*x)/sqrt(c), Ne(a - b**2/(4*c), 0)), ((b/(2*c) + x)*log(b/(2*c) + x)/sqrt(c*(b/(2*c) + x)**2), True)) + e*sqrt(a + b*x + c*x**2)/c, Ne(c, 0)), (2*(d*sqrt(a + b*x) - e*(a*sqrt(a + b*x) - (a + b*x)**(3/2)/3)/b)/b, Ne(b, 0)), ((d*x + e*x**2/2)/sqrt(a), True)) = Piecewise(((-b*e/(2*c) + d)*Piecewise((log(b + 2*sqrt(c)*sqrt(a + b*x + c*x**2) + 2*c*x)/sqrt(c), Ne(a - b**2/(4*c), 0)), ((b/(2*c) + x)*log(b/(2*c) + x)/sqrt(c*(b/(2*c) + x)**2), True)) + e*sqrt(a + b*x + c*x**2)/c, Ne(c, 0)), (2*(d*sqrt(a + b*x) - e*(a*sqrt(a + b*x) - (a + b*x)**(3/2)/3)/b)/b, Ne(b, 0)), ((d*x + e*x**2/2)/sqrt(a), True))",
+              "snippet": "E    +    where sqrt(a + b*x + c*x**2) = sqrt(((a + (b * x)) + (c * (x ** 2))))\nE    +  and   Piecewise(((-b*e/(2*c) + d)*Piecewise((log(b + 2*sqrt(c)*sqrt(a + b*x + c*x**2) + 2*c*x)/sqrt(c), Ne(a - b**2/(4*c), 0)), ((b/(2*c) + x)*log(b/(2*c) + x)/sqrt(c*(b/(2*c) + x)**2), True)) + e*sqrt(a + b*x + c*x**2)/c, Ne(c, 0)), (2*(d*sqrt(a + b*x) - e*(a*sqrt(a + b*x) - (a + b*x)**(3/2)/3)/b)/b, Ne(b, 0)), ((d*x + e*x**2/2)/sqrt(a), True)) = Piecewise(((-b*e/(2*c) + d)*Piecewise((log(b + 2*sqrt(c)*sqrt(a + b*x + c*x**2) + 2*c*x)/sqrt(c), Ne(a - b**2/(4*c), 0)), ((b/(2*c) + x)*log(b/(2*c) + x)/sqrt(c*(b/(2*c) + x)**2), True)) + e*sqrt(a + b*x + c*x**2)/c, Ne(c, 0)), (2*(d*sqrt(a + b*x) - e*(a*sqrt(a + b*x) - (a + b*x)**(3/2)/3)/b)/b, Ne(b, 0)), ((d*x + e*x**2/2)/sqrt(a), True))\n=========================== short test summary info ============================\nFAILED manual_corpus/test-1/pr29263/test_integrals.py::test_sqrt_quadratic - ...\n================== 1 failed, 206 passed in 277.84s (0:04:37) ==================="
+            },
+            {
+              "test_file": "test_manual.py",
+              "test_name": "test_manualintegrate_sqrt_linear",
+              "assertion": "",
+              "location": "unknown",
+              "error_type": "unknown",
+              "explanation": "assert Piecewise((2*(a/sqrt(a + b*x) + sqrt(a + b*x))/b**2, Ne(b, 0)), (x**2/(2*a**(3/2)), True)) == Piecewise((-2*(-a/sqrt(a + b*x) - sqrt(a + b*x))/b**2, Ne(b, 0)), (x**2/(2*a**(3/2)), True))\n+  where Piecewise((2*(a/sqrt(a + b*x) + sqrt(a + b*x))/b**2, Ne(b, 0)), (x**2/(2*a**(3/2)), True)) = manualintegrate((x / (sqrt(a + b*x) ** 3)), x)\n+    where sqrt(a + b*x) = sqrt((a + (b * x)))\n+  and   Piecewise((-2*(-a/sqrt(a + b*x) - sqrt(a + b*x))/b**2, Ne(b, 0)), (x**2/(2*a**(3/2)), True)) = Piecewise((-2*(-a/sqrt(a + b*x) - sqrt(a + b*x))/b**2, Ne(b, 0)), (x**2/(2*a**(3/2)), True))",
+              "snippet": "    assert manualintegrate(x/sqrt(a+b*x)**3, x) == \\\nE   assert Piecewise((2*(a/sqrt(a + b*x) + sqrt(a + b*x))/b**2, Ne(b, 0)), (x**2/(2*a**(3/2)), True)) == Piecewise((-2*(-a/sqrt(a + b*x) - sqrt(a + b*x))/b**2, Ne(b, 0)), (x**2/(2*a**(3/2)), True))\nE    +  where Piecewise((2*(a/sqrt(a + b*x) + sqrt(a + b*x))/b**2, Ne(b, 0)), (x**2/(2*a**(3/2)), True)) = manualintegrate((x / (sqrt(a + b*x) ** 3)), x)\nE    +    where sqrt(a + b*x) = sqrt((a + (b * x)))\nE    +  and   Piecewise((-2*(-a/sqrt(a + b*x) - sqrt(a + b*x))/b**2, Ne(b, 0)), (x**2/(2*a**(3/2)), True)) = Piecewise((-2*(-a/sqrt(a + b*x) - sqrt(a + b*x))/b**2, Ne(b, 0)), (x**2/(2*a**(3/2)), True))"
+            },
+            {
+              "test_file": "test_manual.py",
+              "test_name": "test_manualintegrate_sqrt_fractional_linear",
+              "assertion": "",
+              "location": "unknown",
+              "error_type": "unknown",
+              "explanation": "assert Integral(sqrt((a - x)/(a + x))/x, x) == Piecewise((-4*a*(-log(sqrt((a - x)/(a + x)) - 1)/(4*a) + log(sqrt((a - x)/(a + x)) + 1)/(4*a) - atan(sqrt((a - x)/(a + x)))/(2*a)), Ne(a, 0)), (I*log(x), True))\n+  where Integral(sqrt((a - x)/(a + x))/x, x) = manualintegrate(sqrt((a - x)/(a + x))/x, x)\n+  and   Piecewise((-4*a*(-log(sqrt((a - x)/(a + x)) - 1)/(4*a) + log(sqrt((a - x)/(a + x)) + 1)/(4*a) - atan(sqrt((a - x)/(a + x)))/(2*a)), Ne(a, 0)), (I*log(x), True)) = Piecewise((-4*a*(-log(sqrt((a - x)/(a + x)) - 1)/(4*a) + log(sqrt((a - x)/(a + x)) + 1)/(4*a) - atan(sqrt((a - x)/(a + x)))/(2*a)), Ne(a, 0)), (I*log(x), True))",
+              "snippet": "manual_corpus/test-1/pr29263/test_manual.py:753: in test_manualintegrate_sqrt_fractional_linear\n    assert manualintegrate(f, x) == Piecewise((F1, Ne(a, 0)), (F2, True))\nE   assert Integral(sqrt((a - x)/(a + x))/x, x) == Piecewise((-4*a*(-log(sqrt((a - x)/(a + x)) - 1)/(4*a) + log(sqrt((a - x)/(a + x)) + 1)/(4*a) - atan(sqrt((a - x)/(a + x)))/(2*a)), Ne(a, 0)), (I*log(x), True))\nE    +  where Integral(sqrt((a - x)/(a + x))/x, x) = manualintegrate(sqrt((a - x)/(a + x))/x, x)\nE    +  and   Piecewise((-4*a*(-log(sqrt((a - x)/(a + x)) - 1)/(4*a) + log(sqrt((a - x)/(a + x)) + 1)/(4*a) - atan(sqrt((a - x)/(a + x)))/(2*a)), Ne(a, 0)), (I*log(x), True)) = Piecewise((-4*a*(-log(sqrt((a - x)/(a + x)) - 1)/(4*a) + log(sqrt((a - x)/(a + x)) + 1)/(4*a) - atan(sqrt((a - x)/(a + x)))/(2*a)), Ne(a, 0)), (I*log(x), True))"
+            },
+            {
+              "test_file": "test_manual.py",
+              "test_name": "test_manualintegrate_sqrt_quadratic",
+              "assertion": "",
+              "location": "unknown",
+              "error_type": "unknown",
+              "explanation": "assert Piecewise(((-b*e/(2*c) + d)*Piecewise((log(b + 2*sqrt(c)*sqrt(a + b*x + c*x**2) + 2*c*x)/sqrt(c), Ne(a - b**2/(4*c), 0)), ((b/(2*c) + x)*log(b/(2*c) + x)/sqrt(c*(b/(2*c) + x)**2), True)) + e*sqrt(a + b*x + c*x**2)/c, Ne(c, 0)), ((2*d*sqrt(a + b*x) + 2*e*(-a*sqrt(a + b*x) + (a + b*x)**(3/2)/3)/b)/b, Ne(b, 0)), ((d*x + e*x**2/2)/sqrt(a), True)) == Piecewise(((-b*e/(2*c) + d)*Piecewise((log(b + 2*sqrt(c)*sqrt(a + b*x + c*x**2) + 2*c*x)/sqrt(c), Ne(a - b**2/(4*c), 0)), ((b/(2*c) + x)*log(b/(2*c) + x)/sqrt(c*(b/(2*c) + x)**2), True)) + e*sqrt(a + b*x + c*x**2)/c, Ne(c, 0)), (2*(d*sqrt(a + b*x) - e*(a*sqrt(a + b*x) - (a + b*x)**(3/2)/3)/b)/b, Ne(b, 0)), ((d*x + e*x**2/2)/sqrt(a), True))\n+  where Piecewise(((-b*e/(2*c) + d)*Piecewise((log(b + 2*sqrt(c)*sqrt(a + b*x + c*x**2) + 2*c*x)/sqrt(c), Ne(a - b**2/(4*c), 0)), ((b/(2*c) + x)*log(b/(2*c) + x)/sqrt(c*(b/(2*c) + x)**2), True)) + e*sqrt(a + b*x + c*x**2)/c, Ne(c, 0)), ((2*d*sqrt(a + b*x) + 2*e*(-a*sqrt(a + b*x) + (a + b*x)**(3/2)/3)/b)/b, Ne(b, 0)), ((d*x + e*x**2/2)/sqrt(a), True)) = manualintegrate(((d + (e * x)) / sqrt(a + b*x + c*x**2)), x)\n+    where sqrt(a + b*x + c*x**2) = sqrt(((a + (b * x)) + (c * (x ** 2))))\n+  and   Piecewise(((-b*e/(2*c) + d)*Piecewise((log(b + 2*sqrt(c)*sqrt(a + b*x + c*x**2) + 2*c*x)/sqrt(c), Ne(a - b**2/(4*c), 0)), ((b/(2*c) + x)*log(b/(2*c) + x)/sqrt(c*(b/(2*c) + x)**2), True)) + e*sqrt(a + b*x + c*x**2)/c, Ne(c, 0)), (2*(d*sqrt(a + b*x) - e*(a*sqrt(a + b*x) - (a + b*x)**(3/2)/3)/b)/b, Ne(b, 0)), ((d*x + e*x**2/2)/sqrt(a), True)) = Piecewise(((-b*e/(2*c) + d)*Piecewise((log(b + 2*sqrt(c)*sqrt(a + b*x + c*x**2) + 2*c*x)/sqrt(c), Ne(a - b**2/(4*c), 0)), ((b/(2*c) + x)*log(b/(2*c) + x)/sqrt(c*(b/(2*c) + x)**2), True)) + e*sqrt(a + b*x + c*x**2)/c, Ne(c, 0)), (2*(d*sqrt(a + b*x) - e*(a*sqrt(a + b*x) - (a + b*x)**(3/2)/3)/b)/b, Ne(b, 0)), ((d*x + e*x**2/2)/sqrt(a), True))",
+              "snippet": "=========================== short test summary info ============================\nFAILED manual_corpus/test-1/pr29263/test_manual.py::test_manualintegrate_sqrt_linear\nFAILED manual_corpus/test-1/pr29263/test_manual.py::test_manualintegrate_sqrt_fractional_linear\nFAILED manual_corpus/test-1/pr29263/test_manual.py::test_manualintegrate_sqrt_quadratic\n=================== 3 failed, 42 passed in 180.07s (0:03:00) ==================="
+            }
+          ],
+          "pytest_tail": "::test_manualintegrate_sqrt_linear\nFAILED manual_corpus/test-1/pr29263/test_manual.py::test_manualintegrate_sqrt_fractional_linear\nFAILED manual_corpus/test-1/pr29263/test_manual.py::test_manualintegrate_sqrt_quadratic\n=================== 3 failed, 42 passed in 180.07s (0:03:00) ===================\n",
+          "codebleu": {
+            "codebleu": 0.8231,
+            "ngram_match": 0.9481,
+            "weighted_ngram_match": 0.9584,
+            "syntax_match": 0.9822,
+            "dataflow_match": 0.4038,
+            "domain_delta": 0.15,
+            "domain_codebleu_raw": 0.9731,
+            "execution_penalty": 1.0,
+            "domain_codebleu": 0.9731,
+            "n_domain_tokens": 5856
+          },
+          "elapsed_s": 1027.4,
+          "n_nodes": 1,
+          "tcrg": {
+            "task_type": "bugfix",
+            "nodes": [
+              {
+                "id": "n1",
+                "title": "Fix integration of sqrt((a-x)/(a+x))/x by adding rewrite rule and enhancing trig substitution",
+                "description": "The issue is that sympy's manualintegrate module fails to compute the integral of sqrt((a-x)/(a+x))/x, returning an unevaluated Integral instead of the closed-form expression. The fix requires two modifications to the manualintegrate.py file:\n\n1. Add a new function `sqrt_quadratic_ratio_rule` that recognizes patterns of the form sqrt((A+Bx)/(C+Dx)) and rewrites them to (A+Bx)/sqrt((A+Bx)(C+Dx)). This exposes the quadratic form a^2-x^2 which can be handled by trigonometric substitution.\n\n2. Modify the `trig_substitution_rule` function to add explicit substitutions for sqrt(a + b*x_func**2) after the trigonometric substitution is applied. For the case a>0, b<0 (a^2 - x^2 pattern with x = sqrt(a/(-b))*sin(theta)), we need to substitute sqrt(a + b*x_func**2) with sqrt(a)*cos(theta). Similar substitutions are needed for the other cases (a>0,b>0 and a<0,b>0).\n\n3. Add the new `sqrt_quadratic_ratio_rule` to the rule chain in `integral_steps`, placing it before `trig_substitution_rule`.\n\nThe expected result for integrate(sqrt((a-x)/(a+x))/x, x) should be: log((a - sqrt(a^2 - x^2))/|x|) - asin(x/a) + C",
+                "dependencies": [],
+                "expected_output": "The COMPLETE modified Python file with the fix applied. Not a fragment. Not just the fixed function. The entire file from the first import to the last line."
+              }
+            ]
+          },
+          "node_summary": [
+            {
+              "node_id": "n1",
+              "node_title": "Fix integration of sqrt((a-x)/(a+x))/x by adding rewrite rule and enhancing trig substitution",
+              "n_iters": 3,
+              "final_passed": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "item": "test-2/pr2835",
+      "name": "pr2835",
+      "model": "z-ai/glm-5",
+      "alias": "GLM5",
+      "status": "OK",
+      "mode": "agent",
+      "n_samples": 3,
+      "max_iter": 3,
+      "n_passed": 0,
+      "pass_at_1": 0.0,
+      "avg_codebleu": {
+        "codebleu": 0.9218,
+        "ngram_match": 0.7563,
+        "weighted_ngram_match": 0.9438,
+        "syntax_match": 0.9868,
+        "dataflow_match": 0.0,
+        "domain_delta": 0.15,
+        "domain_codebleu_raw": 1.0,
+        "execution_penalty": 1.0,
+        "domain_codebleu": 1.0,
+        "n_domain_tokens": 927.3333
+      },
+      "per_sample": [
+        {
+          "sample": 0,
+          "passed": false,
+          "code_length": 22940,
+          "failures": [
+            {
+              "test_file": "test_superop_reps.py",
+              "test_name": "TestSuperopReps.test_SuperPauliInvalidArgs",
+              "assertion": "",
+              "location": "/tmp/pr2835_GLM5_agent_guku721z/repo/qutip/core/superop_reps.py:570",
+              "error_type": "SyntaxWarning",
+              "explanation": "AttributeError: 'numpy.ndarray' object has no attribute 'issuper'",
+              "snippet": "    @pytest.mark.repeat(3)\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ============================\nFAILED manual_corpus/test-2/pr2835/test_superop_reps.py::TestSuperopReps::test_SuperPauliInvalidArgs\n=================== 1 failed, 92 passed, 2 warnings in 2.32s ==================="
+            }
+          ],
+          "pytest_tail": "/stable/how-to/capture-warnings.html\n=========================== short test summary info ============================\nFAILED manual_corpus/test-2/pr2835/test_superop_reps.py::TestSuperopReps::test_SuperPauliInvalidArgs\n=================== 1 failed, 92 passed, 2 warnings in 2.32s ===================\n",
+          "codebleu": {
+            "codebleu": 0.9341,
+            "ngram_match": 0.8104,
+            "weighted_ngram_match": 0.9407,
+            "syntax_match": 0.9852,
+            "dataflow_match": 0,
+            "domain_delta": 0.15,
+            "domain_codebleu_raw": 1.0,
+            "execution_penalty": 1.0,
+            "domain_codebleu": 1.0,
+            "n_domain_tokens": 915
+          },
+          "elapsed_s": 645.6,
+          "n_nodes": 3,
+          "tcrg": {
+            "task_type": "feature",
+            "nodes": [
+              {
+                "id": "n1",
+                "title": "Implement Pauli basis conversion functions",
+                "description": "Implement the public functions `to_superpauli` and `superpauli_to_super` for converting between column-stacking superoperator representation and Pauli basis representation. The `to_superpauli` function should convert a superoperator from column-stacking basis to Pauli basis (wrapping or replacing the existing internal `_to_superpauli`). The `superpauli_to_super` function should implement the inverse transformation, converting from Pauli basis back to column-stacking basis. Both functions should validate that the input has qubit dimensions using `isqubitdims`, and should include proper docstrings with Parameters, Returns, and Raises sections following the existing code style.",
+                "dependencies": [],
+                "expected_output": "Function definitions with signatures `to_superpauli(q_oper: Qobj) -> Qobj` and `superpauli_to_super(q_oper: Qobj) -> Qobj`, with comprehensive docstrings explaining the conversion, parameters, return values, and potential exceptions."
+              },
+              {
+                "id": "n2",
+                "title": "Update module exports",
+                "description": "Add the new function names 'to_superpauli' and 'superpauli_to_super' to the module's `__all__` list to make them part of the public API, maintaining alphabetical order with existing exports.",
+                "dependencies": [
+                  "n1"
+                ],
+                "expected_output": "Updated `__all__` list containing all existing exports plus 'superpauli_to_super' and 'to_superpauli' in alphabetical order."
+              },
+              {
+                "id": "n3",
+                "title": "Final assembly of complete file",
+                "description": "Integrate the new conversion functions and updated exports into the complete Python file. Place the new public functions in an appropriate location within the module (near other `to_*` conversion functions), ensure all existing imports and functions remain intact, and verify the file structure is consistent with the original.",
+                "dependencies": [
+                  "n1",
+                  "n2"
+                ],
+                "expected_output": "The complete modified Python file with all changes integrated, from the first import to the last line, including the new `to_superpauli` and `superpauli_to_super` functions and updated `__all__` list."
+              }
+            ]
+          },
+          "node_summary": [
+            {
+              "node_id": "n1",
+              "node_title": "Implement Pauli basis conversion functions",
+              "n_iters": 3,
+              "final_passed": false
+            },
+            {
+              "node_id": "n2",
+              "node_title": "Update module exports",
+              "n_iters": 3,
+              "final_passed": false
+            },
+            {
+              "node_id": "n3",
+              "node_title": "Final assembly of complete file",
+              "n_iters": 3,
+              "final_passed": false
+            }
+          ]
+        },
+        {
+          "sample": 1,
+          "passed": false,
+          "code_length": 26123,
+          "failures": [
+            {
+              "test_file": "test_superop_reps.py",
+              "test_name": "TestSuperopReps.test_SuperPauliInvalidArgs",
+              "assertion": "",
+              "location": "/tmp/pr2835_GLM5_agent_guku721z/repo/qutip/core/superop_reps.py:569",
+              "error_type": "SyntaxWarning",
+              "explanation": "ValueError: Pauli basis representation is only defined for qubit systems (dimensions must be integer powers of 2).\nAssertionError: Regex pattern did not match.\nExpected regex: 'only defined for qubits.'\nActual message: 'Pauli basis representation is only defined for qubit systems (dimensions must be integer powers of 2).'",
+              "snippet": "    @pytest.mark.repeat(3)\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ============================\nFAILED manual_corpus/test-2/pr2835/test_superop_reps.py::TestSuperopReps::test_SuperPauliInvalidArgs\n=================== 1 failed, 92 passed, 2 warnings in 6.89s ==================="
+            }
+          ],
+          "pytest_tail": "/stable/how-to/capture-warnings.html\n=========================== short test summary info ============================\nFAILED manual_corpus/test-2/pr2835/test_superop_reps.py::TestSuperopReps::test_SuperPauliInvalidArgs\n=================== 1 failed, 92 passed, 2 warnings in 6.89s ===================\n",
+          "codebleu": {
+            "codebleu": 0.9136,
+            "ngram_match": 0.7159,
+            "weighted_ngram_match": 0.9483,
+            "syntax_match": 0.9901,
+            "dataflow_match": 0,
+            "domain_delta": 0.15,
+            "domain_codebleu_raw": 1.0,
+            "execution_penalty": 1.0,
+            "domain_codebleu": 1.0,
+            "n_domain_tokens": 952
+          },
+          "elapsed_s": 868.5,
+          "n_nodes": 3,
+          "tcrg": {
+            "task_type": "feature",
+            "nodes": [
+              {
+                "id": "n1",
+                "title": "Implement to_superpauli conversion function",
+                "description": "Implement the public to_superpauli function that converts a superoperator to the Pauli basis representation. The function should: (1) Accept Qobj inputs of type 'super' (with superrep 'super', 'choi', or 'chi') or type 'oper', (2) For 'super' superrep, directly apply the basis transformation using the existing _superpauli_basis helper and the pattern from _to_superpauli, (3) For other representations, convert to super first then apply transformation, (4) Validate that dimensions are qubit dimensions using isqubitdims, (5) Follow the pattern of existing to_* functions (to_super, to_choi, to_chi) with proper docstring and error handling.",
+                "dependencies": [],
+                "expected_output": "A complete to_superpauli function implementation with signature to_superpauli(q_oper: Qobj) -> Qobj, including comprehensive docstring documenting parameters, return value, raises section, and notes about Pauli basis representation."
+              },
+              {
+                "id": "n2",
+                "title": "Implement superpauli_to_super conversion function",
+                "description": "Implement the superpauli_to_super function that converts a superoperator from the Pauli basis back to the column-stacking superoperator representation. This is the inverse transformation of to_superpauli. The function should: (1) Accept a Qobj representing a superoperator in Pauli basis, (2) Apply the inverse basis transformation B @ q_oper @ B.dag() where B is the appropriately scaled Pauli basis from _superpauli_basis, (3) Validate qubit dimensions using isqubitdims, (4) Return a superoperator with superrep='super', (5) Include proper docstring following QuTiP conventions.",
+                "dependencies": [],
+                "expected_output": "A complete superpauli_to_super function implementation with signature superpauli_to_super(q_oper: Qobj) -> Qobj, including comprehensive docstring documenting parameters, return value, raises section, and notes about the inverse transformation."
+              },
+              {
+                "id": "n3",
+                "title": "Integrate new functions into module exports",
+                "description": "Add both to_superpauli and superpauli_to_super to the __all__ export list. Place the new function implementations in the module at an appropriate location (near other to_* functions like to_super, to_choi, to_chi). Return the complete modified Python file with: (1) Updated __all__ list containing 'to_superpauli' and 'superpauli_to_super', (2) Both new function implementations integrated into the module, (3) All existing functionality and imports preserved.",
+                "dependencies": [
+                  "n1",
+                  "n2"
+                ],
+                "expected_output": "The COMPLETE modified Python file with both new functions added and __all__ updated to include 'to_superpauli' and 'superpauli_to_super'. Not a fragment. Not just the new functions. The entire file from the first import to the last line."
+              }
+            ]
+          },
+          "node_summary": [
+            {
+              "node_id": "n1",
+              "node_title": "Implement to_superpauli conversion function",
+              "n_iters": 3,
+              "final_passed": false
+            },
+            {
+              "node_id": "n2",
+              "node_title": "Implement superpauli_to_super conversion function",
+              "n_iters": 3,
+              "final_passed": false
+            },
+            {
+              "node_id": "n3",
+              "node_title": "Integrate new functions into module exports",
+              "n_iters": 3,
+              "final_passed": false
+            }
+          ]
+        },
+        {
+          "sample": 2,
+          "passed": false,
+          "code_length": 24766,
+          "failures": [
+            {
+              "test_file": "test_superop_reps.py",
+              "test_name": "TestSuperopReps.test_SuperPauliInvalidArgs",
+              "assertion": "",
+              "location": "2/pr2835/test_superop_reps.py:309",
+              "error_type": "PytestUnknownMarkWarning",
+              "explanation": "AttributeError: 'numpy.ndarray' object has no attribute 'issuper'",
+              "snippet": "    @pytest.mark.repeat(3)\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ============================\nFAILED manual_corpus/test-2/pr2835/test_superop_reps.py::TestSuperopReps::test_SuperPauliInvalidArgs\n=================== 1 failed, 92 passed, 1 warning in 7.33s ===================="
+            }
+          ],
+          "pytest_tail": "/stable/how-to/capture-warnings.html\n=========================== short test summary info ============================\nFAILED manual_corpus/test-2/pr2835/test_superop_reps.py::TestSuperopReps::test_SuperPauliInvalidArgs\n=================== 1 failed, 92 passed, 1 warning in 7.33s ====================\n",
+          "codebleu": {
+            "codebleu": 0.9176,
+            "ngram_match": 0.7427,
+            "weighted_ngram_match": 0.9424,
+            "syntax_match": 0.9852,
+            "dataflow_match": 0,
+            "domain_delta": 0.15,
+            "domain_codebleu_raw": 1.0,
+            "execution_penalty": 1.0,
+            "domain_codebleu": 1.0,
+            "n_domain_tokens": 915
+          },
+          "elapsed_s": 847.8,
+          "n_nodes": 3,
+          "tcrg": {
+            "task_type": "feature",
+            "nodes": [
+              {
+                "id": "n1",
+                "title": "Update exports and implement to_superpauli",
+                "description": "Update the __all__ list to include 'to_superpauli' and 'superpauli_to_super'. Implement the public to_superpauli function that converts a superoperator from column-stacking basis to Pauli basis. This function should leverage the existing _to_superpauli internal function but provide proper public documentation with full docstring. The function should accept a Qobj representing a quantum map (superoperator, Choi matrix, or unitary operator) and return a Qobj representing the same map in the Pauli basis. It should validate that the input has qubit dimensions.",
+                "dependencies": [],
+                "expected_output": "Updated __all__ list containing 'to_superpauli' and 'superpauli_to_super', and a public function with signature to_superpauli(q_oper: Qobj) -> Qobj with comprehensive docstring documenting parameters, returns, raises, and examples."
+              },
+              {
+                "id": "n2",
+                "title": "Implement superpauli_to_super",
+                "description": "Implement the public superpauli_to_super function that converts a superoperator from Pauli basis back to column-stacking (supermatrix) basis. This is the inverse transformation of to_superpauli. The function should validate that the input is a superoperator, check that dimensions are qubit-based (powers of 2), compute the number of qubits, construct the normalized superpauli basis B, and perform the inverse basis transformation B @ q_oper @ B.dag(). The function should handle dimension matching similar to _to_superpauli.",
+                "dependencies": [
+                  "n1"
+                ],
+                "expected_output": "Public function with signature superpauli_to_super(q_oper: Qobj) -> Qobj with comprehensive docstring documenting parameters, returns, raises, and notes about the inverse relationship to to_superpauli."
+              },
+              {
+                "id": "n3",
+                "title": "Final file assembly",
+                "description": "Integrate all changes into the complete Python file. Place the new public functions after the existing conversion functions (to_super, to_choi, to_chi, etc.) to maintain logical organization. Ensure consistent code style with the existing file, proper indentation, and that all functions work together. The complete file should include the updated __all__ list and both new functions properly integrated into the module structure.",
+                "dependencies": [
+                  "n1",
+                  "n2"
+                ],
+                "expected_output": "The COMPLETE modified Python file with all changes applied. Not a fragment. Not just the new functions. The entire file from '# -*- coding: utf-8 -*-' to the last line, including the updated __all__ list and the new to_superpauli and superpauli_to_super functions properly positioned in the file."
+              }
+            ]
+          },
+          "node_summary": [
+            {
+              "node_id": "n1",
+              "node_title": "Update exports and implement to_superpauli",
+              "n_iters": 3,
+              "final_passed": false
+            },
+            {
+              "node_id": "n2",
+              "node_title": "Implement superpauli_to_super",
+              "n_iters": 3,
+              "final_passed": false
+            },
+            {
+              "node_id": "n3",
+              "node_title": "Final file assembly",
+              "n_iters": 3,
+              "final_passed": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

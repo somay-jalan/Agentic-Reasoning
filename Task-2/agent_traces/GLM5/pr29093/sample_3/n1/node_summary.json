@@ -1,0 +1,33 @@
+{
+  "node_id": "n1",
+  "node_title": "Implement surjective FpGroup kernel computation helper",
+  "n_iterations": 3,
+  "final_passed": false,
+  "best_code_length": 23623,
+  "iteration_scores": [
+    {
+      "iteration": 1,
+      "role": "generated",
+      "code_length": 23623,
+      "all_passed": false,
+      "severity": "high",
+      "n_fixes": 3
+    },
+    {
+      "iteration": 2,
+      "role": "debugged",
+      "code_length": 0,
+      "all_passed": false,
+      "severity": "\u2014",
+      "n_fixes": 0
+    },
+    {
+      "iteration": 3,
+      "role": "debugged",
+      "code_length": 22300,
+      "all_passed": false,
+      "severity": "high",
+      "n_fixes": 4
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "physical_errors": [
+    "The relator-lift approach incorrectly assumes empty kernel_gens implies trivial kernel - this is mathematically wrong for FreeGroup codomains where kernel should be the normal closure of domain relators",
+    "For surjective homomorphisms to FreeGroup, the kernel must include the normal closure of domain relators, which the code completely omits"
+  ],
+  "numerical_errors": [
+    "The kernel computation returns FpSubgroup with empty generators list when codomain relators lift to identity, but this does NOT mean the kernel is trivial",
+    "Setting kernel_gens = [G.identity] when kernel_gens is empty creates a trivial subgroup, which is incorrect when the homomorphism has non-trivial kernel"
+  ],
+  "missing_cases": [
+    "FreeGroup codomain case: when codomain has no relators, kernel should be generated from domain relators' normal closure",
+    "Verification that computed kernel generators actually generate the full kernel (not just a subset)",
+    "Handling case where relator lifts to identity but kernel is still non-trivial due to other elements mapping to identity"
+  ],
+  "severity": "high",
+  "actionable_fixes": [
+    "Remove the incorrect fallback 'kernel_gens = [G.identity]' when kernel_gens is empty",
+    "Add explicit handling for FreeGroup codomain: kernel should be FpSubgroup(G, G.relators if hasattr(G, 'relators') else [], normal=True)",
+    "For FpGroup codomain with empty kernel_gens after relator lifting, do NOT assume trivial kernel - need additional verification or fallback to permutation method",
+    "The condition 'if not kernel_gens' should trigger fallback to permutation group conversion rather than assuming trivial kernel"
+  ]
+}

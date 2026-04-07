@@ -1,0 +1,33 @@
+{
+  "node_id": "n1",
+  "node_title": "Add sqrt_quadratic_ratio_rule to handle sqrt((a-x)/(a+x)) integrals",
+  "n_iterations": 3,
+  "final_passed": false,
+  "best_code_length": 91192,
+  "iteration_scores": [
+    {
+      "iteration": 1,
+      "role": "generated",
+      "code_length": 91192,
+      "all_passed": false,
+      "severity": "high",
+      "n_fixes": 5
+    },
+    {
+      "iteration": 2,
+      "role": "debugged",
+      "code_length": 91105,
+      "all_passed": false,
+      "severity": "medium",
+      "n_fixes": 4
+    },
+    {
+      "iteration": 3,
+      "role": "debugged",
+      "code_length": 91112,
+      "all_passed": false,
+      "severity": "medium",
+      "n_fixes": 3
+    }
+  ]
+}

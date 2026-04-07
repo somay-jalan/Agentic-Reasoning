@@ -1,0 +1,10 @@
+{
+  "name": "pr2835",
+  "repo_url": "https://github.com/qutip/qutip",
+  "checkout": "master",
+  "target_relpath": "qutip/core/superop_reps.py",
+  "before_file": "qutip_core_superop_reps_before.py",
+  "after_file": "qutip_core_superop_reps_after.py",
+  "test_file": "test_superop_reps.py",
+  "prompt_file":"prompt.txt"
+}

@@ -1,0 +1,18 @@
+{
+  "physical_errors": [],
+  "numerical_errors": [],
+  "missing_cases": [
+    "The sqrt_quadratic_ratio_rule does not validate that B*D != 0 to ensure the product (A+B*x)*(C+D*x) is genuinely quadratic rather than linear or constant",
+    "No handling for the degenerate case where A*D - B*C = 0 which would make the ratio simplify to a constant",
+    "The trig_substitution_rule additions for sqrt(a + b*x_func**2) do not handle cases where a or b are symbolic expressions that cannot be determined positive/negative at match time",
+    "Missing validation that the rewritten integrand (A+B*x)/sqrt((A+B*x)*(C+D*x)) will actually be handled by subsequent rules before returning a RewriteRule"
+  ],
+  "severity": "medium",
+  "actionable_fixes": [
+    "Add condition check in sqrt_quadratic_ratio_rule: if B*D == 0, return None since the product would not be quadratic",
+    "Add check: if simplify(A*D - B*C) == 0, return None since sqrt((A+B*x)/(C+D*x)) would simplify to a constant",
+    "In trig_substitution_rule, the substitutions for sqrt(a + b*x_func**2) should only be added when the corresponding x_func substitution was actually used (i.e., when x_func matches the expected form for that case)",
+    "Verify the sqrt_quadratic_ratio_rule is placed in the rule chain before trig_substitution_rule is called - currently it appears in both the Pow switch and the alternatives block, but trig_substitution_rule is called separately via null_safe(trig_substitution_rule) at the end",
+    "The rule chain order in integral_steps needs verification: sqrt_quadratic_ratio_rule should trigger first to rewrite the integrand, then trig_substitution_rule should handle the resulting sqrt(a^2 - x^2) form"
+  ]
+}

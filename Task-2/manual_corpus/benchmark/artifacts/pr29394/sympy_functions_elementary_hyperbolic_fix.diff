@@ -1,0 +1,36 @@
+diff --git a/sympy/functions/elementary/hyperbolic.py b/sympy/functions/elementary/hyperbolic.py
+index 88dff5ffcb..cf1f2f828b 100644
+--- a/sympy/functions/elementary/hyperbolic.py
++++ b/sympy/functions/elementary/hyperbolic.py
+@@ -367,6 +367,15 @@ def _eval_is_zero(self):
+         if rest.is_zero:
+             return ipi_mult.is_integer
+ 
++    def _eval_derivative_n_times(self, s, n):
++        if self.args[0] == s and n.is_integer and n.is_nonnegative:
++            if n.is_even:
++                return sinh(s)
++            if n.is_odd:
++                return cosh(s)
++            return (-I)**n*sinh(s + I*pi*n/2)
++        return super()._eval_derivative_n_times(s, n)
++
+ 
+ class cosh(HyperbolicFunction):
+     r"""
+@@ -613,6 +622,15 @@ def _eval_is_zero(self):
+         if ipi_mult and rest.is_zero:
+             return (ipi_mult - S.Half).is_integer
+ 
++    def _eval_derivative_n_times(self, s, n):
++        if self.args[0] == s and n.is_integer and n.is_nonnegative:
++            if n.is_even:
++                return cosh(s)
++            if n.is_odd:
++                return sinh(s)
++            return (-I)**n*cosh(s + I*pi*n/2)
++        return super()._eval_derivative_n_times(s, n)
++
+ 
+ class tanh(HyperbolicFunction):
+     r"""

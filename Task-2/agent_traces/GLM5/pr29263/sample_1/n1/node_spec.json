@@ -1,0 +1,7 @@
+{
+  "id": "n1",
+  "title": "Add sqrt_rational_rule to handle sqrt of rational functions with linear numerator and denominator",
+  "description": "The issue is that `sympy.integrate(sqrt((a-x)/(a+x))/x, x)` returns an unevaluated integral instead of a closed-form expression. The integrand `sqrt((a-x)/(a+x))/x` is not recognized by any existing rule. The fix requires adding a new `sqrt_rational_rule` function that rewrites `sqrt((a+bx)/(c+dx))` patterns to `(a+bx)/sqrt((a+bx)(c+dx))` or `sqrt((a+bx)(c+dx))/(c+dx)`. For the specific case `sqrt((a-x)/(a+x))`, this rewrites to `(a-x)/sqrt(a^2-x^2)`, which can then be handled by `trig_substitution_rule`. The function must be added after `sqrt_linear_rule` and before `sqrt_quadratic_rule`, and `null_safe(sqrt_rational_rule)` must be added to both the `Pow` and `Mul` cases in the `integral_steps` function.",
+  "dependencies": [],
+  "expected_output": "The COMPLETE modified Python file with the fix applied. Not a fragment. Not just the fixed function. The entire file from the first import to the last line."
+}

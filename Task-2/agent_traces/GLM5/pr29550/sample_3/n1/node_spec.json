@@ -1,0 +1,7 @@
+{
+  "id": "n1",
+  "title": "Fix NaN values in bode_magnitude_numerical_data by using robust magnitude computation",
+  "description": "Modify the `bode_magnitude_numerical_data` function in `sympy/physics/control/control_plots.py`. The current implementation uses `mag = 20*log(Abs(w_expr), 10)` which produces `nan` values when computing the Bode magnitude for transfer functions with complex coefficients. The fix requires: (1) Update the import statement `from sympy.functions import arg, Abs` to `from sympy.functions import arg, Abs, re, im, sqrt`. (2) Replace the magnitude calculation `mag = 20*log(Abs(w_expr), 10)` with a more robust approach: compute the real and imaginary parts separately using `re(w_expr)` and `im(w_expr)`, then compute magnitude as `sqrt(mag_re**2 + mag_im**2)`, and finally apply the dB conversion `20*log(mag, 10)`. This approach avoids numerical issues with the symbolic `Abs()` function when dealing with complex coefficient polynomials.",
+  "dependencies": [],
+  "expected_output": "The COMPLETE modified Python file with the fix applied. Not a fragment. Not just the fixed function. The entire file from the first import to the last line."
+}

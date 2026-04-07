@@ -1,0 +1,24 @@
+{
+  "all_passed": false,
+  "has_critical_failure": true,
+  "syntax": {
+    "passed": false,
+    "syntax_errors": [
+      "SyntaxError at line 245: closing parenthesis ')' does not match opening parenthesis '[' on line 243 (text: ') -> list[Expr]:')"
+    ],
+    "warnings": []
+  },
+  "ast_patterns": {
+    "passed": false,
+    "issues": [
+      "Skipped: syntax error upstream."
+    ]
+  },
+  "physics": {
+    "passed": false,
+    "issues": [
+      "Skipped: syntax error upstream."
+    ]
+  },
+  "pytest": {}
+}

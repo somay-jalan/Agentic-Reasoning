@@ -1,0 +1,9 @@
+{
+  "id": "n2",
+  "title": "Implement _eval_derivative_n_times for sin class",
+  "description": "Add the `_eval_derivative_n_times` method to the `sin` class in the trigonometric.py file. The method signature is `_eval_derivative_n_times(self, s, n)` where `s` is the symbol to differentiate with respect to and `n` is the number of derivatives. Implementation: if the argument equals `s`, return `sin(self.args[0] + n*pi/2)`. Otherwise return `None` to fall back to sympy's default repeated differentiation. The method should be added after the existing methods in the sin class, before the class definition ends.",
+  "dependencies": [
+    "n1"
+  ],
+  "expected_output": "The complete modified Python file with the `_eval_derivative_n_times` method added to the `sin` class. The method returns sin(arg + n*pi/2) when differentiating with respect to the argument variable."
+}

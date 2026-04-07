@@ -1,0 +1,9 @@
+{
+  "id": "n2",
+  "title": "Implement superpauli_to_super",
+  "description": "Implement the public superpauli_to_super function that converts a superoperator from Pauli basis back to column-stacking (supermatrix) basis. This is the inverse transformation of to_superpauli. The function should validate that the input is a superoperator, check that dimensions are qubit-based (powers of 2), compute the number of qubits, construct the normalized superpauli basis B, and perform the inverse basis transformation B @ q_oper @ B.dag(). The function should handle dimension matching similar to _to_superpauli.",
+  "dependencies": [
+    "n1"
+  ],
+  "expected_output": "Public function with signature superpauli_to_super(q_oper: Qobj) -> Qobj with comprehensive docstring documenting parameters, returns, raises, and notes about the inverse relationship to to_superpauli."
+}

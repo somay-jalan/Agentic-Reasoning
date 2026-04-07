@@ -1,0 +1,10 @@
+{
+  "id": "n3",
+  "title": "Assemble complete modified homomorphisms.py",
+  "description": "Combine the new `_lift_relator` method (from n1) and the modified `_compute_kernel` method (from n2) with the rest of the existing code to produce the complete modified Python file. The `_lift_relator` method should be added to the GroupHomomorphism class after the `_invs` method. The `_compute_kernel` method should have the new surjective FpGroup case added before the existing infinity check. Ensure all imports, existing methods, and the module structure remain intact.",
+  "dependencies": [
+    "n1",
+    "n2"
+  ],
+  "expected_output": "The COMPLETE modified Python file with the feature implemented. Not a fragment. Not just the modified methods. The entire file from the first import to the last line."
+}

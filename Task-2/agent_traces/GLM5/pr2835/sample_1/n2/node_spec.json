@@ -1,0 +1,9 @@
+{
+  "id": "n2",
+  "title": "Update module exports",
+  "description": "Add the new function names 'to_superpauli' and 'superpauli_to_super' to the module's `__all__` list to make them part of the public API, maintaining alphabetical order with existing exports.",
+  "dependencies": [
+    "n1"
+  ],
+  "expected_output": "Updated `__all__` list containing all existing exports plus 'superpauli_to_super' and 'to_superpauli' in alphabetical order."
+}

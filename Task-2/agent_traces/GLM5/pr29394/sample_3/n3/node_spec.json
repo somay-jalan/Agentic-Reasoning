@@ -1,0 +1,9 @@
+{
+  "id": "n3",
+  "title": "Implement _eval_derivative_n_times for cos class",
+  "description": "Add the `_eval_derivative_n_times` method to the `cos` class in the trigonometric.py file. The method signature is `_eval_derivative_n_times(self, s, n)` where `s` is the symbol to differentiate with respect to and `n` is the number of derivatives. Implementation: if the argument equals `s`, return `cos(self.args[0] + n*pi/2)`. Otherwise return `None` to fall back to sympy's default repeated differentiation. The method should be added after the existing methods in the cos class, before the class definition ends.",
+  "dependencies": [
+    "n2"
+  ],
+  "expected_output": "The complete modified Python file with the `_eval_derivative_n_times` method added to both the `sin` and `cos` classes. The file should be complete from the first import to the last line, with both trigonometric functions now supporting efficient nth derivative computation."
+}

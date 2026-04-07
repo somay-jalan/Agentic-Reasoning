@@ -1,0 +1,15 @@
+{
+  "physical_errors": [],
+  "numerical_errors": [],
+  "missing_cases": [
+    "No unit tests provided to verify correctness of Pauli basis transformation",
+    "Cannot verify normalization factor 2**(-0.5*nq) is correct for PTM formalism without running tests"
+  ],
+  "severity": "low",
+  "actionable_fixes": [
+    "The floor division 'nq = _int_log_two(sqobj.shape[0]) // 2' flagged by AST checker is CORRECT - it computes integer qubit count from superoperator shape (4^n -> 2n -> n). No change needed.",
+    "The import errors in pytest are infrastructure issues (relative imports in standalone test file) - not code bugs. Tests need proper package context to run.",
+    "Consider removing redundant to_super() call inside _to_superpauli() since to_superpauli() already converts to super representation before calling it - minor optimization.",
+    "Add explicit test cases to verify: (1) identity channel gives identity PTM, (2) Pauli gates give expected PTM entries, (3) round-trip conversion superpauli->super->superpauli preserves channel"
+  ]
+}

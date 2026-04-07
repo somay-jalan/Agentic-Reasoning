@@ -1,0 +1,7 @@
+{
+  "model": "z-ai/glm-5",
+  "alias": "GLM5",
+  "prompt_hash": "3a20fd0a0a0d",
+  "n_samples": 10,
+  "saved_at": "2026-04-07T06:08:56"
+}

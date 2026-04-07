@@ -1,0 +1,29 @@
+{
+  "all_passed": false,
+  "has_critical_failure": false,
+  "syntax": {
+    "passed": true,
+    "syntax_errors": [],
+    "warnings": [
+      "NumPy array operations detected but numpy is not explicitly imported."
+    ]
+  },
+  "ast_patterns": {
+    "passed": false,
+    "issues": [
+      "Line ~1320: 'count = count + ...' accumulation inside loop causes floating-point drift. Consider numpy.cumsum or pre-computed index arrays.",
+      "Line ~2039: Floor division '//' truncates to integer \u2014 this is almost certainly a bug in a physics formula. Replace with '/'."
+    ]
+  },
+  "physics": {
+    "passed": false,
+    "ran_successfully": false,
+    "nan_inf_detected": false,
+    "stability_ok": null,
+    "issues": [
+      "Runtime error: Traceback (most recent call last):\n  File \"/tmp/tmp4q_izsj_.py\", line 60, in <module>\n    from .integrals import Integral\nImportError: attempted relative import with no known parent package\n"
+    ],
+    "stdout_snippet": ""
+  },
+  "pytest": {}
+}

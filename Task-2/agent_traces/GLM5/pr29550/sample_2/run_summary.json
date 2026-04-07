@@ -1,0 +1,13 @@
+{
+  "task_type": "bugfix",
+  "n_nodes": 1,
+  "final_code_length": 37641,
+  "nodes": [
+    {
+      "id": "n1",
+      "title": "Fix magnitude calculation in bode_magnitude_numerical_data",
+      "n_iters": 1,
+      "final_passed": true
+    }
+  ]
+}

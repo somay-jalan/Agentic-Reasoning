@@ -1,0 +1,26 @@
+diff --git a/sympy/matrices/eigen.py b/sympy/matrices/eigen.py
+index 936ec30f61..b5ffa8f6bb 100644
+--- a/sympy/matrices/eigen.py
++++ b/sympy/matrices/eigen.py
+@@ -207,16 +207,16 @@ def _eigenvals(M,
+     if not M.is_square:
+         raise NonSquareMatrixError("{} must be a square matrix.".format(M))
+ 
+-    if M._rep.domain not in (ZZ, QQ):
+-        # Skip this check for ZZ/QQ because it can be slow
+-        if all(x.is_number for x in M) and M.has(Float):
+-            return _eigenvals_mpmath(M, multiple=multiple)
+-
+     if rational:
+         from sympy.simplify import nsimplify
+         M = M.applyfunc(
+             lambda x: nsimplify(x, rational=True) if x.has(Float) else x)
+ 
++    if M._rep.domain not in (ZZ, QQ):
++        # Skip this check for ZZ/QQ because it can be slow
++        if all(x.is_number for x in M) and M.has(Float):
++            return _eigenvals_mpmath(M, multiple=multiple)
++
+     if multiple:
+         return _eigenvals_list(
+             M, error_when_incomplete=error_when_incomplete, simplify=simplify,

@@ -1,0 +1,45 @@
+{
+  "all_passed": true,
+  "has_critical_failure": false,
+  "syntax": {
+    "passed": true,
+    "syntax_errors": [],
+    "warnings": []
+  },
+  "ast_patterns": {
+    "passed": false,
+    "issues": [
+      "Line ~1920: Floor division '//' truncates to integer \u2014 this is almost certainly a bug in a physics formula. Replace with '/'.",
+      "Line ~1225: Floor division '//' truncates to integer \u2014 this is almost certainly a bug in a physics formula. Replace with '/'.",
+      "Line ~2398: Floor division '//' truncates to integer \u2014 this is almost certainly a bug in a physics formula. Replace with '/'.",
+      "Line ~2034: Floor division '//' truncates to integer \u2014 this is almost certainly a bug in a physics formula. Replace with '/'.",
+      "Line ~2639: Floor division '//' truncates to integer \u2014 this is almost certainly a bug in a physics formula. Replace with '/'.",
+      "Line ~3337: Floor division '//' truncates to integer \u2014 this is almost certainly a bug in a physics formula. Replace with '/'.",
+      "Line ~3339: Floor division '//' truncates to integer \u2014 this is almost certainly a bug in a physics formula. Replace with '/'.",
+      "Line ~3557: Floor division '//' truncates to integer \u2014 this is almost certainly a bug in a physics formula. Replace with '/'.",
+      "Line ~3559: Floor division '//' truncates to integer \u2014 this is almost certainly a bug in a physics formula. Replace with '/'.",
+      "Line ~1271: Floor division '//' truncates to integer \u2014 this is almost certainly a bug in a physics formula. Replace with '/'.",
+      "Line ~1660: Floor division '//' truncates to integer \u2014 this is almost certainly a bug in a physics formula. Replace with '/'.",
+      "Line ~2882: Floor division '//' truncates to integer \u2014 this is almost certainly a bug in a physics formula. Replace with '/'.",
+      "Line ~485: Floor division '//' truncates to integer \u2014 this is almost certainly a bug in a physics formula. Replace with '/'.",
+      "Line ~867: Floor division '//' truncates to integer \u2014 this is almost certainly a bug in a physics formula. Replace with '/'.",
+      "Line ~3105: Floor division '//' truncates to integer \u2014 this is almost certainly a bug in a physics formula. Replace with '/'.",
+      "Line ~3335: Floor division '//' truncates to integer \u2014 this is almost certainly a bug in a physics formula. Replace with '/'.",
+      "Line ~3555: Floor division '//' truncates to integer \u2014 this is almost certainly a bug in a physics formula. Replace with '/'.",
+      "Line ~1555: Floor division '//' truncates to integer \u2014 this is almost certainly a bug in a physics formula. Replace with '/'."
+    ]
+  },
+  "physics": {
+    "passed": true,
+    "ran_successfully": true,
+    "nan_inf_detected": false,
+    "stability_ok": true,
+    "issues": [],
+    "stdout_snippet": ""
+  },
+  "pytest": {
+    "passed": true,
+    "failures": [],
+    "tail": "test-1/pr29394/test_trigonometric.py::test_issue_18746 PASSED [ 96%]\nmanual_corpus/test-1/pr29394/test_trigonometric.py::test_issue_25833 PASSED [ 97%]\nmanual_corpus/test-1/pr29394/test_trigonometric.py::test_issue_25847 PASSED [ 98%]\nmanual_corpus/test-1/pr29394/test_trigonometric.py::test_issue_23843 PASSED [100%]\n\n============================= 97 passed in 48.41s ==============================\n"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "physical_errors": [],
+  "numerical_errors": [],
+  "missing_cases": [
+    "superpauli_to_super does not handle operators (type='oper') unlike to_superpauli which accepts operators via to_super conversion",
+    "Inconsistent behavior between to_superpauli (accepts operators) and superpauli_to_super (rejects operators with TypeError)",
+    "to_superpauli lacks explicit check for q_oper.issuper before delegating to _to_superpauli"
+  ],
+  "severity": "medium",
+  "actionable_fixes": [
+    "Modify superpauli_to_super to handle operators consistently with other conversion functions: add elif q_oper.type == 'oper' branch that converts via sprepost(q_oper, q_oper.dag()) before applying Pauli basis transformation",
+    "Alternatively, if rejecting operators is intentional, ensure test expectations match this behavior and document the difference from to_superpauli",
+    "The floor division at lines ~120 and ~683 (nq = _int_log_two(shape[0]) // 2) is mathematically correct for computing number of qubits from superoperator dimensions - this is a false positive from the AST checker since nq must be an integer"
+  ]
+}

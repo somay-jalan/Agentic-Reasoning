@@ -1,0 +1,17 @@
+{
+  "physical_errors": [
+    "The _lift_relator method for FpGroup codomains uses an incorrect coset enumeration approach that fails to properly compute the lift of relators. The method should simply iterate through the relator's array_form and use self.invert() for each generator, similar to the PermutationGroup branch."
+  ],
+  "numerical_errors": [
+    "The coset enumeration in _lift_relator for FpGroup codomains incorrectly sets up im_gens = list(self._inverses) which gets dictionary keys (image generators) rather than proper preimage data, leading to incorrect translation maps and wrong results."
+  ],
+  "missing_cases": [
+    "The FpGroup branch of _lift_relator does not validate that symbols in the relator belong to codomain generators (unlike the PermutationGroup branch which does check this)."
+  ],
+  "severity": "high",
+  "actionable_fixes": [
+    "Replace the entire FpGroup branch in _lift_relator with the simpler approach used for PermutationGroup: iterate through relator.array_form, use symbol_to_group_gen mapping to get the generator, call self.invert(gen) for preimage, and multiply w = w * preimage**power.",
+    "Unify the FpGroup and PermutationGroup branches since they should perform the same logical operation.",
+    "Add validation for symbols not in codomain generators for FpGroup branch to match PermutationGroup behavior."
+  ]
+}

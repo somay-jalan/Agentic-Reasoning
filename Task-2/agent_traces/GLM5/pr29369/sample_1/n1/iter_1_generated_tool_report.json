@@ -1,0 +1,24 @@
+{
+  "all_passed": true,
+  "has_critical_failure": false,
+  "syntax": {
+    "passed": true,
+    "syntax_errors": [],
+    "warnings": []
+  },
+  "ast_patterns": {
+    "passed": false,
+    "issues": [
+      "Line ~549: Floor division '//' truncates to integer \u2014 this is almost certainly a bug in a physics formula. Replace with '/'."
+    ]
+  },
+  "physics": {
+    "passed": true,
+    "ran_successfully": true,
+    "nan_inf_detected": false,
+    "stability_ok": true,
+    "issues": [],
+    "stdout_snippet": ""
+  },
+  "pytest": {}
+}

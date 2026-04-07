@@ -1,0 +1,9 @@
+{
+  "id": "n2",
+  "title": "Extend _compute_kernel for surjective FpGroup homomorphisms",
+  "description": "Modify the `_compute_kernel` method to handle surjective homomorphisms between FpGroups. The mathematical principle is: for a surjective homomorphism \u03c6: G \u2192 H where G and H are FpGroups, the kernel is the normal closure in G of the lifts of the relators of H. The implementation should: (1) Add a new branch at the beginning of `_compute_kernel` that checks if both domain and codomain are FpGroups, (2) Check if the homomorphism is surjective using `is_surjective()`, (3) If surjective (or surjectivity cannot be determined for infinite groups), compute kernel generators by calling `_lift_relator` on each relator of the codomain, (4) Return an FpSubgroup with these lifts as generators and `normal=True`. This enables kernel computation for infinite FpGroups when the homomorphism is surjective.",
+  "dependencies": [
+    "n1"
+  ],
+  "expected_output": "The modified `_compute_kernel` method that uses `_lift_relator` for surjective homomorphisms between FpGroups, properly handling both finite and infinite groups."
+}

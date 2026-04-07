@@ -1,0 +1,26 @@
+{
+  "all_passed": false,
+  "has_critical_failure": false,
+  "syntax": {
+    "passed": true,
+    "syntax_errors": [],
+    "warnings": [
+      "NumPy array operations detected but numpy is not explicitly imported."
+    ]
+  },
+  "ast_patterns": {
+    "passed": true,
+    "issues": []
+  },
+  "physics": {
+    "passed": false,
+    "ran_successfully": false,
+    "nan_inf_detected": false,
+    "stability_ok": null,
+    "issues": [
+      "Runtime error: Traceback (most recent call last):\n  File \"/tmp/tmp5trkdlvd.py\", line 23, in <module>\n    from .exceptions import MatrixError, NonSquareMatrixError\nImportError: attempted relative import with no known parent package\n"
+    ],
+    "stdout_snippet": ""
+  },
+  "pytest": {}
+}

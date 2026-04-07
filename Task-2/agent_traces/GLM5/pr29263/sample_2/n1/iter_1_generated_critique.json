@@ -1,0 +1,22 @@
+{
+  "physical_errors": [
+    "The pattern matching in sqrt_quadratic_ratio_rule is fundamentally broken: it checks isinstance(base, Pow) and base.exp == -1, but fractions like (a-x)/(a+x) are represented as Mul objects in SymPy, not Pow with exp=-1. This means the function will never match the intended sqrt((a+b*x)/(c+d*x)) pattern.",
+    "The comment 'base is (c+d*x)/(a+b*x), so we have sqrt((a+b*x)/(c+d*x))' is backwards - if base = (c+d*x)/(a+b*x), then sqrt(base) = sqrt((c+d*x)/(a+b*x)), not sqrt((a+b*x)/(c+d*x))."
+  ],
+  "numerical_errors": [
+    "The AST warnings about floor division and counter accumulation are false positives for this context - the counter is for debugging/iteration, not numerical computation."
+  ],
+  "missing_cases": [
+    "The function only searches for standalone sqrt((a+b*x)/(c+d*x)) patterns but doesn't handle cases where this pattern is multiplied by other terms like 1/x (the original test case sqrt((a-x)/(a+x))/x).",
+    "No validation that a*c + b*d*x^2 remains positive for the domain of integration (required for real-valued square roots).",
+    "No handling of edge cases where b=0 or d=0 (degenerate linear ratios)."
+  ],
+  "severity": "high",
+  "actionable_fixes": [
+    "Remove the incorrect isinstance(base, Pow) check - use fraction(base) directly to extract numerator and denominator from any expression.",
+    "Fix the numerator/denominator interpretation: if pow_term = sqrt(numer/denom), then numer and denom from fraction() are correct as-is.",
+    "The function should search for sqrt patterns in the entire integrand, not just standalone Pow terms - use integrand.find(Pow) to locate sqrt subexpressions within larger expressions like sqrt((a-x)/(a+x))/x.",
+    "Add the function call to integral_steps for both Pow and Mul types (already done correctly).",
+    "Test with the actual case: integrate(sqrt((a-x)/(a+x))/x, x) should produce ln((a - sqrt(a^2-x^2))/|x|) - asin(x/a) + C."
+  ]
+}

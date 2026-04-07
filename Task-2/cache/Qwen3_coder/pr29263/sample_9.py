@@ -1,0 +1,1 @@
+sqrt((a - x)/(a + x))/x = sqrt((a - x)^2/((a + x)(a - x)))/x = (a - x)/(x*sqrt(a^2 - x^2))

@@ -1,0 +1,41 @@
+{
+  "all_passed": false,
+  "has_critical_failure": true,
+  "syntax": {
+    "passed": true,
+    "syntax_errors": [],
+    "warnings": []
+  },
+  "ast_patterns": {
+    "passed": false,
+    "issues": [
+      "Line ~121: Floor division '//' truncates to integer \u2014 this is almost certainly a bug in a physics formula. Replace with '/'.",
+      "Line ~688: Floor division '//' truncates to integer \u2014 this is almost certainly a bug in a physics formula. Replace with '/'."
+    ]
+  },
+  "physics": {
+    "passed": false,
+    "ran_successfully": false,
+    "nan_inf_detected": false,
+    "stability_ok": null,
+    "issues": [
+      "Runtime error: /tmp/tmp5oilngrj.py:570: SyntaxWarning: invalid escape sequence '\\{'\n  \"\"\"\nTraceback (most recent call last):\n  File \"/tmp/tmp5oilngrj.py\", line 24, in <module>\n    from . import data as _data\nImportError: attempted relative import with no known parent package\n"
+    ],
+    "stdout_snippet": ""
+  },
+  "pytest": {
+    "passed": false,
+    "failures": [
+      {
+        "test_file": "test_superop_reps.py",
+        "test_name": "TestSuperopReps.test_SuperPauliInvalidArgs",
+        "assertion": "",
+        "location": "/tmp/pr2835_GLM5_agent_guku721z/repo/qutip/core/superop_reps.py:570",
+        "error_type": "SyntaxWarning",
+        "explanation": "TypeError: Expected a Qobj, got ndarray.\nAssertionError: Regex pattern did not match.\nExpected regex: 'must be a Qobj.'\nActual message: 'Expected a Qobj, got ndarray.'",
+        "snippet": "    @pytest.mark.repeat(3)\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ============================\nFAILED manual_corpus/test-2/pr2835/test_superop_reps.py::TestSuperopReps::test_SuperPauliInvalidArgs\n=================== 1 failed, 92 passed, 2 warnings in 1.58s ==================="
+      }
+    ],
+    "tail": "ytest.org/en/stable/how-to/mark.html\n    @pytest.mark.repeat(3)\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ============================\nFAILED manual_corpus/test-2/pr2835/test_superop_reps.py::TestSuperopReps::test_SuperPauliInvalidArgs\n=================== 1 failed, 92 passed, 2 warnings in 1.58s ===================\n"
+  }
+}

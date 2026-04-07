@@ -1,0 +1,7 @@
+{
+  "id": "n2",
+  "title": "Implement superpauli_to_super conversion function",
+  "description": "Implement the superpauli_to_super function that converts a superoperator from the Pauli basis back to the column-stacking superoperator representation. This is the inverse transformation of to_superpauli. The function should: (1) Accept a Qobj representing a superoperator in Pauli basis, (2) Apply the inverse basis transformation B @ q_oper @ B.dag() where B is the appropriately scaled Pauli basis from _superpauli_basis, (3) Validate qubit dimensions using isqubitdims, (4) Return a superoperator with superrep='super', (5) Include proper docstring following QuTiP conventions.",
+  "dependencies": [],
+  "expected_output": "A complete superpauli_to_super function implementation with signature superpauli_to_super(q_oper: Qobj) -> Qobj, including comprehensive docstring documenting parameters, return value, raises section, and notes about the inverse transformation."
+}

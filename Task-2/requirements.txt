@@ -1,0 +1,8 @@
+openai>=1.0.0
+codebleu>=0.6.0
+python-dotenv>=1.0.0
+numpy>=1.24.0
+scipy>=1.10.0
+pytest>=7.0.0
+sympy>=1.12
+qutip>=5.0.0

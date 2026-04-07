@@ -1,0 +1,19 @@
+{
+  "physical_errors": [],
+  "numerical_errors": [
+    "The _surjective_fp_kernel method incorrectly computes kernel generators using self.invert(r) for relators r of the codomain. Since relators are identity in the codomain, invert returns the domain identity, resulting in an empty kernel.",
+    "The method fails to include domain relators and domain generators that map to codomain identity in the kernel generators."
+  ],
+  "missing_cases": [
+    "Domain relators must be included as kernel generators (they are trivial in the domain but define the kernel presentation)",
+    "Domain generators that map to codomain identity must be included as kernel generators",
+    "Preimages of codomain relators must be computed as products of preimages of constituent generators, not via invert() on the whole relator"
+  ],
+  "severity": "high",
+  "actionable_fixes": [
+    "In _surjective_fp_kernel, add domain relators to kernel_gens: iterate over self.domain.relators and append each to kernel_gens",
+    "Replace the loop that calls self.invert(r) on codomain relators with logic that computes preimage as product of generator preimages: for each (symbol, exp) in r.array_form, find the corresponding codomain generator, call self.invert(gen), and multiply into the preimage word raised to exp",
+    "Add a loop to include domain generators that map to identity: for g in self.domain.generators, if self(g).is_identity, append g to kernel_gens",
+    "Remove the 'if not preimage.is_identity' check when adding preimages, as even trivial-looking preimages may be needed for the kernel presentation"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "task_type": "feature",
+  "n_nodes": 3,
+  "final_code_length": 24630,
+  "nodes": [
+    {
+      "id": "n1",
+      "title": "Implement _lift_relator helper method",
+      "n_iters": 3,
+      "final_passed": false
+    },
+    {
+      "id": "n2",
+      "title": "Extend _compute_kernel for surjective FpGroup homomorphisms",
+      "n_iters": 2,
+      "final_passed": true
+    },
+    {
+      "id": "n3",
+      "title": "Assemble complete modified homomorphisms.py",
+      "n_iters": 1,
+      "final_passed": true
+    }
+  ]
+}

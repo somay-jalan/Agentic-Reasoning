@@ -1,0 +1,16 @@
+{
+  "physical_errors": [],
+  "numerical_errors": [],
+  "missing_cases": [
+    "The is_surjective() method returns None when both image and codomain are infinite groups, but _compute_kernel() treats this as falsy and skips the relator lifting logic",
+    "No fallback attempt at relator lifting when surjectivity cannot be determined (None case)",
+    "The kernel_gens list being empty results in trivial kernel [G.identity] instead of investigating why lifts failed"
+  ],
+  "severity": "high",
+  "actionable_fixes": [
+    "Change line 'if surjective:' to 'if surjective is not False:' in _compute_kernel() to handle the None case from is_surjective() for infinite groups",
+    "Add logging or debugging to determine why kernel_gens is empty - either is_surjective() returns False/None, or all lifts are being computed as identity",
+    "Consider attempting relator lifting unconditionally for FpGroup to FpGroup homomorphisms and validating the result, rather than relying on is_surjective() which has limitations for infinite groups",
+    "The AST warning about 'omega' is a false positive - this is group theory code where omega represents a set of points, not angular frequency"
+  ]
+}

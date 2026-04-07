@@ -1,0 +1,15 @@
+{
+  "physical_errors": [],
+  "numerical_errors": [],
+  "missing_cases": [
+    "superpauli_to_super does not handle operator (type='oper') inputs via conjugation, unlike to_superpauli and other to_* functions which do handle this case",
+    "No validation that input to superpauli_to_super is actually in Pauli basis representation (cannot be tracked by QuTiP metadata)"
+  ],
+  "severity": "medium",
+  "actionable_fixes": [
+    "Fix invalid escape sequences in docstrings: change docstring delimiters from triple quotes to raw triple quotes (r''') for the to_superpauli and superpauli_to_super functions, or escape all backslashes in LaTeX (e.g., \\\\{ instead of \\{)",
+    "The floor division at lines ~121 and ~682 (nq = _int_log_two(shape[0]) // 2) is CORRECT for physics - this computes number of qubits from superoperator dimension 4^n where shape[0] = 4^n gives log2(4^n) = 2n, then 2n // 2 = n. This is a false positive from the AST checker.",
+    "Consider adding operator handling to superpauli_to_super for API consistency: if q_oper.isoper, convert via sprepost(q_oper, q_oper.dag()) first, or document that only superoperator inputs are accepted",
+    "Verify test expectations in test_SuperPauliInvalidArgs match the actual TypeError behavior being implemented"
+  ]
+}

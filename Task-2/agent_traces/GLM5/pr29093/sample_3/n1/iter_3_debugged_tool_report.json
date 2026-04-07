@@ -1,0 +1,38 @@
+{
+  "all_passed": false,
+  "has_critical_failure": true,
+  "syntax": {
+    "passed": true,
+    "syntax_errors": [],
+    "warnings": []
+  },
+  "ast_patterns": {
+    "passed": false,
+    "issues": [
+      "Line ~406: 'omega' assigned without a 2\u03c0 factor. Angular frequency should be \u03c9 = 2\u03c0\u00b7f."
+    ]
+  },
+  "physics": {
+    "passed": true,
+    "ran_successfully": true,
+    "nan_inf_detected": false,
+    "stability_ok": true,
+    "issues": [],
+    "stdout_snippet": ""
+  },
+  "pytest": {
+    "passed": false,
+    "failures": [
+      {
+        "test_file": "test_homomorphisms.py",
+        "test_name": "test_fpgroup_kernel_surjective",
+        "assertion": "",
+        "location": "unknown",
+        "error_type": "unknown",
+        "explanation": "NotImplementedError: Kernel computation is not implemented for infinite groups",
+        "snippet": "    raise NotImplementedError(\nE   NotImplementedError: Kernel computation is not implemented for infinite groups\n=========================== short test summary info ============================\nFAILED manual_corpus/test-1/pr29093/test_homomorphisms.py::test_fpgroup_kernel_surjective\n========================= 1 failed, 4 passed in 1.52s =========================="
+      }
+    ],
+    "tail": "phisms.py:161: in _compute_kernel\n    raise NotImplementedError(\nE   NotImplementedError: Kernel computation is not implemented for infinite groups\n=========================== short test summary info ============================\nFAILED manual_corpus/test-1/pr29093/test_homomorphisms.py::test_fpgroup_kernel_surjective\n========================= 1 failed, 4 passed in 1.52s ==========================\n"
+  }
+}

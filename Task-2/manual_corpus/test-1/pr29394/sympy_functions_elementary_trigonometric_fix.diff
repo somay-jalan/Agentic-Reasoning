@@ -1,0 +1,48 @@
+diff --git a/sympy/functions/elementary/trigonometric.py b/sympy/functions/elementary/trigonometric.py
+index 0937e22628..86bd402a29 100644
+--- a/sympy/functions/elementary/trigonometric.py
++++ b/sympy/functions/elementary/trigonometric.py
+@@ -562,6 +562,21 @@ def _eval_is_complex(self):
+                 or self.args[0].is_complex:
+             return True
+ 
++    def _eval_derivative_n_times(self, s, n):
++        if self.args[0] == s and n.is_integer and n.is_nonnegative:
++            if n.is_Integer:
++                match n % 4:
++                    case 0:
++                        return sin(s)
++                    case 1:
++                        return cos(s)
++                    case 2:
++                        return -sin(s)
++                    case 3:
++                        return -cos(s)
++            return sin(s + pi*n/2)
++        return super()._eval_derivative_n_times(s, n)
++
+ 
+ class cos(TrigonometricFunction):
+     """
+@@ -934,6 +949,21 @@ def _eval_is_zero(self):
+         if rest.is_zero and pi_mult:
+             return (pi_mult - S.Half).is_integer
+ 
++    def _eval_derivative_n_times(self, s, n):
++        if self.args[0] == s and n.is_integer and n.is_nonnegative:
++            if n.is_Integer:
++                match n % 4:
++                    case 0:
++                        return cos(s)
++                    case 1:
++                        return -sin(s)
++                    case 2:
++                        return -cos(s)
++                    case 3:
++                        return sin(s)
++            return cos(s + pi*n/2)
++        return super()._eval_derivative_n_times(s, n)
++
+ 
+ class tan(TrigonometricFunction):
+     """

@@ -1,0 +1,12 @@
+{
+  "physical_errors": [],
+  "numerical_errors": [],
+  "missing_cases": [
+    "Error message in superpauli_to_super does not include the superrep value in the error message, causing pytest test_SuperPauliInvalidArgs to fail - expected regex 'superrep=\\'pauli\\'' but got 'Pauli basis is only defined for superoperators.'"
+  ],
+  "severity": "medium",
+  "actionable_fixes": [
+    "Update the ValueError in superpauli_to_super (around line 740) to include the superrep value: raise ValueError(f'Pauli basis is only defined for superoperators. Got type={q_oper.type}, superrep=\\'{q_oper.superrep}\\'.')",
+    "Note: AST checker warnings about floor division '//' at lines ~120 and ~740 are false positives - the integer division is intentional for computing the number of qubits from superoperator dimension (nq = log2(d)/2 where d=4^n)"
+  ]
+}

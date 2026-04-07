@@ -1,0 +1,12 @@
+{
+  "task_type": "bugfix",
+  "nodes": [
+    {
+      "id": "n1",
+      "title": "Fix linprog empty constraint matrix initialization",
+      "description": "Fix the `linprog` function in simplex.py. The bug is on line 1018 where `b = zeros(C.cols, 1)` creates a matrix with non-zero rows when A is empty. When `linprog([-1])` is called without constraints, the code sets `A = zeros(0, C.cols)` (0 rows) but incorrectly sets `b = zeros(C.cols, 1)` (C.cols rows, which is 1). This causes `_simplex` to raise 'ValueError: must give A and B' because the check `if A or B:` evaluates to True (B has rows while A doesn't). The fix is to change line 1018 from `b = zeros(C.cols, 1)` to `b = zeros(0, 1)` so both A and b have 0 rows when there are no constraints, allowing `_simplex` to correctly handle the no-constraints case.",
+      "dependencies": [],
+      "expected_output": "The COMPLETE modified Python file with the fix applied. Not a fragment. Not just the fixed function. The entire file from the first import to the last line."
+    }
+  ]
+}

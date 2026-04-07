@@ -1,0 +1,13 @@
+{
+  "task_type": "bugfix",
+  "n_nodes": 1,
+  "final_code_length": 91921,
+  "nodes": [
+    {
+      "id": "n1",
+      "title": "Fix integration of sqrt((a-x)/(a+x))/x by adding rewrite rule and enhancing trig substitution",
+      "n_iters": 3,
+      "final_passed": false
+    }
+  ]
+}

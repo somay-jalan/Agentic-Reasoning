@@ -1,0 +1,10 @@
+{
+  "name": "pr29394",
+  "repo_url": "https://github.com/sympy/sympy.git",
+  "checkout": "master",
+  "target_relpath": "sympy/functions/elementary/trigonometric.py",
+  "before_file": "sympy_functions_elementary_trigonometric_before.py",
+  "after_file": "sympy_functions_elementary_trigonometric_after.py",
+  "test_file": "test_trigonometric.py",
+  "prompt_file":"prompt.txt"
+}

@@ -1,0 +1,16 @@
+{
+  "physical_errors": [],
+  "numerical_errors": [
+    "AST checker incorrectly flags floor division '// 2' as bug - this is actually correct: for n-qubit superoperator, shape[0] = 4^n, so _int_log_two(4^n) = 2n, and 2n // 2 = n qubits (integer arithmetic is intentional)"
+  ],
+  "missing_cases": [
+    "Inconsistent handling of operator inputs: to_superpauli() accepts operators and converts them via to_super(), but superpauli_to_super() rejects operators with TypeError - this asymmetry may cause test failures",
+    "Function does not handle the case where input superoperator is already in column-stacking basis (no check for superrep attribute)"
+  ],
+  "severity": "medium",
+  "actionable_fixes": [
+    "Either make superpauli_to_super() accept operators like to_superpauli() does (add: if q_oper.isoper: q_oper = to_super(q_oper) before validation), OR verify test expects TypeError for operator input",
+    "Consider checking q_oper.superrep to provide more informative error if input is already in 'super' representation rather than Pauli basis",
+    "Verify test_superop_reps.py expectations for exception type (TypeError vs ValueError) and message format match implementation"
+  ]
+}

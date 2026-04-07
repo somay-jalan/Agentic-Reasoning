@@ -1,0 +1,14 @@
+{
+  "physical_errors": [],
+  "numerical_errors": [],
+  "missing_cases": [
+    "The infinity check in _compute_kernel blocks the surjective FpGroup path from being reached for infinite groups",
+    "is_surjective() returns None for infinite groups, which will fail the surjectivity check in _surjective_fp_kernel"
+  ],
+  "severity": "high",
+  "actionable_fixes": [
+    "Reorder checks in _compute_kernel: move the surjective FpGroup check BEFORE the infinity check, since _surjective_fp_kernel does not require computing group orders",
+    "In _surjective_fp_kernel, handle the case where is_surjective() returns None for infinite groups - consider checking if all codomain generators are in the image instead",
+    "The AST warning about 'omega' is a false positive - this is group theory code, not physics; omega is a set parameter in orbit_homomorphism, not angular frequency"
+  ]
+}

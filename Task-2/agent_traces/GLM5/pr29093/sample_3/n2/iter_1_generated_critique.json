@@ -1,0 +1,14 @@
+{
+  "physical_errors": [],
+  "numerical_errors": [],
+  "missing_cases": [
+    "The infinity check at the start of _compute_kernel blocks the surjective FpGroup optimization path entirely, even though _surjective_fp_kernel() may work for infinite groups using relator preimages",
+    "The is_surjective() method returns None for infinite groups, which is falsy and will cause the surjective check to fail silently"
+  ],
+  "severity": "high",
+  "actionable_fixes": [
+    "Move the surjective FpGroup check (isinstance checks and is_surjective call) BEFORE the infinity check in _compute_kernel - the specification explicitly states this check should be 'at the beginning of the method'",
+    "The infinity check should only apply to the permutation group conversion path, not to the surjective FpGroup direct method",
+    "Consider handling the case where is_surjective() returns None for infinite groups - either raise a specific error or attempt the computation if both domain and codomain are FpGroups"
+  ]
+}

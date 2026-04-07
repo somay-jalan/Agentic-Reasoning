@@ -1,0 +1,33 @@
+{
+  "node_id": "n1",
+  "node_title": "Fix integration of sqrt((a-x)/(a+x))/x by adding rewrite rule and enhancing trig substitution",
+  "n_iterations": 3,
+  "final_passed": false,
+  "best_code_length": 91921,
+  "iteration_scores": [
+    {
+      "iteration": 1,
+      "role": "generated",
+      "code_length": 91921,
+      "all_passed": false,
+      "severity": "medium",
+      "n_fixes": 5
+    },
+    {
+      "iteration": 2,
+      "role": "debugged",
+      "code_length": 91792,
+      "all_passed": false,
+      "severity": "medium",
+      "n_fixes": 5
+    },
+    {
+      "iteration": 3,
+      "role": "debugged",
+      "code_length": 91790,
+      "all_passed": false,
+      "severity": "medium",
+      "n_fixes": 3
+    }
+  ]
+}

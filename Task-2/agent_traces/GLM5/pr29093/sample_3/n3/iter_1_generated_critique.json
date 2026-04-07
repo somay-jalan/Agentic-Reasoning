@@ -1,0 +1,9 @@
+{
+  "physical_errors": [],
+  "numerical_errors": [],
+  "missing_cases": [],
+  "severity": "high",
+  "actionable_fixes": [
+    "In _compute_kernel method (around line 190-200), reorder the checks: move the surjective FpGroup check BEFORE the infinity check. Current order: infinity check first (raises NotImplementedError), then surjective FpGroup check. Required order: surjective FpGroup check first, then infinity check. This allows _surjective_fp_kernel to handle surjective homomorphisms between FpGroups regardless of whether the groups are finite or infinite."
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "physical_errors": [],
+  "numerical_errors": [],
+  "missing_cases": [
+    "_lift_relator does not handle KeyError when a symbol in relator is not found in codomain.generators mapping",
+    "_lift_relator does not validate that relator belongs to codomain before processing",
+    "_compute_kernel raises NotImplementedError for infinite groups, causing test_fpgroup_kernel_surjective to fail",
+    "No handling for case where codomain.generators is empty or relator.array_form contains symbols not in the generator mapping"
+  ],
+  "severity": "high",
+  "actionable_fixes": [
+    "Add try-except block around 'gen = symbol_to_group_gen[symbol]' in _lift_relator to handle missing symbols gracefully",
+    "Add validation at start of _lift_relator: if not all(s in symbol_to_group_gen for s, _ in relator.array_form): raise ValueError('Relator contains symbols not in codomain generators')",
+    "The test failure in _compute_kernel for infinite groups is a separate issue - either implement kernel computation for infinite FpGroups or mark the test as expected to fail for infinite domains",
+    "The AST warning about 'omega' is a false positive - omega in orbit_homomorphism is a set of points for group action, not angular frequency"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "physical_errors": [],
+  "numerical_errors": [],
+  "missing_cases": [
+    "The fix was not verified with the specific test case Matrix([[1.0, 0.0], [0.0, 2.0]]).eigenvals(rational=True) due to import error in test environment"
+  ],
+  "severity": "low",
+  "actionable_fixes": []
+}

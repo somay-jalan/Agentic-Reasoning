@@ -1,0 +1,7 @@
+{
+  "id": "n1",
+  "title": "Implement _lift_relator helper method",
+  "description": "Add a helper method `_lift_relator(self, relator)` to the GroupHomomorphism class. This method computes the 'lift' of a relator from the codomain to the domain. Given a relator (a word in the codomain's free group that equals identity in the codomain), the lift is obtained by replacing each generator symbol in the relator with a preimage under the homomorphism. The method should: (1) Create a mapping from symbols to generators of the codomain, (2) For each symbol-power pair in the relator's array_form, get a preimage using the `invert` method, (3) Multiply the preimages together according to the relator's word structure to form the lift.",
+  "dependencies": [],
+  "expected_output": "The `_lift_relator` method implementation with signature `def _lift_relator(self, relator)` that returns a FreeGroupElement representing the lift of the relator in the domain."
+}

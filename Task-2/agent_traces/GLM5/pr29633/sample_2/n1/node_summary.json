@@ -1,0 +1,33 @@
+{
+  "node_id": "n1",
+  "node_title": "Fix eigenvals rational flag processing order",
+  "n_iterations": 3,
+  "final_passed": false,
+  "best_code_length": 49001,
+  "iteration_scores": [
+    {
+      "iteration": 1,
+      "role": "generated",
+      "code_length": 49001,
+      "all_passed": false,
+      "severity": "low",
+      "n_fixes": 2
+    },
+    {
+      "iteration": 2,
+      "role": "debugged",
+      "code_length": 49001,
+      "all_passed": false,
+      "severity": "low",
+      "n_fixes": 1
+    },
+    {
+      "iteration": 3,
+      "role": "debugged",
+      "code_length": 49001,
+      "all_passed": false,
+      "severity": "low",
+      "n_fixes": 1
+    }
+  ]
+}

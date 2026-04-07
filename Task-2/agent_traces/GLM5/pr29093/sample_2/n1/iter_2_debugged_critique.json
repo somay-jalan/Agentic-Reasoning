@@ -1,0 +1,24 @@
+{
+  "physical_errors": [
+    "The relator lifting approach for kernel computation assumes the homomorphism is surjective, but the code proceeds when is_surjective() returns None (unknown surjectivity status), which can produce incorrect results",
+    "No validation that the computed lifts actually belong to the kernel (i.e., that applying the homomorphism to each lift yields the identity in the codomain)"
+  ],
+  "numerical_errors": [
+    "The identity check 'if not lift.is_identity' may not work correctly for FpGroup elements without a confluent rewriting system, potentially filtering out valid kernel generators",
+    "The invert() method for FpGroups uses modified_coset_enumeration_r which may fail or return incorrect results for certain relator words",
+    "When kernel_gens is empty, the code returns a trivial kernel without verifying this is correct - the kernel could be non-trivial but the relator lifting failed to capture it"
+  ],
+  "missing_cases": [
+    "No handling for the case when is_surjective() returns None - should fall through to alternative computation methods or raise an informative error",
+    "No verification step to confirm that computed kernel generators actually map to identity under the homomorphism",
+    "No handling for the case where codomain.relators is empty but the kernel is non-trivial"
+  ],
+  "severity": "high",
+  "actionable_fixes": [
+    "Change the condition 'if surjective is not False' to 'if surjective is True' to only use relator lifting when surjectivity is confirmed, not when it's unknown",
+    "Add validation after computing each lift: verify that self(lift).is_identity or self.codomain.equals(self(lift), self.codomain.identity) before adding to kernel_gens",
+    "Replace 'if not lift.is_identity' with a more robust check using self.codomain.equals(self(lift), self.codomain.identity) or ensure the rewriting system is confluent",
+    "When surjective is None, fall through to the permutation group approach or raise NotImplementedError with a clear message about needing confirmed surjectivity for relator lifting",
+    "Add debug logging or assertions to verify that the invert() method is returning non-trivial elements when expected"
+  ]
+}

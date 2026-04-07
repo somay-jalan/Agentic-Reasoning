@@ -1,0 +1,6 @@
+.env
+task2_venv
+__pycache__
+.pytest_cache
+qutip
+sympy

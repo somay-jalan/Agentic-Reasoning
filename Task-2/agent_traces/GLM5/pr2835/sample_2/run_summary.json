@@ -1,0 +1,25 @@
+{
+  "task_type": "feature",
+  "n_nodes": 3,
+  "final_code_length": 26123,
+  "nodes": [
+    {
+      "id": "n1",
+      "title": "Implement to_superpauli conversion function",
+      "n_iters": 3,
+      "final_passed": false
+    },
+    {
+      "id": "n2",
+      "title": "Implement superpauli_to_super conversion function",
+      "n_iters": 3,
+      "final_passed": false
+    },
+    {
+      "id": "n3",
+      "title": "Integrate new functions into module exports",
+      "n_iters": 3,
+      "final_passed": false
+    }
+  ]
+}

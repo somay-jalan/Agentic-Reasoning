@@ -1,0 +1,12 @@
+{
+  "task_type": "bugfix",
+  "nodes": [
+    {
+      "id": "n1",
+      "title": "Fix eigenvals rational=True parameter not converting float eigenvalues to integers",
+      "description": "The issue is in the `_eigenvals` function. When `rational=True` is passed, the current code checks if the matrix has Float values and delegates to `_eigenvals_mpmath` BEFORE applying the `nsimplify` conversion. This means the rational conversion never happens for matrices with floats. The fix is to move the `if rational:` block (lines that apply `nsimplify` to convert floats to rationals) BEFORE the check `if M._rep.domain not in (ZZ, QQ):` that triggers the mpmath path. The incorrect behavior is: `Matrix([[1.0, 0.0], [0.0, 2.0]]).eigenvals(rational=True)` returns `{1.00000000000000: 1, 2.00000000000000: 1}`. The correct behavior should be: `{1: 1, 2: 1}` - returning integer eigenvalues when rational=True is specified.",
+      "dependencies": [],
+      "expected_output": "The COMPLETE modified Python file with the fix applied. Not a fragment. Not just the fixed function. The entire file from the first import to the last line."
+    }
+  ]
+}

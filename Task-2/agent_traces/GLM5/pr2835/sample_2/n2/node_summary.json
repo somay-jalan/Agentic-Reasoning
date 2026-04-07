@@ -1,0 +1,33 @@
+{
+  "node_id": "n2",
+  "node_title": "Implement superpauli_to_super conversion function",
+  "n_iterations": 3,
+  "final_passed": false,
+  "best_code_length": 22307,
+  "iteration_scores": [
+    {
+      "iteration": 1,
+      "role": "generated",
+      "code_length": 22307,
+      "all_passed": false,
+      "severity": "low",
+      "n_fixes": 2
+    },
+    {
+      "iteration": 2,
+      "role": "debugged",
+      "code_length": 22311,
+      "all_passed": false,
+      "severity": "low",
+      "n_fixes": 4
+    },
+    {
+      "iteration": 3,
+      "role": "debugged",
+      "code_length": 23029,
+      "all_passed": false,
+      "severity": "low",
+      "n_fixes": 3
+    }
+  ]
+}

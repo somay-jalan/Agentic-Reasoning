@@ -1,0 +1,14 @@
+{
+  "physical_errors": [],
+  "numerical_errors": [],
+  "missing_cases": [
+    "Error message in superpauli_to_super does not match test expectation - test expects regex pattern containing \"superrep='pauli'\" but actual message is 'Pauli basis is only defined for superoperators. Input must be a superoperator.'",
+    "to_superpauli does not explicitly validate input type before delegating to _to_superpauli - relies on to_super to catch invalid inputs"
+  ],
+  "severity": "medium",
+  "actionable_fixes": [
+    "Update the ValueError message in superpauli_to_super to include information about superrep='pauli' to match test expectation, or verify the test's expected regex pattern is correct",
+    "The AST warnings about floor division '//' are false positives - the formula nq = _int_log_two(sqobj.shape[0]) // 2 correctly computes integer number of qubits from superoperator dimension (shape[0] = 4^nq, so log2(4^nq) = 2*nq, and 2*nq // 2 = nq)",
+    "Consider adding explicit type validation in to_superpauli for clearer error messages before delegating to _to_superpauli"
+  ]
+}

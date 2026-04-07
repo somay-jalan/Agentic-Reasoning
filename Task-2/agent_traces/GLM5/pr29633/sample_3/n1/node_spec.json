@@ -1,0 +1,7 @@
+{
+  "id": "n1",
+  "title": "Fix eigenvals rational flag processing order",
+  "description": "Modify the `_eigenvals` function to process the `rational=True` flag BEFORE the mpmath early-return check. Currently, when a matrix contains floats, the code returns early via `_eigenvals_mpmath()` before the rational conversion is applied. The incorrect behavior is: `Matrix([[1.0, 0.0], [0.0, 2.0]]).eigenvals(rational=True)` returns `{1.00000000000000: 1, 2.00000000000000: 1}` (float eigenvalues). The correct behavior should return `{1: 1, 2: 1}` (integer eigenvalues). The fix requires moving the `if rational:` block (lines that apply nsimplify to convert floats to rationals) to execute BEFORE the `if M._rep.domain not in (ZZ, QQ):` block that checks for mpmath path. After this reordering, when rational=True, floats are converted to rationals first, so M.has(Float) will be False and the mpmath path will be skipped, allowing the standard eigenvalue computation to return simplified integer/rationals results.",
+  "dependencies": [],
+  "expected_output": "The COMPLETE modified Python file with the fix applied. Not a fragment. Not just the fixed function. The entire file from the first import to the last line."
+}

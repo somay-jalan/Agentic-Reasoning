@@ -1,0 +1,10 @@
+{
+  "id": "n3",
+  "title": "Final assembly of complete file",
+  "description": "Integrate the new conversion functions and updated exports into the complete Python file. Place the new public functions in an appropriate location within the module (near other `to_*` conversion functions), ensure all existing imports and functions remain intact, and verify the file structure is consistent with the original.",
+  "dependencies": [
+    "n1",
+    "n2"
+  ],
+  "expected_output": "The complete modified Python file with all changes integrated, from the first import to the last line, including the new `to_superpauli` and `superpauli_to_super` functions and updated `__all__` list."
+}

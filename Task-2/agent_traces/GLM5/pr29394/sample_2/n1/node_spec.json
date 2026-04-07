@@ -1,0 +1,7 @@
+{
+  "id": "n1",
+  "title": "Mathematical foundation for n-th derivative",
+  "description": "Analyze the cyclic derivative pattern for sin and cos functions. The n-th derivative follows a periodic pattern: d^n/dx^n sin(x) = sin(x + n*pi/2) and d^n/dx^n cos(x) = cos(x + n*pi/2). For sin, derivatives cycle: sin\u2192cos\u2192(-sin)\u2192(-cos)\u2192sin (period 4). For cos, derivatives cycle: cos\u2192(-sin)\u2192(-cos)\u2192sin\u2192cos (period 4). The implementation should use this angle-shift formula for efficient computation.",
+  "dependencies": [],
+  "expected_output": "Mathematical formulas documenting the n-th derivative pattern for sin and cos functions, including the angle-shift implementation approach: sin(arg + n*pi/2) and cos(arg + n*pi/2)."
+}

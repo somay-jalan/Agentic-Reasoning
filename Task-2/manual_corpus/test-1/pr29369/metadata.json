@@ -1,0 +1,10 @@
+{
+  "name": "pr29369",
+  "repo_url": "https://github.com/sympy/sympy.git",
+  "checkout": "master",
+  "target_relpath": "sympy/solvers/simplex.py",
+  "before_file": "sympy_solvers_simplex_before.py",
+  "after_file": "sympy_solvers_simplex_after.py",
+  "test_file": "test_simplex.py",
+  "prompt_file":"prompt.txt"
+}

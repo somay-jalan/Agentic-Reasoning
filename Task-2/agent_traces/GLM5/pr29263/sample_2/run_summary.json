@@ -1,0 +1,13 @@
+{
+  "task_type": "bugfix",
+  "n_nodes": 1,
+  "final_code_length": 91192,
+  "nodes": [
+    {
+      "id": "n1",
+      "title": "Add sqrt_quadratic_ratio_rule to handle sqrt((a-x)/(a+x)) integrals",
+      "n_iters": 3,
+      "final_passed": false
+    }
+  ]
+}

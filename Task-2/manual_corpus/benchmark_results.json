@@ -1,0 +1,52 @@
+{
+  "timestamp": "2026-04-07T02:40:01.308687",
+  "results": [
+    {
+      "item": "test-2/pr2835",
+      "name": "pr2835",
+      "repo_url": "https://github.com/qutip/qutip",
+      "checkout": "master",
+      "target_relpath": "qutip/core/superop_reps.py",
+      "test_files": [
+        "test_superop_reps.py"
+      ],
+      "before": {
+        "label": "before",
+        "status": "FAIL",
+        "all_files_passed": false,
+        "per_file": [
+          {
+            "test_file": "test_superop_reps.py",
+            "status": "FAIL",
+            "returncode": 2,
+            "failed_tests": [],
+            "stdout": "============================= test session starts ==============================\nplatform linux -- Python 3.12.3, pytest-9.0.2, pluggy-1.6.0\nrootdir: /home/somay/Agentic-Reasoning/Task-2/manual_corpus\nplugins: anyio-4.13.0\ncollected 0 items / 1 error\n\n==================================== ERRORS ====================================\n_____________ ERROR collecting test-2/pr2835/test_superop_reps.py ______________\nImportError while importing test module '/home/somay/Agentic-Reasoning/Task-2/manual_corpus/test-2/pr2835/test_superop_reps.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntest-2/pr2835/test_superop_reps.py:13: in <module>\n    from qutip import (\n/tmp/pr2835_before_btoky2p2/repo/qutip/__init__.py:33: in <module>\n    from .core import *\n/tmp/pr2835_before_btoky2p2/repo/qutip/core/__init__.py:10: in <module>\n    from .metrics import *\n/tmp/pr2835_before_btoky2p2/repo/qutip/core/metrics.py:16: in <module>\n    from .superop_reps import to_choi, to_superpauli, to_super, kraus_to_choi\nE   ImportError: cannot import name 'to_superpauli' from 'qutip.core.superop_reps' (/tmp/pr2835_before_btoky2p2/repo/qutip/core/superop_reps.py)\n=========================== short test summary info ============================\nERROR test-2/pr2835/test_superop_reps.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n=============================== 1 error in 1.04s ===============================\n",
+            "stderr": ""
+          }
+        ],
+        "returncode": 1,
+        "stdout": "[test_superop_reps.py]\n============================= test session starts ==============================\nplatform linux -- Python 3.12.3, pytest-9.0.2, pluggy-1.6.0\nrootdir: /home/somay/Agentic-Reasoning/Task-2/manual_corpus\nplugins: anyio-4.13.0\ncollected 0 items / 1 error\n\n==================================== ERRORS ====================================\n_____________ ERROR collecting test-2/pr2835/test_superop_reps.py ______________\nImportError while importing test module '/home/somay/Agentic-Reasoning/Task-2/manual_corpus/test-2/pr2835/test_superop_reps.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntest-2/pr2835/test_superop_reps.py:13: in <module>\n    from qutip import (\n/tmp/pr2835_before_btoky2p2/repo/qutip/__init__.py:33: in <module>\n    from .core import *\n/tmp/pr2835_before_btoky2p2/repo/qutip/core/__init__.py:10: in <module>\n    from .metrics import *\n/tmp/pr2835_before_btoky2p2/repo/qutip/core/metrics.py:16: in <module>\n    from .superop_reps import to_choi, to_superpauli, to_super, kraus_to_choi\nE   ImportError: cannot import name 'to_superpauli' from 'qutip.core.superop_reps' (/tmp/pr2835_before_btoky2p2/repo/qutip/core/superop_reps.py)\n=========================== short test summary info ============================\nERROR test-2/pr2835/test_superop_reps.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n=============================== 1 error in 1.04s ===============================\n",
+        "stderr": ""
+      },
+      "after": {
+        "label": "after",
+        "status": "PASS",
+        "all_files_passed": true,
+        "per_file": [
+          {
+            "test_file": "test_superop_reps.py",
+            "status": "PASS",
+            "returncode": 0,
+            "failed_tests": [],
+            "stdout": "============================= test session starts ==============================\nplatform linux -- Python 3.12.3, pytest-9.0.2, pluggy-1.6.0\nrootdir: /home/somay/Agentic-Reasoning/Task-2/manual_corpus\nplugins: anyio-4.13.0\ncollected 93 items\n\ntest-2/pr2835/test_superop_reps.py ..................................... [ 39%]\n........................................................                 [100%]\n\n=============================== warnings summary ===============================\ntest-2/pr2835/test_superop_reps.py:309\n  /home/somay/Agentic-Reasoning/Task-2/manual_corpus/test-2/pr2835/test_superop_reps.py:309: PytestUnknownMarkWarning: Unknown pytest.mark.repeat - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.repeat(3)\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n======================== 93 passed, 1 warning in 2.67s =========================\n",
+            "stderr": ""
+          }
+        ],
+        "returncode": 0,
+        "stdout": "[test_superop_reps.py]\n============================= test session starts ==============================\nplatform linux -- Python 3.12.3, pytest-9.0.2, pluggy-1.6.0\nrootdir: /home/somay/Agentic-Reasoning/Task-2/manual_corpus\nplugins: anyio-4.13.0\ncollected 93 items\n\ntest-2/pr2835/test_superop_reps.py ..................................... [ 39%]\n........................................................                 [100%]\n\n=============================== warnings summary ===============================\ntest-2/pr2835/test_superop_reps.py:309\n  /home/somay/Agentic-Reasoning/Task-2/manual_corpus/test-2/pr2835/test_superop_reps.py:309: PytestUnknownMarkWarning: Unknown pytest.mark.repeat - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/stable/how-to/mark.html\n    @pytest.mark.repeat(3)\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n======================== 93 passed, 1 warning in 2.67s =========================\n",
+        "stderr": ""
+      },
+      "status": "OK"
+    }
+  ]
+}

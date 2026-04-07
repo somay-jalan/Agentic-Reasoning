@@ -1,0 +1,10 @@
+{
+  "name": "pr29093",
+  "repo_url": "https://github.com/sympy/sympy.git",
+  "checkout": "master",
+  "target_relpath": "sympy/combinatorics/homomorphisms.py",
+  "before_file": "sympy_combinatorics_homomorphisms_before.py",
+  "after_file": "sympy_combinatorics_homomorphisms_after.py",
+  "test_file": "test_homomorphisms.py",
+  "prompt_file":"prompt.txt"
+}

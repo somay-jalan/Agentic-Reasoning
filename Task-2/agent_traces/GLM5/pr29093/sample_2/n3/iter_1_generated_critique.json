@@ -1,0 +1,19 @@
+{
+  "physical_errors": [],
+  "numerical_errors": [
+    "The _invs() method incorrectly iterates over FpGroup elements - 'for s in parts' where parts=g iterates over array_form tuples (symbol, exp), but the code treats 's' as an element when checking 's in inverses' or computing 's**-1'"
+  ],
+  "missing_cases": [
+    "Kernel computation does not include domain generators that map directly to identity",
+    "Kernel computation does not include products like g1*g2^-1 when phi(g1) == phi(g2)",
+    "For FreeGroup codomains (no relators), the kernel is incorrectly returned as trivial - should compute kernel from elements mapping to identity",
+    "The relator-lift approach fails silently when invert() raises ValueError for surjective=True case"
+  ],
+  "severity": "high",
+  "actionable_fixes": [
+    "Fix _invs() method for FpGroup codomains: iterate over g.array_form correctly, converting (symbol, exp) pairs to actual elements before checking inverses",
+    "In _compute_kernel, add domain generators that map to identity: for gen in G.generators: if self.images.get(gen).is_identity: kernel_gens.append(gen)",
+    "In _compute_kernel, add products for generators mapping to same image: group generators by their image, and for each group with >1 generator, add g1*g2^-1 to kernel_gens",
+    "For FreeGroup codomains, compute kernel using permutation group conversion or by finding all elements mapping to identity, not just returning trivial kernel"
+  ]
+}

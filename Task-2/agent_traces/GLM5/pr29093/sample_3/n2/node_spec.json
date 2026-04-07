@@ -1,0 +1,9 @@
+{
+  "id": "n2",
+  "title": "Modify _compute_kernel for surjective FpGroup optimization",
+  "description": "Modify the existing `_compute_kernel` method to detect and efficiently handle surjective homomorphisms between FpGroups. The modified method should: (1) First check if both domain and codomain are FpGroups using isinstance checks, (2) Check if the homomorphism is surjective by calling self.is_surjective(), (3) If both conditions are true, call self._surjective_fp_kernel() and return its result, (4) Otherwise, fall through to the existing logic that converts to permutation groups. This provides a more direct and efficient computation for the surjective case.",
+  "dependencies": [
+    "n1"
+  ],
+  "expected_output": "The modified `_compute_kernel` method with the surjective FpGroup case handled at the beginning of the method, before the existing FpGroup branch that converts to permutation groups."
+}

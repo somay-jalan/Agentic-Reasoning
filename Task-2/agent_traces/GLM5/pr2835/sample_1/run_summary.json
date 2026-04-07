@@ -1,0 +1,25 @@
+{
+  "task_type": "feature",
+  "n_nodes": 3,
+  "final_code_length": 22940,
+  "nodes": [
+    {
+      "id": "n1",
+      "title": "Implement Pauli basis conversion functions",
+      "n_iters": 3,
+      "final_passed": false
+    },
+    {
+      "id": "n2",
+      "title": "Update module exports",
+      "n_iters": 3,
+      "final_passed": false
+    },
+    {
+      "id": "n3",
+      "title": "Final assembly of complete file",
+      "n_iters": 3,
+      "final_passed": false
+    }
+  ]
+}

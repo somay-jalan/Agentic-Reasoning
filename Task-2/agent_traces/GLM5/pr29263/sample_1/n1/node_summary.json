@@ -1,0 +1,33 @@
+{
+  "node_id": "n1",
+  "node_title": "Add sqrt_rational_rule to handle sqrt of rational functions with linear numerator and denominator",
+  "n_iterations": 3,
+  "final_passed": false,
+  "best_code_length": 90581,
+  "iteration_scores": [
+    {
+      "iteration": 1,
+      "role": "generated",
+      "code_length": 90581,
+      "all_passed": false,
+      "severity": "low",
+      "n_fixes": 3
+    },
+    {
+      "iteration": 2,
+      "role": "debugged",
+      "code_length": 90949,
+      "all_passed": false,
+      "severity": "medium",
+      "n_fixes": 4
+    },
+    {
+      "iteration": 3,
+      "role": "debugged",
+      "code_length": 90949,
+      "all_passed": false,
+      "severity": "low",
+      "n_fixes": 3
+    }
+  ]
+}

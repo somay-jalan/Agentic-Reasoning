@@ -1,0 +1,14 @@
+{
+  "physical_errors": [],
+  "numerical_errors": [],
+  "missing_cases": [
+    "Error message format in superpauli_to_super does not match expected test pattern - test expects 'must be a Qobj.' but code produces 'Expected a Qobj, got {type}.'",
+    "to_superpauli lacks explicit type validation at function entry (relies on _to_superpauli which calls to_super, but inconsistent with superpauli_to_super pattern)"
+  ],
+  "severity": "medium",
+  "actionable_fixes": [
+    "Change TypeError message in superpauli_to_super from \"Expected a Qobj, got {}.\" to \"Input must be a Qobj.\" to match test expectations",
+    "Add explicit isinstance(q_oper, Qobj) check at the start of to_superpauli for consistency with superpauli_to_super and clearer error messages",
+    "Note: The AST warnings about floor division (//) at lines ~120 and ~683 are FALSE POSITIVES - the floor division is correct for computing nq from superoperator dimension (nq = log2(4^n) / 2 = n, where 4^n is the superoperator dimension for n qubits)"
+  ]
+}

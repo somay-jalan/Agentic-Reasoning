@@ -1,0 +1,15 @@
+{
+  "physical_errors": [],
+  "numerical_errors": [],
+  "missing_cases": [
+    "The isinstance check only handles FpGroup but the test appears to use FreeGroup as the domain, causing the FpGroup branch to be skipped entirely",
+    "FreeGroup is a valid group type for homomorphisms but is not handled in the new surjective kernel computation branch",
+    "The code falls through to the general infinity check when domain is FreeGroup, raising the wrong error message"
+  ],
+  "severity": "high",
+  "actionable_fixes": [
+    "Change line ~175: `if isinstance(G, FpGroup) and isinstance(self.codomain, FpGroup):` to `if isinstance(G, (FpGroup, FreeGroup)) and isinstance(self.codomain, FpGroup):` to handle FreeGroup domains",
+    "Keep codomain check as FpGroup only since the code accesses `self.codomain.relators` which FreeGroup does not have",
+    "For FreeGroup domains, the same mathematical principle applies: kernel generators are lifts of the codomain's relators"
+  ]
+}

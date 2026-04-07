@@ -1,0 +1,17 @@
+{
+  "node_id": "n2",
+  "node_title": "Implement _eval_derivative_n_times for sin class",
+  "n_iterations": 1,
+  "final_passed": true,
+  "best_code_length": 125200,
+  "iteration_scores": [
+    {
+      "iteration": 1,
+      "role": "generated",
+      "code_length": 125200,
+      "all_passed": true,
+      "severity": "none",
+      "n_fixes": 0
+    }
+  ]
+}

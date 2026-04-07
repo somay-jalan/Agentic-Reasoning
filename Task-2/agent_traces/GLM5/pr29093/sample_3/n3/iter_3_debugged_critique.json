@@ -1,0 +1,17 @@
+{
+  "physical_errors": [],
+  "numerical_errors": [
+    "In _compute_kernel, the check 'if self.is_surjective()' fails for infinite FpGroups because is_surjective() returns None when both image and codomain are infinite, causing the code to fall through to the infinity check and raise NotImplementedError",
+    "In _surjective_fp_kernel, the validation 'if not self.is_surjective()' will incorrectly raise ValueError when is_surjective() returns None for infinite groups, since 'not None' evaluates to True"
+  ],
+  "missing_cases": [
+    "Handling of surjective homomorphisms between infinite FpGroups where is_surjective() returns None",
+    "The is_surjective() method returns None for infinite groups but this None value is not properly handled by callers that expect a boolean"
+  ],
+  "severity": "high",
+  "actionable_fixes": [
+    "In _compute_kernel, change the surjective FpGroup check to handle None from is_surjective(): use 'is_surj = self.is_surjective(); if is_surj is True or (is_surj is None and G.order() is S.Infinity): return self._surjective_fp_kernel()'",
+    "In _surjective_fp_kernel, modify the surjectivity validation to accept None: change 'if not self.is_surjective()' to 'is_surj = self.is_surjective(); if is_surj is False: raise ValueError(...)'",
+    "Alternatively, modify is_surjective() to attempt a more sophisticated check for infinite FpGroups, such as checking if the image generators generate the full codomain"
+  ]
+}

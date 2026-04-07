@@ -1,0 +1,12 @@
+{
+  "task_type": "bugfix",
+  "nodes": [
+    {
+      "id": "n1",
+      "title": "Add sqrt_quadratic_ratio_rule to handle sqrt((a-x)/(a+x)) integrals",
+      "description": "The issue is that sympy.integrate returns an unevaluated integral for sqrt((a-x)/(a+x))/x instead of computing a closed-form result. The integrand sqrt((a-x)/(a+x)) can be rewritten as (a-x)/sqrt(a^2-x^2) when (a-x)(a+x) = a^2-x^2. This is a special case where sqrt((a+b*x)/(c+d*x)) with a*d + b*c = 0 can be simplified. The fix requires: (1) Adding a new function `sqrt_quadratic_ratio_rule` that recognizes sqrt((a+b*x)/(c+d*x)) patterns where a*d + b*c = 0 and rewrites them to (a+b*x)/sqrt(a*c + b*d*x^2). (2) Integrating this rule into the `integral_steps` function for both Pow and Mul type integrands. The function should be placed after `sqrt_quadratic_rule` definition. The expected result for the test case is: ln((a - sqrt(a^2-x^2))/|x|) - asin(x/a) + C.",
+      "dependencies": [],
+      "expected_output": "The COMPLETE modified Python file with the fix applied. Not a fragment. Not just the fixed function. The entire file from the first import to the last line."
+    }
+  ]
+}

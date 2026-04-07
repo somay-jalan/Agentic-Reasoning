@@ -1,0 +1,16 @@
+{
+  "physical_errors": [],
+  "numerical_errors": [],
+  "missing_cases": [
+    "Missing validation that kernel_gens actually generates a normal subgroup",
+    "Missing test coverage for FreeGroup codomain with empty relators list",
+    "Missing handling when is_surjective() returns None for truly infinite groups where relator-lift may still work"
+  ],
+  "severity": "high",
+  "actionable_fixes": [
+    "CRITICAL: Line 368 has undefined variable 'r' - change 'if r not in gens' to 'if g not in gens' in the list comprehension",
+    "The relator-lift branch should validate that all relators can be inverted when surjective=True; if ValueError occurs with surjective=True, this indicates a logic error and should raise an exception rather than silently continuing",
+    "When kernel_gens is empty and use_relator_lift is True, returning FpSubgroup with just [G.identity] may not be correct for trivial kernel - should verify the homomorphism is actually injective",
+    "Add explicit handling for the case where codomain is FreeGroup (relators=[]), ensuring the kernel computation still works correctly for free group targets"
+  ]
+}

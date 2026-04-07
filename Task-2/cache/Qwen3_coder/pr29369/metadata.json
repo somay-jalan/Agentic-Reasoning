@@ -1,0 +1,7 @@
+{
+  "model": "qwen/qwen3-coder-next",
+  "alias": "Qwen3_coder",
+  "prompt_hash": "4653a5b55630",
+  "n_samples": 10,
+  "saved_at": "2026-04-07T02:06:23"
+}

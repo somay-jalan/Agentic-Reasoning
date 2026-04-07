@@ -1,0 +1,33 @@
+{
+  "node_id": "n1",
+  "node_title": "Implement Pauli basis conversion functions",
+  "n_iterations": 3,
+  "final_passed": false,
+  "best_code_length": 22936,
+  "iteration_scores": [
+    {
+      "iteration": 1,
+      "role": "generated",
+      "code_length": 22936,
+      "all_passed": false,
+      "severity": "high",
+      "n_fixes": 3
+    },
+    {
+      "iteration": 2,
+      "role": "debugged",
+      "code_length": 23084,
+      "all_passed": false,
+      "severity": "medium",
+      "n_fixes": 3
+    },
+    {
+      "iteration": 3,
+      "role": "debugged",
+      "code_length": 23115,
+      "all_passed": false,
+      "severity": "medium",
+      "n_fixes": 3
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+ln((a - sqrt(a^2 - x^2))/|x|) - asin(x/a) + C

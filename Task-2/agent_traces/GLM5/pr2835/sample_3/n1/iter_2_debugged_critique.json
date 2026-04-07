@@ -1,0 +1,13 @@
+{
+  "physical_errors": [],
+  "numerical_errors": [],
+  "missing_cases": [
+    "The superpauli_to_super function raises TypeError for operator inputs, but the test test_SuperPauliInvalidArgs appears to expect either ValueError or different error handling. The error type inconsistency between TypeError (for non-superoperator) and ValueError (for non-qubit dims) may not match test expectations."
+  ],
+  "severity": "medium",
+  "actionable_fixes": [
+    "The AST pattern warnings about floor division (//) at lines ~120 and ~746 are false positives - the calculation nq = _int_log_two(shape[0]) // 2 is correct for extracting the number of qubits from a superoperator dimension (4^nq = 2^(2*nq)), no change needed.",
+    "Investigate test_superop_reps.py::TestSuperopReps::test_SuperPauliInvalidArgs to determine expected error type - consider changing TypeError to ValueError in superpauli_to_super for consistency with other validation errors in the module, or verify the test expects the current TypeError behavior.",
+    "The superpauli_to_super function should validate that the input is a superoperator BEFORE checking qubit dimensions - currently the order is correct but ensure error messages match test expectations."
+  ]
+}

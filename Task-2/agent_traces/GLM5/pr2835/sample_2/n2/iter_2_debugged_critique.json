@@ -1,0 +1,16 @@
+{
+  "physical_errors": [],
+  "numerical_errors": [],
+  "missing_cases": [
+    "No validation that input superoperator has square shape with dimension 4^n for n qubits",
+    "No early return if input already has superrep='super'",
+    "No validation that input is actually in Pauli basis representation (cannot distinguish from column-stacking without metadata)"
+  ],
+  "severity": "low",
+  "actionable_fixes": [
+    "Add shape validation: verify q_oper.shape[0] == q_oper.shape[1] and that shape[0] is a power of 4",
+    "Consider adding early return optimization: if q_oper.superrep == 'super', return q_oper.copy()",
+    "The floor division // 2 flagged by AST checker is mathematically correct here since _int_log_two returns an integer (bit_length - 1), and for superoperator dimension 4^n, log2(4^n)/2 = n exactly - no change needed",
+    "Import error in test environment is unrelated to code correctness - tests need proper QuTiP package context"
+  ]
+}

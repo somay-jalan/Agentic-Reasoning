@@ -1,0 +1,11 @@
+{
+  "physical_errors": [],
+  "numerical_errors": [],
+  "missing_cases": [
+    "superpauli_to_super lacks isinstance(q_oper, Qobj) validation before accessing .issuper attribute - causes AttributeError instead of proper TypeError when passed non-Qobj inputs like numpy arrays"
+  ],
+  "severity": "high",
+  "actionable_fixes": [
+    "Add 'if not isinstance(q_oper, Qobj): raise TypeError(\"Input must be a Qobj representing a superoperator.\")' check at the beginning of superpauli_to_super function, before the existing 'if not q_oper.issuper' check"
+  ]
+}

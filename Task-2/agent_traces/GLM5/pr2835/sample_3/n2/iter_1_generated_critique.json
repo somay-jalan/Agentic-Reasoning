@@ -1,0 +1,13 @@
+{
+  "physical_errors": [],
+  "numerical_errors": [],
+  "missing_cases": [
+    "Input type validation: function assumes q_oper is a Qobj but doesn't verify before accessing .issuper attribute",
+    "When passed a numpy array or other non-Qobj type, AttributeError is raised instead of proper TypeError"
+  ],
+  "severity": "high",
+  "actionable_fixes": [
+    "Add isinstance check before accessing .issuper: if not isinstance(q_oper, Qobj): raise TypeError('Input must be a Qobj')",
+    "The floor division nq = _int_log_two(q_oper.shape[0]) // 2 is actually correct for physics (shape[0] = 4^n for n qubits, so log2 = 2n, divided by 2 = n) - this is a false positive from the AST checker"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "all_passed": true,
+  "has_critical_failure": false,
+  "syntax": {
+    "passed": true,
+    "syntax_errors": [],
+    "warnings": []
+  },
+  "ast_patterns": {
+    "passed": false,
+    "issues": [
+      "Line ~459: 'omega' assigned without a 2\u03c0 factor. Angular frequency should be \u03c9 = 2\u03c0\u00b7f."
+    ]
+  },
+  "physics": {
+    "passed": true,
+    "ran_successfully": true,
+    "nan_inf_detected": false,
+    "stability_ok": true,
+    "issues": [],
+    "stdout_snippet": ""
+  },
+  "pytest": {
+    "passed": true,
+    "failures": [],
+    "tail": "sms.py::test_isomorphisms PASSED [ 40%]\nmanual_corpus/test-1/pr29093/test_homomorphisms.py::test_check_homomorphism PASSED [ 60%]\nmanual_corpus/test-1/pr29093/test_homomorphisms.py::test_fpgroup_kernel_surjective PASSED [ 80%]\nmanual_corpus/test-1/pr29093/test_homomorphisms.py::test_fpgroup_isomorphism PASSED [100%]\n\n============================== 5 passed in 1.61s ===============================\n"
+  }
+}

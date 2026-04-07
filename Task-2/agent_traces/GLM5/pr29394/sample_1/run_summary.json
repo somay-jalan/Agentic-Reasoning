@@ -1,0 +1,31 @@
+{
+  "task_type": "feature",
+  "n_nodes": 4,
+  "final_code_length": 124765,
+  "nodes": [
+    {
+      "id": "n1",
+      "title": "Mathematical foundation for nth derivative of sin/cos",
+      "n_iters": 1,
+      "final_passed": true
+    },
+    {
+      "id": "n2",
+      "title": "Implement _eval_derivative_n_times for sin class",
+      "n_iters": 1,
+      "final_passed": true
+    },
+    {
+      "id": "n3",
+      "title": "Implement _eval_derivative_n_times for cos class",
+      "n_iters": 1,
+      "final_passed": true
+    },
+    {
+      "id": "n4",
+      "title": "Complete modified trigonometric.py file",
+      "n_iters": 1,
+      "final_passed": true
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "physical_errors": [
+    "_lift_relator incorrectly assumes all codomain generators are in the image of the homomorphism. For non-surjective homomorphisms, calling self.invert(gen) on a generator not in the image raises ValueError."
+  ],
+  "numerical_errors": [
+    "The current implementation inverts each generator separately using self.invert(gen), which is inefficient and fails when generators are not in the image. Should use the same coset enumeration approach as the invert method for FpGroup codomains, processing the entire relator word through the coset table."
+  ],
+  "missing_cases": [
+    "_compute_kernel raises NotImplementedError for FpGroup domains with non-FpGroup codomains (e.g., FreeGroup). Need to handle or gracefully fall back.",
+    "_lift_relator does not validate that the relator is actually from the codomain's free group or handle the case where the homomorphism is not surjective."
+  ],
+  "severity": "high",
+  "actionable_fixes": [
+    "Rewrite _lift_relator to use coset enumeration approach: initialize self._inverses if None, create coset table C with modified_coset_enumeration_r(self.codomain, list(self._inverses)), then iterate through relator.array_form using C.A_dict and C.table to build the lifted word via transl_map, matching the logic in invert() for FpGroup codomains.",
+    "In _compute_kernel, add handling for FreeGroup codomains or convert them to FpGroup before attempting relator lift approach.",
+    "The AST warning about 'omega' is a false positive - this is group theory code (orbit_homomorphism uses omega as a set of points), not physics code with angular frequency."
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "physical_errors": [],
+  "numerical_errors": [],
+  "missing_cases": [
+    "superpauli_to_super does not validate that q_oper is a Qobj before accessing .issuper attribute",
+    "When a numpy array is passed instead of Qobj, AttributeError is raised instead of a proper TypeError"
+  ],
+  "severity": "high",
+  "actionable_fixes": [
+    "In superpauli_to_super, add isinstance(q_oper, Qobj) check before accessing q_oper.issuper - the current code crashes with AttributeError when passed a numpy array",
+    "Follow the pattern used in to_super() and other functions: first verify the input is a Qobj, then check its type/superrep properties",
+    "The floor division // flagged by AST checker at lines ~120 and ~679 is actually correct - shape[0] = 4^n for n qubits, so log2 gives 2n, and //2 correctly computes n. This is a false positive from the AST checker."
+  ]
+}

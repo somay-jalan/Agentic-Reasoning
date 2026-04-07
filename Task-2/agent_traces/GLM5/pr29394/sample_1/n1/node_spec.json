@@ -1,0 +1,7 @@
+{
+  "id": "n1",
+  "title": "Mathematical foundation for nth derivative of sin/cos",
+  "description": "Define the mathematical formula for computing the nth derivative of sine and cosine functions. The derivatives follow a cyclic pattern with period 4: sin -> cos -> -sin -> -cos -> sin. The general formula is d^n/dx^n sin(x) = sin(x + n*pi/2) and d^n/dx^n cos(x) = cos(x + n*pi/2). This allows efficient computation of repeated derivatives without applying the chain rule n times.",
+  "dependencies": [],
+  "expected_output": "Mathematical specification documenting: d^n/dx^n sin(x) = sin(x + n*pi/2) and d^n/dx^n cos(x) = cos(x + n*pi/2) for non-negative integer n. The implementation must validate that n is a non-negative integer and handle the case where the argument equals the differentiation variable."
+}

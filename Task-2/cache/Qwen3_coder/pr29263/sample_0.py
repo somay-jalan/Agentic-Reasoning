@@ -1,0 +1,1 @@
+log((a - sqrt(a**2 - x**2))/abs(x)) - asin(x/a) + C

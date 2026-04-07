@@ -1,0 +1,12 @@
+{
+  "task_type": "bugfix",
+  "nodes": [
+    {
+      "id": "n1",
+      "title": "Fix integration of sqrt((a-x)/(a+x))/x by adding rewrite rule and enhancing trig substitution",
+      "description": "The issue is that sympy's manualintegrate module fails to compute the integral of sqrt((a-x)/(a+x))/x, returning an unevaluated Integral instead of the closed-form expression. The fix requires two modifications to the manualintegrate.py file:\n\n1. Add a new function `sqrt_quadratic_ratio_rule` that recognizes patterns of the form sqrt((A+Bx)/(C+Dx)) and rewrites them to (A+Bx)/sqrt((A+Bx)(C+Dx)). This exposes the quadratic form a^2-x^2 which can be handled by trigonometric substitution.\n\n2. Modify the `trig_substitution_rule` function to add explicit substitutions for sqrt(a + b*x_func**2) after the trigonometric substitution is applied. For the case a>0, b<0 (a^2 - x^2 pattern with x = sqrt(a/(-b))*sin(theta)), we need to substitute sqrt(a + b*x_func**2) with sqrt(a)*cos(theta). Similar substitutions are needed for the other cases (a>0,b>0 and a<0,b>0).\n\n3. Add the new `sqrt_quadratic_ratio_rule` to the rule chain in `integral_steps`, placing it before `trig_substitution_rule`.\n\nThe expected result for integrate(sqrt((a-x)/(a+x))/x, x) should be: log((a - sqrt(a^2 - x^2))/|x|) - asin(x/a) + C",
+      "dependencies": [],
+      "expected_output": "The COMPLETE modified Python file with the fix applied. Not a fragment. Not just the fixed function. The entire file from the first import to the last line."
+    }
+  ]
+}
