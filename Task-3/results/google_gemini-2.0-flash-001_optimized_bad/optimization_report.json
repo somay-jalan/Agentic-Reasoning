@@ -1,0 +1,108 @@
+{
+  "model": "google/gemini-2.0-flash-001",
+  "optimizer": "dspy.GEPA",
+  "baseline_source": "run_dspy.py saved JSONs",
+  "baseline_avg": 0.4286,
+  "optimized_avg": 0.4286,
+  "delta": 0.0,
+  "per_example": [
+    {
+      "inequality_key": "markovs",
+      "label": "positive",
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "delta": 0.0
+    },
+    {
+      "inequality_key": "cauchy_schwarz",
+      "label": "positive",
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "delta": 0.0
+    },
+    {
+      "inequality_key": "chebyshevs_neg",
+      "label": "negative_ntc",
+      "baseline_score": 0.0,
+      "optimized_score": 0.0,
+      "delta": 0.0
+    },
+    {
+      "inequality_key": "markovs_neg",
+      "label": "negative_nlg",
+      "baseline_score": 0.0,
+      "optimized_score": 0.0,
+      "delta": 0.0
+    },
+    {
+      "inequality_key": "youngs_neg",
+      "label": "negative_nce",
+      "baseline_score": 0.0,
+      "optimized_score": 0.0,
+      "delta": 0.0
+    },
+    {
+      "inequality_key": "jensens_neg",
+      "label": "negative_ntc",
+      "baseline_score": 0.0,
+      "optimized_score": 0.0,
+      "delta": 0.0
+    },
+    {
+      "inequality_key": "jensens",
+      "label": "positive",
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "delta": 0.0
+    },
+    {
+      "inequality_key": "youngs",
+      "label": "positive",
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "delta": 0.0
+    },
+    {
+      "inequality_key": "chebyshevs",
+      "label": "positive",
+      "baseline_score": 0.0,
+      "optimized_score": 0.0,
+      "delta": 0.0
+    },
+    {
+      "inequality_key": "cauchy_schwarz_neg",
+      "label": "negative_nce",
+      "baseline_score": 0.0,
+      "optimized_score": 0.0,
+      "delta": 0.0
+    },
+    {
+      "inequality_key": "triangle",
+      "label": "positive",
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "delta": 0.0
+    },
+    {
+      "inequality_key": "bernoullis",
+      "label": "positive",
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "delta": 0.0
+    },
+    {
+      "inequality_key": "bernoullis_neg",
+      "label": "negative_nae",
+      "baseline_score": 0.0,
+      "optimized_score": 0.0,
+      "delta": 0.0
+    },
+    {
+      "inequality_key": "triangle_neg",
+      "label": "negative_nlg",
+      "baseline_score": 0.0,
+      "optimized_score": 0.0,
+      "delta": 0.0
+    }
+  ]
+}

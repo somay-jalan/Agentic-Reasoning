@@ -1,0 +1,184 @@
+{
+  "agent.final_answer_judge.predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "You are a highly precise judge evaluating whether an answer correctly addresses a given problem statement. Your evaluation should consider the context of mathematical inequalities and whether the response accurately reflects the relationship presented in the problem.\n\n**Input Format:**\n\nThe input consists of the following fields:\n\n*   `problem_statement`: A mathematical statement involving an inequality or relationship to be proven or shown.\n*   `predicted_answer`: The assistant's answer, which consists of an \"Option\" (A or B, corresponding to \"≤\" or \"≥\", respectively) and a brief justification. It usually includes the text \"The correct relation is...\" and often the phrase \"This can be verified from the problem statement. Equality holds under the specific conditions of the problem.\"\n*   `ground_truth_option`: This field is always UNKNOWN and should be ignored.\n\n**Task Description:**\n\nYour task is to determine if the `predicted_answer` correctly identifies the relationship (≤ or ≥) stated in the `problem_statement`. The `predicted_answer` only states the inequality relation, without providing a proof. If the predicted answer correctly identifies the inequality as stated in the problem statement, you should output \"PASS\". If the predicted answer is incorrect or states something other than the stated inequality relation, you should output \"FAIL\". It is crucial that the predicted answer's stated inequality directly matches the inequality presented in the problem statement for it to be considered correct and warrant a \"PASS\".\n\n**Reasoning Process:**\n\n1.  Carefully examine the `problem_statement` and identify the inequality symbol (≤ or ≥).\n2.  Compare the identified inequality symbol with the relation stated in the `predicted_answer`.\n3.  If the `predicted_answer` correctly identifies the relation ask stated in the problem statement, assign the verdict as `PASS`.\n4.  If the `predicted_answer` identifies an incorrect realtion, assign the verdict as `FAIL`.\n\n**Output Format:**\n\nYour output should consist of the following fields:\n\n*   `reasoning`: Explain your reasoning for the verdict. Explicitly state whether the predicted answer correctly identifies the inequality symbol in the problem statement or not.\n*   `verdict`: Your final verdict, which should be either \"PASS\" or \"FAIL\".\n*   `reason`: Concisely state the reason for your verdict. If \"PASS,\" state that the predicted answer correctly identifies the inequality relation as it appears in the problem statement. If \"FAIL,\" state that the predicted answer does not correctly identify the inequality relation as it appears in the problem statement.",
+      "fields": [
+        {
+          "prefix": "Problem Statement:",
+          "description": "The problem."
+        },
+        {
+          "prefix": "Predicted Answer:",
+          "description": "The predicted answer."
+        },
+        {
+          "prefix": "Ground Truth Option:",
+          "description": "The correct answer."
+        },
+        {
+          "prefix": "Reasoning:",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Verdict:",
+          "description": "PASS or FAIL."
+        },
+        {
+          "prefix": "Reason:",
+          "description": "Why."
+        }
+      ]
+    },
+    "lm": null
+  },
+  "agent.ntc_judge.predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "You are a \"No Toy Case Judge\" assessing mathematical proofs. Your task is to determine whether a given proof relies on specific \"toy cases\" to arrive at its conclusion. A \"toy case\" is a specific example or set of values used to illustrate or \"prove\" a general mathematical statement, rather than a general, rigorous argument.\n\n**Input Format:**\n\nYou will receive the following inputs:\n\n*   `problem_statement`: A textual description of the mathematical statement to be proven.\n*   `proof`: A step-by-step textual representation of the attempted proof.\n\n**Task:**\n\nCarefully analyze the provided `proof`. Determine if the proof uses specific numerical examples or limited cases as its primary means of justification. If the proof relies solely on such examples without providing a general argument that applies to all possible values within the problem's domain, then it is considered to be using \"toy cases.\"\n\n**Output Format:**\n\nYou must output your response in the following format:\n\n```\n### reasoning\n[Explain your reasoning for determining whether the proof uses toy cases. Be specific and refer to the steps in the proof.]\n\n### verdict\n[Choose either \"PASS\" or \"FAIL\". \"PASS\" indicates the proof does NOT rely on toy cases. \"FAIL\" indicates the proof DOES rely on toy cases.]\n\n### confidence\n[A numerical value between 0 and 10 (inclusive) indicating your confidence in your verdict. Higher values indicate greater confidence.]\n\n### reason\n[Provide a concise explanation for your verdict. This should summarize your reasoning.]\n```\n\n**Specific Considerations:**\n\n*   **General Proofs vs. Examples:** A valid proof should consist of general steps and logical deductions that apply to *all* values within the specified domain of the problem statement. A proof that only shows the statement holds true for a few specific numbers or situations is considered to be using toy cases and is not a valid general proof.\n*   **Algebraic Manipulation:** Proofs involving algebraic manipulations, starting from the given inequality and arriving at a known true statement through valid algebraic steps, are generally 'PASS' as long as the steps are reversible and don't rely on specific values.\n*   **Indicator Functions:** Proofs which cleverly use indicator functions alongside concepts like expectation are valid general proofs and should 'PASS'.\n*   **Incomplete Proofs:** If a proof claims a result without providing any justification or steps, it should be considered a FAIL.\n*   **Incorrect Proofs:** If there is a mathematical error in the proof (e.g., incorrect expansion of an algebraic expression), it could still return \"PASS\" if the error is unrelated to the use of toy cases. The task is to identify the use of toy cases, not to verify the correctness of the proof itself. If the proof is incorrect *and* uses toy cases, still focus on the toy case aspect. If an expansion is mathematically incorrect and invalidates the proof, but no toy cases were used, return \"PASS\" as that is the requested behavior.\n*   **Cauchy-Schwarz Inequality:** Be familiar with the Cauchy-Schwarz inequality and its standard proof techniques.\n*   **Triangle Inequality:** Be familiar with the triangle inequality and its standard proof techniques.\n*   **Markov's Inequality:** Be familiar with Markov's inequality and its standard proof techniques.\n\n**Examples of Reasoning:**\n\n*   \"The proof only provides two specific examples for n=2. It doesn't offer any general argument, so it relies on toy cases.\"\n*   \"The proof uses the general property that -|x| <= x <= |x| and adds inequalities. It's a valid general argument, not a toy case.\"\n*   \"The proof starts with the given inequality and arrives at a known true statement through valid algebraic manipulations. The steps are reversible; no toy cases.\"\n*   \"The proof defines an indicator function and uses properties of expectation to arrive at the result. This is a valid and general approach; no toy cases.\"\n*   \"The proof expands both sides of the inequality and demonstrates that the difference is a square, which is always non-negative, a valid approach which uses no toy cases.\"",
+      "fields": [
+        {
+          "prefix": "Problem Statement:",
+          "description": "The problem."
+        },
+        {
+          "prefix": "Proof:",
+          "description": "The proof."
+        },
+        {
+          "prefix": "Reasoning:",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Verdict:",
+          "description": "PASS or FAIL."
+        },
+        {
+          "prefix": "Confidence:",
+          "description": "Confidence level."
+        },
+        {
+          "prefix": "Reason:",
+          "description": "Why."
+        }
+      ]
+    },
+    "lm": null
+  },
+  "agent.nlg_judge.predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "Check the proof has any logical gap.",
+      "fields": [
+        {
+          "prefix": "Problem Statement:",
+          "description": "The problem."
+        },
+        {
+          "prefix": "Proof:",
+          "description": "The proof."
+        },
+        {
+          "prefix": "Reasoning:",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Verdict:",
+          "description": "PASS or FAIL."
+        },
+        {
+          "prefix": "Confidence:",
+          "description": "Confidence level."
+        },
+        {
+          "prefix": "Reason:",
+          "description": "Why."
+        }
+      ]
+    },
+    "lm": null
+  },
+  "agent.nae_judge.predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "Check the proof if uses some wrong approximation to prove, PASS if not.",
+      "fields": [
+        {
+          "prefix": "Problem Statement:",
+          "description": "The problem."
+        },
+        {
+          "prefix": "Proof:",
+          "description": "The proof."
+        },
+        {
+          "prefix": "Reasoning:",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Verdict:",
+          "description": "PASS or FAIL."
+        },
+        {
+          "prefix": "Confidence:",
+          "description": "Confidence level."
+        },
+        {
+          "prefix": "Reason:",
+          "description": "Why."
+        }
+      ]
+    },
+    "lm": null
+  },
+  "agent.nce_judge.predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "Check the proof has some calculation error.",
+      "fields": [
+        {
+          "prefix": "Problem Statement:",
+          "description": "The problem."
+        },
+        {
+          "prefix": "Proof:",
+          "description": "The proof."
+        },
+        {
+          "prefix": "Reasoning:",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Verdict:",
+          "description": "PASS or FAIL."
+        },
+        {
+          "prefix": "Confidence:",
+          "description": "Confidence level."
+        },
+        {
+          "prefix": "Reason:",
+          "description": "Why."
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.12",
+      "dspy": "3.2.0",
+      "cloudpickle": "3.1"
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "inequality_key": "triangle_neg",
+  "inequality_name": "Triangle Neg",
+  "label": "negative_nlg",
+  "model": "google/gemini-2.0-flash-001",
+  "problem_statement": "==============================================================\nMATHEMATICAL PROBLEM\n==============================================================\n\n\nLet u and v be vectors in ℝⁿ, and let ‖·‖ denote the standard Euclidean norm.\n\nConsider the following relation:\n\n    ‖u + v‖     ( )     ‖u‖ + ‖v‖\n\nOptions:\n  (A) ≤    (B) ≥    (C) =    (D) <    (E) >    (F) None of the above\n\nDetermine the correct relation to fill in the blank ( ).\nAlso determine exactly when equality holds.\n\n\n--------------------------------------------------------------\nYou must respond in EXACTLY the three sections below.\nDo NOT merge sections. Label each section exactly as shown.\n--------------------------------------------------------------\n\n## PART 1 – ANSWER\n\nState which option (A–F) is correct and write the complete, precise\nmathematical statement using the correct inequality or equality sign.\nState the exact condition under which equality holds.\n\n\n## PART 2 – PROOF\n\nProvide a complete, rigorous, self-contained proof for your answer above.\nStructure your proof as clearly numbered steps. Each step must:\n  - Be a single, atomic mathematical claim or algebraic manipulation\n  - Explicitly justify why the claim holds\n  - State any intermediate result before using it in the next step\nDo NOT skip steps. Do NOT assume the reader knows what technique you are using.\n\n\n## PART 3 – THEOREMS & LEMMAS USED\n\nList every theorem, lemma, algebraic identity, or mathematical property\nthat you used anywhere in PART 2.\nFor each entry provide:\n  • Name of the theorem / property\n  • Precise statement of it as you used it in this proof\n  • The step number(s) in PART 2 where you applied it",
+  "proof": "\nStep 1: ‖u+v‖² = ‖u‖² + 2⟨u,v⟩ + ‖v‖².\nStep 2: We know ⟨u,v⟩ is bounded.\nStep 3: Therefore ‖u+v‖ ≤ ‖u‖ + ‖v‖. ∎\n",
+  "verification": {
+    "judges": {
+      "final_answer": {
+        "verdict": "PASS",
+        "reason": "The predicted answer correctly identifies the triangle inequality and the condition for equality. The proof provided is also correct and well-structured."
+      },
+      "ntc": {
+        "verdict": "FAIL",
+        "confidence": "2/10",
+        "reason": "The proof is incomplete and lacks the necessary steps to rigorously derive the triangle inequality. It skips crucial steps and doesn't address the equality condition. It also doesn't explicitly state and use the Cauchy-Schwarz inequality. There is no toy case to prove the final."
+      },
+      "nlg": {
+        "verdict": "FAIL",
+        "confidence": "2",
+        "reason": "The proof lacks sufficient detail and justification for its claims. It skips crucial steps in deriving the triangle inequality and doesn't address the equality condition."
+      },
+      "nae": {
+        "verdict": "FAIL",
+        "confidence": "20%",
+        "reason": "The proof skips important steps and lacks justification. It doesn't properly use the Cauchy-Schwarz inequality to arrive at the triangle inequality. The equality condition is not addressed."
+      },
+      "nce": {
+        "verdict": "FAIL",
+        "confidence": "10",
+        "reason": "The proof skips essential steps in deriving the triangle inequality from the expansion of ‖u+v‖². It doesn't explicitly use the Cauchy-Schwarz inequality and doesn't explain how to get from ‖u+v‖² = ‖u‖² + 2⟨u,v⟩ + ‖v‖² to ‖u+v‖ ≤ ‖u‖ + ‖v‖. Also, the condition for equality is missing."
+      }
+    },
+    "overall_verdict": "FAIL"
+  },
+  "baseline_score": 0.0
+}

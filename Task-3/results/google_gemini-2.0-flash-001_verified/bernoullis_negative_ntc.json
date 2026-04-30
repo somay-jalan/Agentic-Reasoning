@@ -1,0 +1,38 @@
+{
+  "inequality_key": "bernoullis",
+  "inequality_name": "Bernoullis",
+  "label": "negative_ntc",
+  "model": "google/gemini-2.0-flash-001",
+  "problem_statement": "",
+  "proof": "\nStep 1: Let n = 1. Then (1 + x)¹ = 1 + x = 1 + 1·x. The inequality holds.\nStep 2: Since it works for n = 1, by analogy it holds for all n ≥ 1.\nStep 3: Therefore (1 + x)ⁿ ≥ 1 + nx for all n ≥ 1. ∎\n",
+  "verification": {
+    "judges": {
+      "final_answer": {
+        "verdict": "PASS",
+        "reason": "The predicted inequality symbol \"≥\" matches the ground truth inequality symbol \"≥\"."
+      },
+      "ntc": {
+        "verdict": "FAIL",
+        "confidence": "HIGH",
+        "reason": "The proof makes a general claim based on the single case n=1, which is a toy case fallacy."
+      },
+      "nlg": {
+        "verdict": "FAIL",
+        "confidence": "HIGH",
+        "reason": "The proof incorrectly assumes that the inequality holds for all n >= 1 based on the fact that it holds for n = 1, without providing any justification or proof."
+      },
+      "nae": {
+        "verdict": "FAIL",
+        "confidence": "HIGH",
+        "reason": "The proof incorrectly concludes that the inequality holds for all n >= 1 based on the base case n=1, without providing a valid inductive step or any other justification."
+      },
+      "nce": {
+        "verdict": "PASS",
+        "confidence": "HIGH",
+        "reason": "There are no calculation errors in the provided steps, although the proof is incomplete and logically flawed."
+      }
+    },
+    "overall_verdict": "FAIL"
+  },
+  "baseline_score": 0.6
+}

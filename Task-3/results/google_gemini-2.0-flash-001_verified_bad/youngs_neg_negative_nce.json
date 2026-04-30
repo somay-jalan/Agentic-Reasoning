@@ -1,0 +1,38 @@
+{
+  "inequality_key": "youngs_neg",
+  "inequality_name": "Youngs Neg",
+  "label": "negative_nce",
+  "model": "google/gemini-2.0-flash-001",
+  "problem_statement": "==============================================================\nMATHEMATICAL PROBLEM\n==============================================================\n\n\nLet a, b ≥ 0 be real numbers.\nLet p > 1 and q > 1 be real numbers satisfying 1/p + 1/q = 1.\n\nConsider the following relation:\n\n    a · b     ( )     aᵖ/p  +  bᵍ/q\n\nOptions:\n  (A) ≤    (B) ≥    (C) =    (D) <    (E) >    (F) None of the above\n\nDetermine the correct relation to fill in the blank ( ).\nAlso determine exactly when equality holds.\n\n\n--------------------------------------------------------------\nYou must respond in EXACTLY the three sections below.\nDo NOT merge sections. Label each section exactly as shown.\n--------------------------------------------------------------\n\n## PART 1 – ANSWER\n\nState which option (A–F) is correct and write the complete, precise\nmathematical statement using the correct inequality or equality sign.\nState the exact condition under which equality holds.\n\n\n## PART 2 – PROOF\n\nProvide a complete, rigorous, self-contained proof for your answer above.\nStructure your proof as clearly numbered steps. Each step must:\n  - Be a single, atomic mathematical claim or algebraic manipulation\n  - Explicitly justify why the claim holds\n  - State any intermediate result before using it in the next step\nDo NOT skip steps. Do NOT assume the reader knows what technique you are using.\n\n\n## PART 3 – THEOREMS & LEMMAS USED\n\nList every theorem, lemma, algebraic identity, or mathematical property\nthat you used anywhere in PART 2.\nFor each entry provide:\n  • Name of the theorem / property\n  • Precise statement of it as you used it in this proof\n  • The step number(s) in PART 2 where you applied it",
+  "proof": "\nStep 1: Apply AM-GM with weights 1/p and 1/q:\n        (1/p)·aᵖ + (1/q)·bᵍ ≥ (aᵖ)^(1/p) · (bᵍ)^(1/q).\nStep 2: (aᵖ)^(1/p) · (bᵍ)^(1/q) = a · b^(q/p).\nStep 3: Therefore ab ≤ aᵖ/p + bᵍ/q. ∎\n",
+  "verification": {
+    "judges": {
+      "final_answer": {
+        "verdict": "PASS",
+        "reason": "The predicted answer correctly identifies the inequality as $\\leq$, which is Young's inequality."
+      },
+      "ntc": {
+        "verdict": "FAIL",
+        "confidence": "1.0",
+        "reason": "The proof contains an algebraic error in Step 2. Also, the proof does not state the condition for equality. The proof is incomplete and incorrect. The toy cases show that the inequality holds, but the proof is flawed."
+      },
+      "nlg": {
+        "verdict": "FAIL",
+        "confidence": "10",
+        "reason": "The AM-GM inequality is misapplied in step 1. The correct application of AM-GM would be (1/p)a^p + (1/q)b^q >= a^(p/p)b^(q/q) = ab. The proof incorrectly simplifies (aᵖ)^(1/p) · (bᵍ)^(1/q) in step 2. Also, the equality condition is not discussed."
+      },
+      "nae": {
+        "verdict": "FAIL",
+        "confidence": "10",
+        "reason": "The proof contains an algebraic error in simplifying the expression (aᵖ)^(1/p) · (bᵍ)^(1/q). It incorrectly states that this equals a · b^(q/p) instead of a * b. This error leads to an incorrect conclusion."
+      },
+      "nce": {
+        "verdict": "FAIL",
+        "confidence": "10",
+        "reason": "The simplification in Step 2 is incorrect, leading to a flawed conclusion. The correct simplification of (aᵖ)^(1/p) · (bᵍ)^(1/q) is a*b."
+      }
+    },
+    "overall_verdict": "FAIL"
+  },
+  "baseline_score": 0.0
+}

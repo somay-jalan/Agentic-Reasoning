@@ -1,0 +1,40 @@
+{
+  "inequality_key": "bernoullis",
+  "inequality_name": "Bernoulli's Inequality",
+  "model": "google/gemini-2.0-flash-001",
+  "prompt": "==============================================================\nMATHEMATICAL PROBLEM\n==============================================================\n\n\nLet x > −1 be a real number and let n be a positive integer (n ≥ 1).\n\nConsider the following relation:\n\n    (1 + x)ⁿ     ( )     1 + n·x\n\nOptions:\n  (A) ≤    (B) ≥    (C) =    (D) <    (E) >    (F) None of the above\n\nDetermine the correct relation to fill in the blank ( ).\nAlso determine exactly when equality holds.\n\n\n--------------------------------------------------------------\nYou must respond in EXACTLY the three sections below.\nDo NOT merge sections. Label each section exactly as shown.\n--------------------------------------------------------------\n\n## PART 1 – ANSWER\n\nState which option (A–F) is correct and write the complete, precise\nmathematical statement using the correct inequality or equality sign.\nState the exact conditions under which equality holds.\n\n\n## PART 2 – PROOF\n\nProvide a complete, rigorous, self-contained proof for your answer above.\nStructure your proof as clearly numbered steps. Each step must:\n  - Be a single, atomic mathematical claim or algebraic manipulation\n  - Explicitly justify why the claim holds\n  - State any intermediate result before using it in the next step\nDo NOT skip steps. Do NOT assume the reader knows what technique you are using.\n\n\n## PART 3 – THEOREMS & LEMMAS USED\n\nList every theorem, lemma, algebraic identity, or mathematical property\nthat you used anywhere in PART 2.\nFor each entry provide:\n  • Name of the theorem / property\n  • Precise statement of it as you used it in this proof\n  • The step number(s) in PART 2 where you applied it",
+  "raw_response": "## PART 1 – ANSWER\n\nOption (B) is correct.\n\n(1 + x)ⁿ ≥ 1 + n·x\n\nEquality holds if and only if n = 1 or x = 0.\n\n## PART 2 – PROOF\n\nWe will prove the inequality using mathematical induction.\n\n1.  **Base Case (n = 1):** (1 + x)¹ = 1 + 1·x.  Therefore, (1 + x)¹ ≥ 1 + 1·x holds, and equality holds.\n\n2.  **Inductive Hypothesis:** Assume that (1 + x)ᵏ ≥ 1 + k·x holds for some positive integer k ≥ 1 and x > -1.\n\n3.  **Inductive Step:** We want to show that (1 + x)ᵏ⁺¹ ≥ 1 + (k+1)·x.\n\n4.  Since x > -1, we have 1 + x > 0.\n\n5.  Multiplying both sides of the inductive hypothesis (1 + x)ᵏ ≥ 1 + k·x by (1 + x), which is positive, preserves the inequality: (1 + x)ᵏ(1 + x) ≥ (1 + k·x)(1 + x).\n\n6.  Simplifying the left side: (1 + x)ᵏ⁺¹ ≥ (1 + k·x)(1 + x).\n\n7.  Expanding the right side: (1 + x)ᵏ⁺¹ ≥ 1 + x + k·x + k·x².\n\n8.  Rearranging the terms on the right side: (1 + x)ᵏ⁺¹ ≥ 1 + (k+1)·x + k·x².\n\n9.  Since k ≥ 1 and x² ≥ 0, we have k·x² ≥ 0.\n\n10. Therefore, 1 + (k+1)·x + k·x² ≥ 1 + (k+1)·x.\n\n11. Combining steps 8 and 10: (1 + x)ᵏ⁺¹ ≥ 1 + (k+1)·x + k·x² ≥ 1 + (k+1)·x.\n\n12. Thus, (1 + x)ᵏ⁺¹ ≥ 1 + (k+1)·x. This completes the inductive step.\n\n13. **Conclusion:** By the principle of mathematical induction, (1 + x)ⁿ ≥ 1 + n·x for all positive integers n ≥ 1 and x > -1.\n\nNow, let's consider when equality holds.\n\n14. For n = 1, equality holds as shown in the base case.\n\n15. Suppose n > 1. From step 8, we have (1 + x)ⁿ ≥ 1 + nx + (n-1)x² + ... + xⁿ.\n\n16. For equality to hold, we must have kx² = 0 in step 9 for all k from 1 to n-1. This implies x = 0.\n\n17. If x = 0, then (1 + 0)ⁿ = 1ⁿ = 1 and 1 + n·0 = 1. Thus, (1 + x)ⁿ = 1 + n·x.\n\n18. Therefore, equality holds if and only if n = 1 or x = 0.\n\n## PART 3 – THEOREMS & LEMMAS USED\n\n• **Principle of Mathematical Induction:**\n   If a statement P(n) is true for n = 1, and if, assuming P(k) is true for some positive integer k, we can show that P(k+1) is true, then P(n) is true for all positive integers n.\n   (Steps 1, 2, 3, 13)\n\n• **Properties of Inequalities:**\n   If a ≥ b and c > 0, then ac ≥ bc.\n   (Step 5)\n\n• **Non-negativity of squares:**\n   For any real number x, x² ≥ 0.\n   (Step 9)\n",
+  "answer": "Option (B) is correct.\n\n(1 + x)ⁿ ≥ 1 + n·x\n\nEquality holds if and only if n = 1 or x = 0.",
+  "proof": "We will prove the inequality using mathematical induction.\n\n1.  **Base Case (n = 1):** (1 + x)¹ = 1 + 1·x.  Therefore, (1 + x)¹ ≥ 1 + 1·x holds, and equality holds.\n\n2.  **Inductive Hypothesis:** Assume that (1 + x)ᵏ ≥ 1 + k·x holds for some positive integer k ≥ 1 and x > -1.\n\n3.  **Inductive Step:** We want to show that (1 + x)ᵏ⁺¹ ≥ 1 + (k+1)·x.\n\n4.  Since x > -1, we have 1 + x > 0.\n\n5.  Multiplying both sides of the inductive hypothesis (1 + x)ᵏ ≥ 1 + k·x by (1 + x), which is positive, preserves the inequality: (1 + x)ᵏ(1 + x) ≥ (1 + k·x)(1 + x).\n\n6.  Simplifying the left side: (1 + x)ᵏ⁺¹ ≥ (1 + k·x)(1 + x).\n\n7.  Expanding the right side: (1 + x)ᵏ⁺¹ ≥ 1 + x + k·x + k·x².\n\n8.  Rearranging the terms on the right side: (1 + x)ᵏ⁺¹ ≥ 1 + (k+1)·x + k·x².\n\n9.  Since k ≥ 1 and x² ≥ 0, we have k·x² ≥ 0.\n\n10. Therefore, 1 + (k+1)·x + k·x² ≥ 1 + (k+1)·x.\n\n11. Combining steps 8 and 10: (1 + x)ᵏ⁺¹ ≥ 1 + (k+1)·x + k·x² ≥ 1 + (k+1)·x.\n\n12. Thus, (1 + x)ᵏ⁺¹ ≥ 1 + (k+1)·x. This completes the inductive step.\n\n13. **Conclusion:** By the principle of mathematical induction, (1 + x)ⁿ ≥ 1 + n·x for all positive integers n ≥ 1 and x > -1.\n\nNow, let's consider when equality holds.\n\n14. For n = 1, equality holds as shown in the base case.\n\n15. Suppose n > 1. From step 8, we have (1 + x)ⁿ ≥ 1 + nx + (n-1)x² + ... + xⁿ.\n\n16. For equality to hold, we must have kx² = 0 in step 9 for all k from 1 to n-1. This implies x = 0.\n\n17. If x = 0, then (1 + 0)ⁿ = 1ⁿ = 1 and 1 + n·0 = 1. Thus, (1 + x)ⁿ = 1 + n·x.\n\n18. Therefore, equality holds if and only if n = 1 or x = 0.",
+  "theorems": "• **Principle of Mathematical Induction:**\n   If a statement P(n) is true for n = 1, and if, assuming P(k) is true for some positive integer k, we can show that P(k+1) is true, then P(n) is true for all positive integers n.\n   (Steps 1, 2, 3, 13)\n\n• **Properties of Inequalities:**\n   If a ≥ b and c > 0, then ac ≥ bc.\n   (Step 5)\n\n• **Non-negativity of squares:**\n   For any real number x, x² ≥ 0.\n   (Step 9)",
+  "parse_success": true,
+  "verification": {
+    "judges": {
+      "final_answer": {
+        "verdict": "PASS",
+        "reason": "The predicted answer correctly identifies the correct inequality symbol (≥) as indicated by the ground truth option."
+      },
+      "ntc": {
+        "verdict": "PASS",
+        "confidence": "10",
+        "reason": "The proof is a standard inductive proof and appears to be logically sound. It correctly handles the base case, inductive step, and equality condition. There is no toy case to prove the final."
+      },
+      "nlg": {
+        "verdict": "PASS",
+        "confidence": "10",
+        "reason": "The proof is well-structured, logically sound, and correctly uses mathematical induction to prove the inequality. The analysis of equality conditions is also correct."
+      },
+      "nae": {
+        "verdict": "PASS",
+        "confidence": "10",
+        "reason": "The proof is correct and uses standard mathematical induction techniques. There are no apparent errors or wrong approximations."
+      },
+      "nce": {
+        "verdict": "PASS",
+        "confidence": "10",
+        "reason": "The proof is well-structured and logically sound. The inductive step is clearly presented, and the algebraic manipulations are accurate. The analysis of equality conditions is also correct."
+      }
+    },
+    "overall_verdict": "PASS"
+  }
+}

@@ -1,0 +1,29 @@
+{
+    "judges": {
+        "final_answer": {
+            "verdict": "PASS",
+            "reason": "The predicted answer correctly identifies the relationship as greater than or equal to. The reasoning provided in the problem statement confirms this."
+        },
+        "ntc": {
+            "verdict": "PASS",
+            "confidence": "10",
+            "reason": "The proof is correct and complete. The logic is sound, and the steps are well-explained. The final inequality (a\u2081-a\u2082)(b\u2081-b\u2082) \u2265 0 directly follows from the given conditions."
+        },
+        "nlg": {
+            "verdict": "PASS",
+            "confidence": "10",
+            "reason": "The proof is clear, concise, and logically correct. Each step follows directly from the previous one, and the final result is well-justified."
+        },
+        "nae": {
+            "verdict": "PASS",
+            "confidence": "1.0",
+            "reason": "The proof is correct and well-structured. The steps are clear and easy to follow, and the logic is sound. The final conclusion is valid given the initial conditions."
+        },
+        "nce": {
+            "verdict": "PASS",
+            "confidence": "10",
+            "reason": "The proof is correct and well-structured. The steps are clear and easy to follow, and the final result is logically derived from the given conditions."
+        }
+    },
+    "overall_verdict": "PASS"
+}

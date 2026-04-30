@@ -1,0 +1,29 @@
+{
+    "judges": {
+        "final_answer": {
+            "verdict": "PASS",
+            "reason": "The predicted relation (\u2264) matches the inequality in the problem statement."
+        },
+        "ntc": {
+            "verdict": "PASS",
+            "confidence": "HIGH",
+            "reason": "The proof derives the inequality without relying on specific values or special cases."
+        },
+        "nlg": {
+            "verdict": "PASS",
+            "confidence": "HIGH",
+            "reason": "Each step follows logically from the previous one, and there are no missing steps."
+        },
+        "nae": {
+            "verdict": "PASS",
+            "confidence": "HIGH",
+            "reason": "No approximation errors are found in the proof."
+        },
+        "nce": {
+            "verdict": "PASS",
+            "confidence": "HIGH",
+            "reason": "No calculation errors found."
+        }
+    },
+    "overall_verdict": "PASS"
+}

@@ -1,0 +1,29 @@
+{
+    "judges": {
+        "final_answer": {
+            "verdict": "PASS",
+            "reason": "The predicted answer correctly identifies the inequality that defines convexity."
+        },
+        "ntc": {
+            "verdict": "PASS",
+            "confidence": "1.0",
+            "reason": "The proof directly uses the definition of convexity and correctly substitutes the given conditions to arrive at the desired inequality. There are no toy cases."
+        },
+        "nlg": {
+            "verdict": "PASS",
+            "confidence": "1.0",
+            "reason": "The proof is a direct application of the definition of convexity and is logically sound."
+        },
+        "nae": {
+            "verdict": "PASS",
+            "confidence": "1.0",
+            "reason": "The proof directly applies the definition of convexity without any approximations."
+        },
+        "nce": {
+            "verdict": "PASS",
+            "confidence": "1.0",
+            "reason": "The proof accurately and clearly demonstrates the convexity property. The steps are logically sound and directly apply the definition of convexity to the given parameters."
+        }
+    },
+    "overall_verdict": "PASS"
+}

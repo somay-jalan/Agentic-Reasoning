@@ -1,0 +1,40 @@
+{
+  "inequality_key": "triangle",
+  "inequality_name": "Triangle Inequality",
+  "model": "google/gemini-2.0-flash-001",
+  "prompt": "==============================================================\nMATHEMATICAL PROBLEM\n==============================================================\n\n\nLet u and v be vectors in ℝⁿ, and let ‖·‖ denote the standard Euclidean norm.\n\nConsider the following relation:\n\n    ‖u + v‖     ( )     ‖u‖ + ‖v‖\n\nOptions:\n  (A) ≤    (B) ≥    (C) =    (D) <    (E) >    (F) None of the above\n\nDetermine the correct relation to fill in the blank ( ).\nAlso determine exactly when equality holds.\n\n\n--------------------------------------------------------------\nYou must respond in EXACTLY the three sections below.\nDo NOT merge sections. Label each section exactly as shown.\n--------------------------------------------------------------\n\n## PART 1 – ANSWER\n\nState which option (A–F) is correct and write the complete, precise\nmathematical statement using the correct inequality or equality sign.\nState the exact condition under which equality holds.\n\n\n## PART 2 – PROOF\n\nProvide a complete, rigorous, self-contained proof for your answer above.\nStructure your proof as clearly numbered steps. Each step must:\n  - Be a single, atomic mathematical claim or algebraic manipulation\n  - Explicitly justify why the claim holds\n  - State any intermediate result before using it in the next step\nDo NOT skip steps. Do NOT assume the reader knows what technique you are using.\n\n\n## PART 3 – THEOREMS & LEMMAS USED\n\nList every theorem, lemma, algebraic identity, or mathematical property\nthat you used anywhere in PART 2.\nFor each entry provide:\n  • Name of the theorem / property\n  • Precise statement of it as you used it in this proof\n  • The step number(s) in PART 2 where you applied it",
+  "raw_response": "## PART 1 – ANSWER\n\nThe correct option is (A).\n\nThe correct relation is:\n\n‖u + v‖ ≤ ‖u‖ + ‖v‖\n\nEquality holds if and only if u = 0 or v = αu for some scalar α ≥ 0.\n\n## PART 2 – PROOF\n\n1.  ‖u + v‖² = (u + v) ⋅ (u + v)\n    *   Definition of the Euclidean norm: ‖x‖² = x ⋅ x\n\n2.  (u + v) ⋅ (u + v) = u ⋅ u + 2(u ⋅ v) + v ⋅ v\n    *   Distributive property of the dot product\n\n3.  u ⋅ u = ‖u‖² and v ⋅ v = ‖v‖²\n    *   Definition of the Euclidean norm: ‖x‖² = x ⋅ x\n\n4.  ‖u + v‖² = ‖u‖² + 2(u ⋅ v) + ‖v‖²\n    *   Substituting results of steps 2 and 3 into step 1\n\n5.  u ⋅ v ≤ ‖u‖ ‖v‖\n    *   Cauchy-Schwarz inequality\n\n6.  2(u ⋅ v) ≤ 2‖u‖ ‖v‖\n    *   Multiplying both sides of the inequality in step 5 by 2\n\n7.  ‖u‖² + 2(u ⋅ v) + ‖v‖² ≤ ‖u‖² + 2‖u‖ ‖v‖ + ‖v‖²\n    *   Adding ‖u‖² + ‖v‖² to both sides of the inequality in step 6\n\n8.  ‖u‖² + 2‖u‖ ‖v‖ + ‖v‖² = (‖u‖ + ‖v‖)²\n    *   Algebraic identity: (a + b)² = a² + 2ab + b²\n\n9.  ‖u + v‖² ≤ (‖u‖ + ‖v‖)²\n    *   Substituting results of steps 4, 7, and 8\n\n10. ‖u + v‖ ≤ ‖u‖ + ‖v‖\n    *   Taking the square root of both sides of the inequality in step 9, since both sides are non-negative.\n\n11. Equality holds if and only if u ⋅ v = ‖u‖ ‖v‖\n    *   Equality in Cauchy-Schwarz inequality\n\n12. u ⋅ v = ‖u‖ ‖v‖ if and only if u = 0 or v = αu for some scalar α ≥ 0\n    *   Condition for equality in Cauchy-Schwarz inequality\n\n## PART 3 – THEOREMS & LEMMAS USED\n\n• Definition of Euclidean Norm\n    • ‖x‖² = x ⋅ x\n    • Step 1, Step 3\n\n• Distributive Property of Dot Product\n    • (u + v) ⋅ (u + v) = u ⋅ u + 2(u ⋅ v) + v ⋅ v\n    • Step 2\n\n• Cauchy-Schwarz Inequality\n    • u ⋅ v ≤ ‖u‖ ‖v‖\n    • Step 5\n\n• Algebraic Identity\n    • (a + b)² = a² + 2ab + b²\n    • Step 8\n\n• Condition for equality in Cauchy-Schwarz Inequality\n    • u ⋅ v = ‖u‖ ‖v‖ if and only if u = 0 or v = αu for some scalar α ≥ 0\n    • Step 12\n",
+  "answer": "The correct option is (A).\n\nThe correct relation is:\n\n‖u + v‖ ≤ ‖u‖ + ‖v‖\n\nEquality holds if and only if u = 0 or v = αu for some scalar α ≥ 0.",
+  "proof": "1.  ‖u + v‖² = (u + v) ⋅ (u + v)\n    *   Definition of the Euclidean norm: ‖x‖² = x ⋅ x\n\n2.  (u + v) ⋅ (u + v) = u ⋅ u + 2(u ⋅ v) + v ⋅ v\n    *   Distributive property of the dot product\n\n3.  u ⋅ u = ‖u‖² and v ⋅ v = ‖v‖²\n    *   Definition of the Euclidean norm: ‖x‖² = x ⋅ x\n\n4.  ‖u + v‖² = ‖u‖² + 2(u ⋅ v) + ‖v‖²\n    *   Substituting results of steps 2 and 3 into step 1\n\n5.  u ⋅ v ≤ ‖u‖ ‖v‖\n    *   Cauchy-Schwarz inequality\n\n6.  2(u ⋅ v) ≤ 2‖u‖ ‖v‖\n    *   Multiplying both sides of the inequality in step 5 by 2\n\n7.  ‖u‖² + 2(u ⋅ v) + ‖v‖² ≤ ‖u‖² + 2‖u‖ ‖v‖ + ‖v‖²\n    *   Adding ‖u‖² + ‖v‖² to both sides of the inequality in step 6\n\n8.  ‖u‖² + 2‖u‖ ‖v‖ + ‖v‖² = (‖u‖ + ‖v‖)²\n    *   Algebraic identity: (a + b)² = a² + 2ab + b²\n\n9.  ‖u + v‖² ≤ (‖u‖ + ‖v‖)²\n    *   Substituting results of steps 4, 7, and 8\n\n10. ‖u + v‖ ≤ ‖u‖ + ‖v‖\n    *   Taking the square root of both sides of the inequality in step 9, since both sides are non-negative.\n\n11. Equality holds if and only if u ⋅ v = ‖u‖ ‖v‖\n    *   Equality in Cauchy-Schwarz inequality\n\n12. u ⋅ v = ‖u‖ ‖v‖ if and only if u = 0 or v = αu for some scalar α ≥ 0\n    *   Condition for equality in Cauchy-Schwarz inequality",
+  "theorems": "• Definition of Euclidean Norm\n    • ‖x‖² = x ⋅ x\n    • Step 1, Step 3\n\n• Distributive Property of Dot Product\n    • (u + v) ⋅ (u + v) = u ⋅ u + 2(u ⋅ v) + v ⋅ v\n    • Step 2\n\n• Cauchy-Schwarz Inequality\n    • u ⋅ v ≤ ‖u‖ ‖v‖\n    • Step 5\n\n• Algebraic Identity\n    • (a + b)² = a² + 2ab + b²\n    • Step 8\n\n• Condition for equality in Cauchy-Schwarz Inequality\n    • u ⋅ v = ‖u‖ ‖v‖ if and only if u = 0 or v = αu for some scalar α ≥ 0\n    • Step 12",
+  "parse_success": true,
+  "verification": {
+    "judges": {
+      "final_answer": {
+        "verdict": "PASS",
+        "reason": "The predicted inequality matches the ground truth inequality."
+      },
+      "ntc": {
+        "verdict": "PASS",
+        "confidence": "HIGH",
+        "reason": "The proof does not rely on any specific or degenerate cases to reach its conclusion."
+      },
+      "nlg": {
+        "verdict": "PASS",
+        "confidence": "HIGH",
+        "reason": "No logical gaps found."
+      },
+      "nae": {
+        "verdict": "PASS",
+        "confidence": "HIGH",
+        "reason": "The proof correctly derives the triangle inequality without making any unjustified approximations."
+      },
+      "nce": {
+        "verdict": "PASS",
+        "confidence": "HIGH",
+        "reason": "No calculation errors were found in the proof."
+      }
+    },
+    "overall_verdict": "PASS"
+  }
+}

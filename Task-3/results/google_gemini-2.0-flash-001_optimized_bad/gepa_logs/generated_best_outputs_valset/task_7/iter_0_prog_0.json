@@ -1,0 +1,29 @@
+{
+    "judges": {
+        "final_answer": {
+            "verdict": "PASS",
+            "reason": "The predicted answer correctly identifies the relation as $\\le$, which is what the problem statement asks to show."
+        },
+        "ntc": {
+            "verdict": "PASS",
+            "confidence": "1.0",
+            "reason": "The proof is correct and complete, and it doesn't rely on any specific toy cases. It uses a general algebraic manipulation to prove the inequality."
+        },
+        "nlg": {
+            "verdict": "PASS",
+            "confidence": "1.0",
+            "reason": "The proof is correct and complete, with no logical gaps. Each step follows directly from the previous one, and the final result is the desired inequality."
+        },
+        "nae": {
+            "verdict": "PASS",
+            "confidence": "10",
+            "reason": "The proof is correct and uses valid algebraic manipulations to arrive at the desired inequality. No approximations are used."
+        },
+        "nce": {
+            "verdict": "PASS",
+            "confidence": "1.0",
+            "reason": "The proof is correct and clearly written. Each step follows logically from the previous one, and the final result is the desired inequality."
+        }
+    },
+    "overall_verdict": "PASS"
+}

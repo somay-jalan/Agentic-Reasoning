@@ -1,0 +1,29 @@
+{
+    "judges": {
+        "final_answer": {
+            "verdict": "PASS",
+            "reason": "The predicted inequality sign matches the inequality in the problem statement."
+        },
+        "ntc": {
+            "verdict": "FAIL",
+            "confidence": "HIGH",
+            "reason": "The proof uses approximations and intuitive notions about specific cases of a and b being \"close\" or \"significantly different\" instead of providing a general mathematical argument."
+        },
+        "nlg": {
+            "verdict": "FAIL",
+            "confidence": "HIGH",
+            "reason": "The proof relies on vague approximations and lacks rigorous mathematical justification, failing to establish the inequality with certainty."
+        },
+        "nae": {
+            "verdict": "FAIL",
+            "confidence": "HIGH",
+            "reason": "The proof uses approximations without justification to establish the inequality, which is an approximation error."
+        },
+        "nce": {
+            "verdict": "FAIL",
+            "confidence": "LOW",
+            "reason": "The proof relies on approximations and lacks rigorous mathematical justification, failing to provide a valid argument for the inequality."
+        }
+    },
+    "overall_verdict": "FAIL"
+}

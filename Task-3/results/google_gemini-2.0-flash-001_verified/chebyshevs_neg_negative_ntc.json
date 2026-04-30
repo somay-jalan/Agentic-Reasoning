@@ -1,0 +1,38 @@
+{
+  "inequality_key": "chebyshevs_neg",
+  "inequality_name": "Chebyshevs Neg",
+  "label": "negative_ntc",
+  "model": "google/gemini-2.0-flash-001",
+  "problem_statement": "==============================================================\nMATHEMATICAL PROBLEM\n==============================================================\n\n\nLet a₁ ≥ a₂ ≥ … ≥ aₙ and b₁ ≥ b₂ ≥ … ≥ bₙ be real numbers\n(both sequences sorted in the same order).\n\nConsider the following relation:\n\n    n · ( Σᵢ aᵢ bᵢ )     ( )     ( Σᵢ aᵢ ) · ( Σᵢ bᵢ )\n\nOptions:\n  (A) ≤    (B) ≥    (C) =    (D) <    (E) >    (F) None of the above\n\nDetermine the correct relation to fill in the blank ( ).\nAlso determine exactly when equality holds, and what happens when\nthe two sequences are sorted in opposite orders.\n\n\n--------------------------------------------------------------\nYou must respond in EXACTLY the three sections below.\nDo NOT merge sections. Label each section exactly as shown.\n--------------------------------------------------------------\n\n## PART 1 – ANSWER\n\nState which option (A–F) is correct and write the complete, precise\nmathematical statement using the correct inequality or equality sign.\nState the exact conditions under which equality holds.\nState how the answer changes if the sequences are oppositely ordered.\n\n\n## PART 2 – PROOF\n\nProvide a complete, rigorous, self-contained proof for your answer above.\nStructure your proof as clearly numbered steps. Each step must:\n  - Be a single, atomic mathematical claim or algebraic manipulation\n  - Explicitly justify why the claim holds\n  - State any intermediate result before using it in the next step\nDo NOT skip steps. Do NOT assume the reader knows what technique you are using.\n\n\n## PART 3 – THEOREMS & LEMMAS USED\n\nList every theorem, lemma, algebraic identity, or mathematical property\nthat you used anywhere in PART 2.\nFor each entry provide:\n  • Name of the theorem / property\n  • Precise statement of it as you used it in this proof\n  • The step number(s) in PART 2 where you applied it",
+  "proof": "\nStep 1: For n=2: 2(a₁b₁+a₂b₂) ≥ (a₁+a₂)(b₁+b₂). Verified by example.\nStep 2: For n=3: checked numerically with a=(3,2,1), b=(3,2,1). Holds.\nStep 3: Pattern holds for all n by the same reasoning. ∎\n",
+  "verification": {
+    "judges": {
+      "final_answer": {
+        "verdict": "PASS",
+        "reason": "The predicted answer correctly identifies the inequality as $\\ge$, which corresponds to option B."
+      },
+      "ntc": {
+        "verdict": "FAIL",
+        "confidence": "HIGH",
+        "reason": "The proof uses toy cases (n=2 and n=3) to draw a general conclusion about the inequality holding for all n."
+      },
+      "nlg": {
+        "verdict": "FAIL",
+        "confidence": "LOW",
+        "reason": "The proof lacks a general argument and relies on checking specific cases, which is insufficient to prove the inequality for all n."
+      },
+      "nae": {
+        "verdict": "FAIL",
+        "confidence": "HIGH",
+        "reason": "The proof makes an unjustified approximation by generalizing from specific cases (n=2, n=3) to all n without providing a general proof."
+      },
+      "nce": {
+        "verdict": "FAIL",
+        "confidence": "LOW",
+        "reason": "The proof relies on numerical examples and lacks a general mathematical argument, so it's impossible to verify the correctness of calculations."
+      }
+    },
+    "overall_verdict": "FAIL"
+  },
+  "baseline_score": 0.0
+}

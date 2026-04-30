@@ -1,0 +1,38 @@
+{
+  "inequality_key": "jensens_neg",
+  "inequality_name": "Jensens Neg",
+  "label": "negative_ntc",
+  "model": "google/gemini-2.0-flash-001",
+  "problem_statement": "==============================================================\nMATHEMATICAL PROBLEM\n==============================================================\n\n\nLet f : ℝ → ℝ be a convex function.\nLet x₁, x₂, …, xₙ ∈ ℝ and let λ₁, λ₂, …, λₙ ≥ 0 with Σᵢ λᵢ = 1.\n\nConsider the following relation:\n\n    f( Σᵢ λᵢ xᵢ )     ( )     Σᵢ λᵢ f(xᵢ)\n\nOptions:\n  (A) ≤    (B) ≥    (C) =    (D) <    (E) >    (F) None of the above\n\nDetermine the correct relation to fill in the blank ( ).\nAlso determine exactly when equality holds, and state what changes\nif f is concave instead of convex.\n\n\n--------------------------------------------------------------\nYou must respond in EXACTLY the three sections below.\nDo NOT merge sections. Label each section exactly as shown.\n--------------------------------------------------------------\n\n## PART 1 – ANSWER\n\nState which option (A–F) is correct and write the complete, precise\nmathematical statement using the correct inequality or equality sign.\nState the exact condition under which equality holds.\nState how the answer changes when f is concave.\n\n\n## PART 2 – PROOF\n\nProvide a complete, rigorous, self-contained proof for your answer above.\nStructure your proof as clearly numbered steps. Each step must:\n  - Be a single, atomic mathematical claim or algebraic manipulation\n  - Explicitly justify why the claim holds\n  - State any intermediate result before using it in the next step\nDo NOT skip steps. Do NOT assume the reader knows what technique you are using.\n\n\n## PART 3 – THEOREMS & LEMMAS USED\n\nList every theorem, lemma, algebraic identity, or mathematical property\nthat you used anywhere in PART 2.\nFor each entry provide:\n  • Name of the theorem / property\n  • Precise statement of it as you used it in this proof\n  • The step number(s) in PART 2 where you applied it",
+  "proof": "\nStep 1: Let n=2, x₁=0, x₂=1, λ₁=λ₂=0.5. f(0.5) ≤ 0.5f(0)+0.5f(1). ✓ by convexity.\nStep 2: This confirms Jensen's for n=2.\nStep 3: For general n, the same argument applies by analogy. ∎\n",
+  "verification": {
+    "judges": {
+      "final_answer": {
+        "verdict": "FAIL",
+        "reason": "The predicted answer only states the correct inequality but does not state the condition for equality or what happens when f is concave. The answer is incomplete."
+      },
+      "ntc": {
+        "verdict": "FAIL",
+        "confidence": "10",
+        "reason": "The proof only provides a toy example for n=2 and then claims the result holds for general n \"by analogy\" without providing a rigorous inductive step or any other valid justification. This is insufficient to prove Jensen's inequality."
+      },
+      "nlg": {
+        "verdict": "FAIL",
+        "confidence": "2",
+        "reason": "The proof lacks a general argument or induction step to extend the result from n=2 to general n. The jump from n=2 to general n \"by analogy\" is a significant logical gap."
+      },
+      "nae": {
+        "verdict": "FAIL",
+        "confidence": "2",
+        "reason": "The proof is incomplete and lacks rigor. It only verifies the inequality for a specific case (n=2 with specific values) and then makes a vague claim about generalization without providing a detailed inductive argument or any other valid proof technique for general n."
+      },
+      "nce": {
+        "verdict": "FAIL",
+        "confidence": "10",
+        "reason": "The proof is insufficient. It only verifies the inequality for a specific case (n=2) and then makes a vague claim about the general case without providing any actual proof. It doesn't even state Jensen's inequality."
+      }
+    },
+    "overall_verdict": "FAIL"
+  },
+  "baseline_score": 0.0
+}

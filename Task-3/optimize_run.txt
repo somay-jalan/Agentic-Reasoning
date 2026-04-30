@@ -1,0 +1,1499 @@
+OUTPUT FOR BAD SIGNATURES
+
+
+✅ DSPy configured: google/gemini-2.0-flash-001
+
+Loading training/test examples...
+  ✅ Test positive : Bernoulli's Inequality
+  🔴 Test negative : bernoullis (negative_nae)
+  ✅ Test positive : Cauchy-Schwarz Inequality
+  🔴 Test negative : cauchy_schwarz (negative_nce)
+  ✅ Test positive : Chebyshev's Sum Inequality
+  🔴 Test negative : chebyshevs (negative_ntc)
+  ✅ Test positive : Jensen's Inequality
+  🔴 Test negative : jensens (negative_ntc)
+  ✅ Test positive : Markov's Inequality
+  🔴 Test negative : markovs (negative_nlg)
+  ✅ Test positive : Triangle Inequality
+  🔴 Test negative : triangle (negative_nlg)
+  ✅ Test positive : Young's Inequality
+  🔴 Test negative : youngs (negative_nce)
+
+  Split     Size   Label distribution
+  ────────────────────────────────────────────────────────────
+  train       13   negative_nae:2, negative_nce:2, negative_nlg:2, negative_ntc:2, positive:5
+  val          9   negative_nae:1, negative_nce:1, negative_nlg:1, negative_ntc:1, positive:5
+  test        14   negative_nae:1, negative_nce:2, negative_nlg:2, negative_ntc:2, positive:7
+============================================================
+  BASELINE — loaded from saved run_dspy.py JSONs
+============================================================
+  [positive       ] markovs              score=1.00  (from JSON)
+  [positive       ] cauchy_schwarz       score=1.00  (from JSON)
+  [negative_ntc   ] chebyshevs_neg       score=0.00  (from JSON)
+  [negative_nlg   ] markovs_neg          score=0.00  (from JSON)
+  [negative_nce   ] youngs_neg           score=0.00  (from JSON)
+  [negative_ntc   ] jensens_neg          score=0.00  (from JSON)
+  [positive       ] jensens              score=1.00  (from JSON)
+  [positive       ] youngs               score=1.00  (from JSON)
+  [positive       ] chebyshevs           score=0.00  (from JSON)
+  [negative_nce   ] cauchy_schwarz_neg   score=0.00  (from JSON)
+  [positive       ] triangle             score=1.00  (from JSON)
+  [positive       ] bernoullis           score=1.00  (from JSON)
+  [negative_nae   ] bernoullis_neg       score=0.00  (from JSON)
+  [negative_nlg   ] triangle_neg         score=0.00  (from JSON)
+
+  📊 Baseline avg (test): 0.4286
+
+============================================================
+  GEPA OPTIMIZATION
+============================================================
+
+  [Call 1] MODE=program-level
+    example  : pos_squares_nonneg (positive)
+    trace    : final_eval
+    score    : 1.00
+
+  [Call 2] MODE=program-level
+    example  : neg_nce_2 (negative_nce)
+    trace    : final_eval
+    score    : 0.40
+
+  [Call 3] MODE=program-level
+    example  : pos_jensen_convex (positive)
+    trace    : final_eval
+    score    : 1.00
+
+  [Call 4] MODE=program-level
+    example  : pos_chebyshev_2terms (positive)
+    trace    : final_eval
+    score    : 1.00
+
+  [Call 5] MODE=program-level
+    example  : neg_ntc_3 (negative_ntc)
+    trace    : final_eval
+    score    : 0.40
+
+  [Call 6] MODE=program-level
+    example  : pos_am_gm_2 (positive)
+    trace    : final_eval
+    score    : 1.00
+
+  [Call 7] MODE=program-level
+    example  : neg_nlg_1 (negative_nlg)
+    trace    : final_eval
+    score    : 0.40
+
+  [Call 8] MODE=program-level
+    example  : pos_young_special (positive)
+    trace    : final_eval
+    score    : 1.00
+
+  [Call 9] MODE=program-level
+    example  : neg_nae_3 (negative_nae)
+    trace    : final_eval
+    score    : 0.40
+
+  0%|          | 0/10 [00:00<?, ?it/s]
+  [Call 10] MODE=program-level
+    example  : neg_ntc_1 (negative_ntc)
+    trace    : final_eval
+    score    : 0.20
+
+Average Metric: 0.20 / 1 (20.0%):   0%|          | 0/10 [00:10<?, ?it/s]
+Average Metric: 0.20 / 1 (20.0%):  10%|█         | 1/10 [00:10<01:33, 10.36s/it]
+  [Call 11] MODE=program-level
+    example  : neg_nlg_3 (negative_nlg)
+    trace    : final_eval
+    score    : 0.40
+
+Average Metric: 0.60 / 2 (30.0%):  10%|█         | 1/10 [00:21<01:33, 10.36s/it]
+Average Metric: 0.60 / 2 (30.0%):  20%|██        | 2/10 [00:21<01:25, 10.65s/it]
+  [Call 12] MODE=program-level
+    example  : pos_bernoulli_induction (positive)
+    trace    : final_eval
+    score    : 1.00
+
+Average Metric: 1.60 / 3 (53.3%):  20%|██        | 2/10 [00:31<01:25, 10.65s/it]
+Average Metric: 1.60 / 3 (53.3%):  30%|███       | 3/10 [00:31<01:12, 10.38s/it]
+  [Call 13] MODE=program-level
+    example  : neg_nae_2 (negative_nae)
+    trace    : final_eval
+    score    : 0.40
+
+Average Metric: 2.00 / 4 (50.0%):  30%|███       | 3/10 [00:41<01:12, 10.38s/it]
+Average Metric: 2.00 / 4 (50.0%):  40%|████      | 4/10 [00:41<01:01, 10.24s/it]
+  [Call 14] MODE=program-level
+    example  : neg_nae_1 (negative_nae)
+    trace    : final_eval
+    score    : 0.40
+
+Average Metric: 2.40 / 5 (48.0%):  40%|████      | 4/10 [00:51<01:01, 10.24s/it]
+Average Metric: 2.40 / 5 (48.0%):  50%|█████     | 5/10 [00:51<00:51, 10.23s/it]
+  [Call 15] MODE=program-level
+    example  : neg_nce_3 (negative_nce)
+    trace    : final_eval
+    score    : 0.40
+
+Average Metric: 2.80 / 6 (46.7%):  50%|█████     | 5/10 [01:02<00:51, 10.23s/it]
+Average Metric: 2.80 / 6 (46.7%):  60%|██████    | 6/10 [01:02<00:42, 10.52s/it]
+  [Call 16] MODE=program-level
+    example  : neg_nce_1 (negative_nce)
+    trace    : final_eval
+    score    : 0.40
+
+Average Metric: 3.20 / 7 (45.7%):  60%|██████    | 6/10 [01:11<00:42, 10.52s/it]
+Average Metric: 3.20 / 7 (45.7%):  70%|███████   | 7/10 [01:11<00:30, 10.01s/it]
+  [Call 17] MODE=program-level
+    example  : neg_ntc_2 (negative_ntc)
+    trace    : final_eval
+    score    : 0.40
+
+Average Metric: 3.60 / 8 (45.0%):  70%|███████   | 7/10 [01:21<00:30, 10.01s/it]
+Average Metric: 3.60 / 8 (45.0%):  80%|████████  | 8/10 [01:21<00:20, 10.06s/it]
+  [Call 18] MODE=program-level
+    example  : pos_markov (positive)
+    trace    : final_eval
+    score    : 1.00
+
+Average Metric: 4.60 / 9 (51.1%):  80%|████████  | 8/10 [01:31<00:20, 10.06s/it]
+Average Metric: 4.60 / 9 (51.1%):  90%|█████████ | 9/10 [01:31<00:10, 10.12s/it]
+  [Call 19] MODE=program-level
+    example  : neg_nlg_2 (negative_nlg)
+    trace    : final_eval
+    score    : 0.40
+
+Average Metric: 5.00 / 10 (50.0%):  90%|█████████ | 9/10 [01:41<00:10, 10.12s/it]
+Average Metric: 5.00 / 10 (50.0%): 100%|██████████| 10/10 [01:41<00:00, 10.06s/it]
+Average Metric: 5.00 / 10 (50.0%): 100%|██████████| 10/10 [01:41<00:00, 10.19s/it]
+
+  [Call 20] MODE=predictor-level
+    predictor : agent.final_answer_judge.predict
+    example   : neg_ntc_1 (negative_ntc)
+    trace     : optimization
+    predicted : FAIL
+    expected  : PASS
+    correct   : ❌
+    score     : 0.00  ← per-judge score
+    reason    : The predicted answer doesn't provide a proof as required by the problem statemen
+
+  [Call 21] MODE=predictor-level
+    predictor : agent.final_answer_judge.predict
+    example   : neg_nlg_3 (negative_nlg)
+    trace     : optimization
+    predicted : FAIL
+    expected  : PASS
+    correct   : ❌
+    score     : 0.00  ← per-judge score
+    reason    : The predicted answer doesn't provide any valid reasoning or proof for the inequa
+
+  [Call 22] MODE=predictor-level
+    predictor : agent.final_answer_judge.predict
+    example   : pos_bernoulli_induction (positive)
+    trace     : optimization
+    predicted : PASS
+    expected  : PASS
+    correct   : ✅
+    score     : 1.00  ← per-judge score
+    reason    : The predicted answer correctly identifies the relation as greater than or equal 
+
+  [Call 23] MODE=predictor-level
+    predictor : agent.final_answer_judge.predict
+    example   : neg_nae_2 (negative_nae)
+    trace     : optimization
+    predicted : PASS
+    expected  : PASS
+    correct   : ✅
+    score     : 1.00  ← per-judge score
+    reason    : The predicted answer correctly identifies the inequality relation as >=, which i
+
+  [Call 24] MODE=predictor-level
+    predictor : agent.final_answer_judge.predict
+    example   : neg_nae_1 (negative_nae)
+    trace     : optimization
+    predicted : PASS
+    expected  : PASS
+    correct   : ✅
+    score     : 1.00  ← per-judge score
+    reason    : The predicted answer correctly identifies the relation as ≤, which is consistent
+
+  [Call 25] MODE=predictor-level
+    predictor : agent.final_answer_judge.predict
+    example   : neg_nce_3 (negative_nce)
+    trace     : optimization
+    predicted : PASS
+    expected  : PASS
+    correct   : ✅
+    score     : 1.00  ← per-judge score
+    reason    : The predicted answer correctly identifies the relationship between (a+b)/2 and √
+
+  [Call 26] MODE=predictor-level
+    predictor : agent.final_answer_judge.predict
+    example   : neg_nce_1 (negative_nce)
+    trace     : optimization
+    predicted : PASS
+    expected  : PASS
+    correct   : ✅
+    score     : 1.00  ← per-judge score
+    reason    : The square of any real number is non-negative, so (a+b)² ≥ 0. The predicted answ
+
+  [Call 27] MODE=predictor-level
+    predictor : agent.final_answer_judge.predict
+    example   : neg_ntc_2 (negative_ntc)
+    trace     : optimization
+    predicted : PASS
+    expected  : PASS
+    correct   : ✅
+    score     : 1.00  ← per-judge score
+    reason    : The predicted answer correctly identifies the relation as ≤, which is consistent
+
+  [Call 28] MODE=predictor-level
+    predictor : agent.final_answer_judge.predict
+    example   : pos_markov (positive)
+    trace     : optimization
+    predicted : PASS
+    expected  : PASS
+    correct   : ✅
+    score     : 1.00  ← per-judge score
+    reason    : The predicted answer correctly identifies the inequality. Although it doesn't pr
+
+  [Call 29] MODE=predictor-level
+    predictor : agent.final_answer_judge.predict
+    example   : neg_nlg_2 (negative_nlg)
+    trace     : optimization
+    predicted : PASS
+    expected  : PASS
+    correct   : ✅
+    score     : 1.00  ← per-judge score
+    reason    : The predicted answer correctly identifies the inequality relationship.
+
+  [Call 30] MODE=program-level
+    example  : neg_ntc_1 (negative_ntc)
+    trace    : final_eval
+    score    : 0.40
+
+  [Call 31] MODE=program-level
+    example  : neg_nlg_3 (negative_nlg)
+    trace    : final_eval
+    score    : 0.60
+
+  [Call 32] MODE=program-level
+    example  : pos_bernoulli_induction (positive)
+    trace    : final_eval
+    score    : 1.00
+
+  [Call 33] MODE=program-level
+    example  : neg_nae_2 (negative_nae)
+    trace    : final_eval
+    score    : 0.40
+
+  [Call 34] MODE=program-level
+    example  : neg_nae_1 (negative_nae)
+    trace    : final_eval
+    score    : 0.40
+
+  [Call 35] MODE=program-level
+    example  : neg_nce_3 (negative_nce)
+    trace    : final_eval
+    score    : 0.40
+
+  [Call 36] MODE=program-level
+    example  : neg_nce_1 (negative_nce)
+    trace    : final_eval
+    score    : 0.40
+
+  [Call 37] MODE=program-level
+    example  : neg_ntc_2 (negative_ntc)
+    trace    : final_eval
+    score    : 0.40
+
+  [Call 38] MODE=program-level
+    example  : pos_markov (positive)
+    trace    : final_eval
+    score    : 1.00
+
+  [Call 39] MODE=program-level
+    example  : neg_nlg_2 (negative_nlg)
+    trace    : final_eval
+    score    : 0.40
+
+  [Call 40] MODE=program-level
+    example  : pos_squares_nonneg (positive)
+    trace    : final_eval
+    score    : 1.00
+
+  [Call 41] MODE=program-level
+    example  : neg_nce_2 (negative_nce)
+    trace    : final_eval
+    score    : 0.40
+
+  [Call 42] MODE=program-level
+    example  : pos_jensen_convex (positive)
+    trace    : final_eval
+    score    : 1.00
+
+  [Call 43] MODE=program-level
+    example  : pos_chebyshev_2terms (positive)
+    trace    : final_eval
+    score    : 1.00
+
+  [Call 44] MODE=program-level
+    example  : neg_ntc_3 (negative_ntc)
+    trace    : final_eval
+    score    : 0.40
+
+  [Call 45] MODE=program-level
+    example  : pos_am_gm_2 (positive)
+    trace    : final_eval
+    score    : 1.00
+
+  [Call 46] MODE=program-level
+    example  : neg_nlg_1 (negative_nlg)
+    trace    : final_eval
+    score    : 0.40
+
+  [Call 47] MODE=program-level
+    example  : pos_young_special (positive)
+    trace    : final_eval
+    score    : 1.00
+
+  [Call 48] MODE=program-level
+    example  : neg_nae_3 (negative_nae)
+    trace    : final_eval
+    score    : 0.40
+
+  0%|          | 0/10 [00:00<?, ?it/s]
+  [Call 49] MODE=program-level
+    example  : pos_triangle_reals (positive)
+    trace    : final_eval
+    score    : 1.00
+
+Average Metric: 1.00 / 1 (100.0%):   0%|          | 0/10 [00:08<?, ?it/s]
+Average Metric: 1.00 / 1 (100.0%):  10%|█         | 1/10 [00:08<01:12,  8.02s/it]
+  [Call 50] MODE=program-level
+    example  : pos_power_mean (positive)
+    trace    : final_eval
+    score    : 1.00
+
+Average Metric: 2.00 / 2 (100.0%):  10%|█         | 1/10 [00:17<01:12,  8.02s/it]
+Average Metric: 2.00 / 2 (100.0%):  20%|██        | 2/10 [00:17<01:12,  9.12s/it]
+  [Call 51] MODE=program-level
+    example  : pos_cauchy_schwarz_2d (positive)
+    trace    : final_eval
+    score    : 1.00
+
+Average Metric: 3.00 / 3 (100.0%):  20%|██        | 2/10 [00:26<01:12,  9.12s/it]
+Average Metric: 3.00 / 3 (100.0%):  30%|███       | 3/10 [00:26<01:01,  8.81s/it]
+  [Call 52] MODE=program-level
+    example  : pos_cauchy_schwarz_2d (positive)
+    trace    : final_eval
+    score    : 1.00
+
+Average Metric: 4.00 / 4 (100.0%):  30%|███       | 3/10 [00:34<01:01,  8.81s/it]
+Average Metric: 4.00 / 4 (100.0%):  40%|████      | 4/10 [00:34<00:51,  8.65s/it]
+  [Call 53] MODE=program-level
+    example  : pos_power_mean (positive)
+    trace    : final_eval
+    score    : 1.00
+
+Average Metric: 5.00 / 5 (100.0%):  40%|████      | 4/10 [00:44<00:51,  8.65s/it]
+Average Metric: 5.00 / 5 (100.0%):  50%|█████     | 5/10 [00:44<00:45,  9.04s/it]
+  [Call 54] MODE=program-level
+    example  : pos_triangle_reals (positive)
+    trace    : final_eval
+    score    : 1.00
+
+Average Metric: 6.00 / 6 (100.0%):  50%|█████     | 5/10 [00:52<00:45,  9.04s/it]
+Average Metric: 6.00 / 6 (100.0%):  60%|██████    | 6/10 [00:52<00:35,  8.85s/it]
+  [Call 55] MODE=program-level
+    example  : neg_nlg_2 (negative_nlg)
+    trace    : final_eval
+    score    : 0.40
+
+Average Metric: 6.40 / 7 (91.4%):  60%|██████    | 6/10 [01:02<00:35,  8.85s/it] 
+Average Metric: 6.40 / 7 (91.4%):  70%|███████   | 7/10 [01:02<00:27,  9.11s/it]
+  [Call 56] MODE=program-level
+    example  : pos_markov (positive)
+    trace    : final_eval
+    score    : 1.00
+
+Average Metric: 7.40 / 8 (92.5%):  70%|███████   | 7/10 [01:12<00:27,  9.11s/it]
+Average Metric: 7.40 / 8 (92.5%):  80%|████████  | 8/10 [01:12<00:18,  9.21s/it]
+  [Call 57] MODE=program-level
+    example  : neg_ntc_2 (negative_ntc)
+    trace    : final_eval
+    score    : 0.40
+
+Average Metric: 7.80 / 9 (86.7%):  80%|████████  | 8/10 [01:22<00:18,  9.21s/it]
+Average Metric: 7.80 / 9 (86.7%):  90%|█████████ | 9/10 [01:22<00:09,  9.72s/it]
+  [Call 58] MODE=program-level
+    example  : neg_nce_1 (negative_nce)
+    trace    : final_eval
+    score    : 0.40
+
+Average Metric: 8.20 / 10 (82.0%):  90%|█████████ | 9/10 [01:31<00:09,  9.72s/it]
+Average Metric: 8.20 / 10 (82.0%): 100%|██████████| 10/10 [01:31<00:00,  9.37s/it]
+Average Metric: 8.20 / 10 (82.0%): 100%|██████████| 10/10 [01:31<00:00,  9.15s/it]
+
+  [Call 59] MODE=predictor-level
+    predictor : agent.ntc_judge.predict
+    example   : pos_triangle_reals (positive)
+    trace     : optimization
+    predicted : PASS
+    expected  : PASS
+    correct   : ✅
+    score     : 1.00  ← per-judge score
+    reason    : The proof is correct and does not rely on toy cases. It uses a general argument 
+
+  [Call 60] MODE=predictor-level
+    predictor : agent.ntc_judge.predict
+    example   : pos_power_mean (positive)
+    trace     : optimization
+    predicted : PASS
+    expected  : PASS
+    correct   : ✅
+    score     : 1.00  ← per-judge score
+    reason    : The proof is correct and complete. It starts from the given inequality and arriv
+
+  [Call 61] MODE=predictor-level
+    predictor : agent.ntc_judge.predict
+    example   : pos_cauchy_schwarz_2d (positive)
+    trace     : optimization
+    predicted : PASS
+    expected  : PASS
+    correct   : ✅
+    score     : 1.00  ← per-judge score
+    reason    : The proof is correct and complete. It doesn't rely on any specific toy case.
+
+  [Call 62] MODE=predictor-level
+    predictor : agent.ntc_judge.predict
+    example   : pos_cauchy_schwarz_2d (positive)
+    trace     : optimization
+    predicted : PASS
+    expected  : PASS
+    correct   : ✅
+    score     : 1.00  ← per-judge score
+    reason    : The proof is correct and complete. It doesn't rely on toy cases.
+
+  [Call 63] MODE=predictor-level
+    predictor : agent.ntc_judge.predict
+    example   : pos_power_mean (positive)
+    trace     : optimization
+    predicted : PASS
+    expected  : PASS
+    correct   : ✅
+    score     : 1.00  ← per-judge score
+    reason    : The proof is correct and doesn't rely on toy cases. It uses valid algebraic mani
+
+  [Call 64] MODE=predictor-level
+    predictor : agent.ntc_judge.predict
+    example   : pos_triangle_reals (positive)
+    trace     : optimization
+    predicted : PASS
+    expected  : PASS
+    correct   : ✅
+    score     : 1.00  ← per-judge score
+    reason    : The proof is correct and doesn't rely on any specific toy case. It uses general 
+
+  [Call 65] MODE=predictor-level
+    predictor : agent.ntc_judge.predict
+    example   : neg_nlg_2 (negative_nlg)
+    trace     : optimization
+    predicted : FAIL
+    expected  : PASS
+    correct   : ❌
+    score     : 0.00  ← per-judge score
+    reason    : The proof provides no actual steps or reasoning to justify the inequality. It ju
+
+  [Call 66] MODE=predictor-level
+    predictor : agent.ntc_judge.predict
+    example   : pos_markov (positive)
+    trace     : optimization
+    predicted : PASS
+    expected  : PASS
+    correct   : ✅
+    score     : 1.00  ← per-judge score
+    reason    : The proof is correct and doesn't rely on specific toy cases. It's a general proo
+
+  [Call 67] MODE=predictor-level
+    predictor : agent.ntc_judge.predict
+    example   : neg_ntc_2 (negative_ntc)
+    trace     : optimization
+    predicted : FAIL
+    expected  : FAIL
+    correct   : ✅
+    score     : 1.00  ← per-judge score
+    reason    : The provided "proof" only tests a couple of specific cases for n=2. It doesn't o
+
+  [Call 68] MODE=predictor-level
+    predictor : agent.ntc_judge.predict
+    example   : neg_nce_1 (negative_nce)
+    trace     : optimization
+    predicted : FAIL
+    expected  : PASS
+    correct   : ❌
+    score     : 0.00  ← per-judge score
+    reason    : The expansion of (a+b)² is incorrect. It should be a² + 2ab + b², not a² + b². T
+
+  [Call 69] MODE=program-level
+    example  : pos_triangle_reals (positive)
+    trace    : final_eval
+    score    : 1.00
+
+  [Call 70] MODE=program-level
+    example  : pos_power_mean (positive)
+    trace    : final_eval
+    score    : 1.00
+
+  [Call 71] MODE=program-level
+    example  : pos_cauchy_schwarz_2d (positive)
+    trace    : final_eval
+    score    : 1.00
+
+  [Call 72] MODE=program-level
+    example  : pos_cauchy_schwarz_2d (positive)
+    trace    : final_eval
+    score    : 1.00
+
+  [Call 73] MODE=program-level
+    example  : pos_power_mean (positive)
+    trace    : final_eval
+    score    : 1.00
+
+  [Call 74] MODE=program-level
+    example  : pos_triangle_reals (positive)
+    trace    : final_eval
+    score    : 1.00
+
+  [Call 75] MODE=program-level
+    example  : neg_nlg_2 (negative_nlg)
+    trace    : final_eval
+    score    : 0.60
+
+  [Call 76] MODE=program-level
+    example  : pos_markov (positive)
+    trace    : final_eval
+    score    : 1.00
+
+  [Call 77] MODE=program-level
+    example  : neg_ntc_2 (negative_ntc)
+    trace    : final_eval
+    score    : 0.40
+
+  [Call 78] MODE=program-level
+    example  : neg_nce_1 (negative_nce)
+    trace    : final_eval
+    score    : 0.60
+
+  [Call 79] MODE=program-level
+    example  : pos_squares_nonneg (positive)
+    trace    : final_eval
+    score    : 1.00
+
+  [Call 80] MODE=program-level
+    example  : neg_nce_2 (negative_nce)
+    trace    : final_eval
+    score    : 0.60
+
+  [Call 81] MODE=program-level
+    example  : pos_jensen_convex (positive)
+    trace    : final_eval
+    score    : 1.00
+
+  [Call 82] MODE=program-level
+    example  : pos_chebyshev_2terms (positive)
+    trace    : final_eval
+    score    : 1.00
+
+  [Call 83] MODE=program-level
+    example  : neg_ntc_3 (negative_ntc)
+    trace    : final_eval
+    score    : 0.40
+
+  [Call 84] MODE=program-level
+    example  : pos_am_gm_2 (positive)
+    trace    : final_eval
+    score    : 1.00
+
+  [Call 85] MODE=program-level
+    example  : neg_nlg_1 (negative_nlg)
+    trace    : final_eval
+    score    : 0.60
+
+  [Call 86] MODE=program-level
+    example  : pos_young_special (positive)
+    trace    : final_eval
+    score    : 1.00
+
+  [Call 87] MODE=program-level
+    example  : neg_nae_3 (negative_nae)
+    trace    : final_eval
+    score    : 0.40
+
+  0%|          | 0/10 [00:00<?, ?it/s]
+  [Call 88] MODE=program-level
+    example  : neg_ntc_2 (negative_ntc)
+    trace    : final_eval
+    score    : 0.40
+
+Average Metric: 0.40 / 1 (40.0%):   0%|          | 0/10 [00:10<?, ?it/s]
+Average Metric: 0.40 / 1 (40.0%):  10%|█         | 1/10 [00:10<01:35, 10.65s/it]
+  [Call 89] MODE=program-level
+    example  : neg_nce_3 (negative_nce)
+    trace    : final_eval
+    score    : 0.60
+
+Average Metric: 1.00 / 2 (50.0%):  10%|█         | 1/10 [00:24<01:35, 10.65s/it]
+Average Metric: 1.00 / 2 (50.0%):  20%|██        | 2/10 [00:24<01:39, 12.40s/it]
+  [Call 90] MODE=program-level
+    example  : pos_markov (positive)
+    trace    : final_eval
+    score    : 1.00
+
+Average Metric: 2.00 / 3 (66.7%):  20%|██        | 2/10 [00:35<01:39, 12.40s/it]
+Average Metric: 2.00 / 3 (66.7%):  30%|███       | 3/10 [00:35<01:21, 11.64s/it]
+  [Call 91] MODE=program-level
+    example  : pos_bernoulli_induction (positive)
+    trace    : final_eval
+    score    : 1.00
+
+Average Metric: 3.00 / 4 (75.0%):  30%|███       | 3/10 [00:46<01:21, 11.64s/it]
+Average Metric: 3.00 / 4 (75.0%):  40%|████      | 4/10 [00:46<01:08, 11.50s/it]
+  [Call 92] MODE=program-level
+    example  : pos_triangle_reals (positive)
+    trace    : final_eval
+    score    : 1.00
+
+Average Metric: 4.00 / 5 (80.0%):  40%|████      | 4/10 [00:55<01:08, 11.50s/it]
+Average Metric: 4.00 / 5 (80.0%):  50%|█████     | 5/10 [00:55<00:52, 10.59s/it]
+  [Call 93] MODE=program-level
+    example  : neg_nae_2 (negative_nae)
+    trace    : final_eval
+    score    : 0.40
+
+Average Metric: 4.40 / 6 (73.3%):  50%|█████     | 5/10 [01:05<00:52, 10.59s/it]
+Average Metric: 4.40 / 6 (73.3%):  60%|██████    | 6/10 [01:05<00:41, 10.44s/it]
+  [Call 94] MODE=program-level
+    example  : neg_nce_1 (negative_nce)
+    trace    : final_eval
+    score    : 0.60
+
+Average Metric: 5.00 / 7 (71.4%):  60%|██████    | 6/10 [01:14<00:41, 10.44s/it]
+Average Metric: 5.00 / 7 (71.4%):  70%|███████   | 7/10 [01:14<00:30, 10.06s/it]
+  [Call 95] MODE=program-level
+    example  : neg_nae_1 (negative_nae)
+    trace    : final_eval
+    score    : 0.40
+
+Average Metric: 5.40 / 8 (67.5%):  70%|███████   | 7/10 [01:27<00:30, 10.06s/it]
+Average Metric: 5.40 / 8 (67.5%):  80%|████████  | 8/10 [01:27<00:21, 10.95s/it]
+  [Call 96] MODE=program-level
+    example  : pos_cauchy_schwarz_2d (positive)
+    trace    : final_eval
+    score    : 1.00
+
+Average Metric: 6.40 / 9 (71.1%):  80%|████████  | 8/10 [01:36<00:21, 10.95s/it]
+Average Metric: 6.40 / 9 (71.1%):  90%|█████████ | 9/10 [01:36<00:10, 10.33s/it]
+  [Call 97] MODE=program-level
+    example  : neg_ntc_1 (negative_ntc)
+    trace    : final_eval
+    score    : 0.40
+
+Average Metric: 6.80 / 10 (68.0%):  90%|█████████ | 9/10 [01:50<00:10, 10.33s/it]
+Average Metric: 6.80 / 10 (68.0%): 100%|██████████| 10/10 [01:50<00:00, 11.57s/it]
+Average Metric: 6.80 / 10 (68.0%): 100%|██████████| 10/10 [01:50<00:00, 11.09s/it]
+
+  [Call 98] MODE=predictor-level
+    predictor : agent.nlg_judge.predict
+    example   : neg_ntc_2 (negative_ntc)
+    trace     : optimization
+    predicted : FAIL
+    expected  : PASS
+    correct   : ❌
+    score     : 0.00  ← per-judge score
+    reason    : The proof only provides examples and does not offer a general argument for why t
+
+  [Call 99] MODE=predictor-level
+    predictor : agent.nlg_judge.predict
+    example   : neg_nce_3 (negative_nce)
+    trace     : optimization
+    predicted : FAIL
+    expected  : PASS
+    correct   : ❌
+    score     : 0.00  ← per-judge score
+    reason    : The proof contains an algebraic error in step 2 and a logical error in step 4. T
+
+  [Call 100] MODE=predictor-level
+    predictor : agent.nlg_judge.predict
+    example   : pos_markov (positive)
+    trace     : optimization
+    predicted : PASS
+    expected  : PASS
+    correct   : ✅
+    score     : 1.00  ← per-judge score
+    reason    : The proof is clear, concise, and logically sound. Each step follows directly fro
+
+  [Call 101] MODE=predictor-level
+    predictor : agent.nlg_judge.predict
+    example   : pos_bernoulli_induction (positive)
+    trace     : optimization
+    predicted : PASS
+    expected  : PASS
+    correct   : ✅
+    score     : 1.00  ← per-judge score
+    reason    : The proof is a standard inductive proof and all steps are logically valid. The m
+
+  [Call 102] MODE=predictor-level
+    predictor : agent.nlg_judge.predict
+    example   : pos_triangle_reals (positive)
+    trace     : optimization
+    predicted : PASS
+    expected  : PASS
+    correct   : ✅
+    score     : 1.00  ← per-judge score
+    reason    : The proof is clear, concise, and logically correct. It uses a standard and well-
+
+  [Call 103] MODE=predictor-level
+    predictor : agent.nlg_judge.predict
+    example   : neg_nae_2 (negative_nae)
+    trace     : optimization
+    predicted : FAIL
+    expected  : PASS
+    correct   : ❌
+    score     : 0.00  ← per-judge score
+    reason    : The proof relies on approximation and hand-waving arguments about higher-order t
+
+  [Call 104] MODE=predictor-level
+    predictor : agent.nlg_judge.predict
+    example   : neg_nce_1 (negative_nce)
+    trace     : optimization
+    predicted : FAIL
+    expected  : PASS
+    correct   : ❌
+    score     : 0.00  ← per-judge score
+    reason    : The expansion of (a+b)² is incorrect, leading to a flawed proof. The correct exp
+
+  [Call 105] MODE=predictor-level
+    predictor : agent.nlg_judge.predict
+    example   : neg_nae_1 (negative_nae)
+    trace     : optimization
+    predicted : FAIL
+    expected  : PASS
+    correct   : ❌
+    score     : 0.00  ← per-judge score
+    reason    : The proof relies on approximations without proper justification and contains inc
+
+  [Call 106] MODE=predictor-level
+    predictor : agent.nlg_judge.predict
+    example   : pos_cauchy_schwarz_2d (positive)
+    trace     : optimization
+    predicted : PASS
+    expected  : PASS
+    correct   : ✅
+    score     : 1.00  ← per-judge score
+    reason    : The proof is clear, concise, and logically sound. The steps are easy to follow a
+
+  [Call 107] MODE=predictor-level
+    predictor : agent.nlg_judge.predict
+    example   : neg_ntc_1 (negative_ntc)
+    trace     : optimization
+    predicted : FAIL
+    expected  : PASS
+    correct   : ❌
+    score     : 0.00  ← per-judge score
+    reason    : The proof makes a significant logical error by assuming that the inequality hold
+
+  [Call 108] MODE=program-level
+    example  : neg_ntc_2 (negative_ntc)
+    trace    : final_eval
+    score    : 0.40
+
+  [Call 109] MODE=program-level
+    example  : neg_nce_3 (negative_nce)
+    trace    : final_eval
+    score    : 0.60
+
+  [Call 110] MODE=program-level
+    example  : pos_markov (positive)
+    trace    : final_eval
+    score    : 1.00
+
+  [Call 111] MODE=program-level
+    example  : pos_bernoulli_induction (positive)
+    trace    : final_eval
+    score    : 1.00
+
+  [Call 112] MODE=program-level
+    example  : pos_triangle_reals (positive)
+    trace    : final_eval
+    score    : 1.00
+
+  [Call 113] MODE=program-level
+    example  : neg_nae_2 (negative_nae)
+    trace    : final_eval
+    score    : 0.40
+
+  [Call 114] MODE=program-level
+    example  : neg_nce_1 (negative_nce)
+    trace    : final_eval
+    score    : 0.60
+
+  [Call 115] MODE=program-level
+    example  : neg_nae_1 (negative_nae)
+    trace    : final_eval
+    score    : 0.40
+
+  [Call 116] MODE=program-level
+    example  : pos_cauchy_schwarz_2d (positive)
+    trace    : final_eval
+    score    : 1.00
+
+  [Call 117] MODE=program-level
+    example  : neg_ntc_1 (negative_ntc)
+    trace    : final_eval
+    score    : 0.40
+
+  0%|          | 0/10 [00:00<?, ?it/s]
+  [Call 118] MODE=program-level
+    example  : pos_power_mean (positive)
+    trace    : final_eval
+    score    : 1.00
+
+Average Metric: 1.00 / 1 (100.0%):   0%|          | 0/10 [00:12<?, ?it/s]
+Average Metric: 1.00 / 1 (100.0%):  10%|█         | 1/10 [00:12<01:52, 12.48s/it]
+  [Call 119] MODE=program-level
+    example  : neg_nlg_2 (negative_nlg)
+    trace    : final_eval
+    score    : 0.60
+
+Average Metric: 1.60 / 2 (80.0%):  10%|█         | 1/10 [00:24<01:52, 12.48s/it] 
+Average Metric: 1.60 / 2 (80.0%):  20%|██        | 2/10 [00:24<01:36, 12.12s/it]
+  [Call 120] MODE=program-level
+    example  : neg_nlg_3 (negative_nlg)
+    trace    : final_eval
+    score    : 0.80
+
+Average Metric: 2.40 / 3 (80.0%):  20%|██        | 2/10 [00:38<01:36, 12.12s/it]
+Average Metric: 2.40 / 3 (80.0%):  30%|███       | 3/10 [00:38<01:32, 13.19s/it]
+  [Call 121] MODE=program-level
+    example  : neg_nlg_3 (negative_nlg)
+    trace    : final_eval
+    score    : 0.80
+
+Average Metric: 3.20 / 4 (80.0%):  30%|███       | 3/10 [00:57<01:32, 13.19s/it]
+Average Metric: 3.20 / 4 (80.0%):  40%|████      | 4/10 [00:57<01:31, 15.17s/it]
+  [Call 122] MODE=program-level
+    example  : neg_nlg_2 (negative_nlg)
+    trace    : final_eval
+    score    : 0.60
+
+Average Metric: 3.80 / 5 (76.0%):  40%|████      | 4/10 [01:09<01:31, 15.17s/it]
+Average Metric: 3.80 / 5 (76.0%):  50%|█████     | 5/10 [01:09<01:10, 14.13s/it]
+  [Call 123] MODE=program-level
+    example  : pos_power_mean (positive)
+    trace    : final_eval
+    score    : 1.00
+
+Average Metric: 4.80 / 6 (80.0%):  50%|█████     | 5/10 [01:20<01:10, 14.13s/it]
+Average Metric: 4.80 / 6 (80.0%):  60%|██████    | 6/10 [01:20<00:52, 13.05s/it]
+  [Call 124] MODE=program-level
+    example  : neg_ntc_1 (negative_ntc)
+    trace    : final_eval
+    score    : 0.40
+
+Average Metric: 5.20 / 7 (74.3%):  60%|██████    | 6/10 [01:34<00:52, 13.05s/it]
+Average Metric: 5.20 / 7 (74.3%):  70%|███████   | 7/10 [01:34<00:40, 13.41s/it]
+  [Call 125] MODE=program-level
+    example  : pos_cauchy_schwarz_2d (positive)
+    trace    : final_eval
+    score    : 1.00
+
+Average Metric: 6.20 / 8 (77.5%):  70%|███████   | 7/10 [01:44<00:40, 13.41s/it]
+Average Metric: 6.20 / 8 (77.5%):  80%|████████  | 8/10 [01:44<00:24, 12.40s/it]
+  [Call 126] MODE=program-level
+    example  : neg_nae_1 (negative_nae)
+    trace    : final_eval
+    score    : 0.40
+
+Average Metric: 6.60 / 9 (73.3%):  80%|████████  | 8/10 [01:59<00:24, 12.40s/it]
+Average Metric: 6.60 / 9 (73.3%):  90%|█████████ | 9/10 [01:59<00:13, 13.06s/it]
+  [Call 127] MODE=program-level
+    example  : neg_nce_1 (negative_nce)
+    trace    : final_eval
+    score    : 0.60
+
+Average Metric: 7.20 / 10 (72.0%):  90%|█████████ | 9/10 [02:10<00:13, 13.06s/it]
+Average Metric: 7.20 / 10 (72.0%): 100%|██████████| 10/10 [02:10<00:00, 12.53s/it]
+Average Metric: 7.20 / 10 (72.0%): 100%|██████████| 10/10 [02:10<00:00, 13.05s/it]
+
+  [Call 128] MODE=predictor-level
+    predictor : agent.nae_judge.predict
+    example   : pos_power_mean (positive)
+    trace     : optimization
+    predicted : PASS
+    expected  : PASS
+    correct   : ✅
+    score     : 1.00  ← per-judge score
+    reason    : The proof is correct and well-structured, with clear steps and valid reasoning. 
+
+  [Call 129] MODE=predictor-level
+    predictor : agent.nae_judge.predict
+    example   : neg_nlg_2 (negative_nlg)
+    trace     : optimization
+    predicted : FAIL
+    expected  : PASS
+    correct   : ❌
+    score     : 0.00  ← per-judge score
+    reason    : The proof provides no actual justification for the inequality. It simply states 
+
+  [Call 130] MODE=predictor-level
+    predictor : agent.nae_judge.predict
+    example   : neg_nlg_3 (negative_nlg)
+    trace     : optimization
+    predicted : PASS
+    expected  : PASS
+    correct   : ✅
+    score     : 1.00  ← per-judge score
+    reason    : The proof correctly uses the convexity of the exponential function to derive the
+
+  [Call 131] MODE=predictor-level
+    predictor : agent.nae_judge.predict
+    example   : neg_nlg_3 (negative_nlg)
+    trace     : optimization
+    predicted : PASS
+    expected  : PASS
+    correct   : ✅
+    score     : 1.00  ← per-judge score
+    reason    : The proof uses the convexity of the exponential function and chooses appropriate
+
+  [Call 132] MODE=predictor-level
+    predictor : agent.nae_judge.predict
+    example   : neg_nlg_2 (negative_nlg)
+    trace     : optimization
+    predicted : FAIL
+    expected  : PASS
+    correct   : ❌
+    score     : 0.00  ← per-judge score
+    reason    : The proof provides no actual steps or reasoning to justify the inequality P(X ≥ 
+
+  [Call 133] MODE=predictor-level
+    predictor : agent.nae_judge.predict
+    example   : pos_power_mean (positive)
+    trace     : optimization
+    predicted : PASS
+    expected  : PASS
+    correct   : ✅
+    score     : 1.00  ← per-judge score
+    reason    : The proof is correct and uses valid algebraic manipulations to arrive at a true 
+
+  [Call 134] MODE=predictor-level
+    predictor : agent.nae_judge.predict
+    example   : neg_ntc_1 (negative_ntc)
+    trace     : optimization
+    predicted : FAIL
+    expected  : PASS
+    correct   : ❌
+    score     : 0.00  ← per-judge score
+    reason    : The proof incorrectly uses continuity to generalize from two specific values of 
+
+  [Call 135] MODE=predictor-level
+    predictor : agent.nae_judge.predict
+    example   : pos_cauchy_schwarz_2d (positive)
+    trace     : optimization
+    predicted : PASS
+    expected  : PASS
+    correct   : ✅
+    score     : 1.00  ← per-judge score
+    reason    : The proof is correct and complete. It uses basic algebraic manipulation to arriv
+
+  [Call 136] MODE=predictor-level
+    predictor : agent.nae_judge.predict
+    example   : neg_nae_1 (negative_nae)
+    trace     : optimization
+    predicted : FAIL
+    expected  : FAIL
+    correct   : ✅
+    score     : 1.00  ← per-judge score
+    reason    : The proof uses incorrect approximations and lacks mathematical rigor. The AM-GM 
+
+  [Call 137] MODE=predictor-level
+    predictor : agent.nae_judge.predict
+    example   : neg_nce_1 (negative_nce)
+    trace     : optimization
+    predicted : FAIL
+    expected  : PASS
+    correct   : ❌
+    score     : 0.00  ← per-judge score
+    reason    : The expansion of (a+b)² is incorrect. It should be a² + 2ab + b², not a² + b².
+
+  [Call 138] MODE=program-level
+    example  : pos_power_mean (positive)
+    trace    : final_eval
+    score    : 1.00
+
+  [Call 139] MODE=program-level
+    example  : neg_nlg_2 (negative_nlg)
+    trace    : final_eval
+    score    : 0.60
+
+  [Call 140] MODE=program-level
+    example  : neg_nlg_3 (negative_nlg)
+    trace    : final_eval
+    score    : 0.60
+
+  [Call 141] MODE=program-level
+    example  : neg_nlg_3 (negative_nlg)
+    trace    : final_eval
+    score    : 0.80
+
+  [Call 142] MODE=program-level
+    example  : neg_nlg_2 (negative_nlg)
+    trace    : final_eval
+    score    : 0.40
+
+  [Call 143] MODE=program-level
+    example  : pos_power_mean (positive)
+    trace    : final_eval
+    score    : 1.00
+
+  [Call 144] MODE=program-level
+    example  : neg_ntc_1 (negative_ntc)
+    trace    : final_eval
+    score    : 0.40
+
+  [Call 145] MODE=program-level
+    example  : pos_cauchy_schwarz_2d (positive)
+    trace    : final_eval
+    score    : 1.00
+
+  [Call 146] MODE=program-level
+    example  : neg_nae_1 (negative_nae)
+    trace    : final_eval
+    score    : 0.40
+
+  [Call 147] MODE=program-level
+    example  : neg_nce_1 (negative_nce)
+    trace    : final_eval
+    score    : 0.80
+
+  0%|          | 0/10 [00:00<?, ?it/s]
+  [Call 148] MODE=program-level
+    example  : pos_markov (positive)
+    trace    : final_eval
+    score    : 1.00
+
+Average Metric: 1.00 / 1 (100.0%):   0%|          | 0/10 [00:10<?, ?it/s]
+Average Metric: 1.00 / 1 (100.0%):  10%|█         | 1/10 [00:10<01:37, 10.85s/it]
+  [Call 149] MODE=program-level
+    example  : neg_nlg_2 (negative_nlg)
+    trace    : final_eval
+    score    : 0.40
+
+Average Metric: 1.40 / 2 (70.0%):  10%|█         | 1/10 [00:22<01:37, 10.85s/it] 
+Average Metric: 1.40 / 2 (70.0%):  20%|██        | 2/10 [00:22<01:32, 11.58s/it]
+  [Call 150] MODE=program-level
+    example  : neg_nae_1 (negative_nae)
+    trace    : final_eval
+    score    : 0.40
+
+Average Metric: 1.80 / 3 (60.0%):  20%|██        | 2/10 [00:35<01:32, 11.58s/it]
+Average Metric: 1.80 / 3 (60.0%):  30%|███       | 3/10 [00:35<01:22, 11.81s/it]
+  [Call 151] MODE=program-level
+    example  : neg_ntc_1 (negative_ntc)
+    trace    : final_eval
+    score    : 0.40
+
+Average Metric: 2.20 / 4 (55.0%):  30%|███       | 3/10 [00:48<01:22, 11.81s/it]
+Average Metric: 2.20 / 4 (55.0%):  40%|████      | 4/10 [00:48<01:14, 12.45s/it]
+  [Call 152] MODE=program-level
+    example  : pos_cauchy_schwarz_2d (positive)
+    trace    : final_eval
+    score    : 1.00
+
+Average Metric: 3.20 / 5 (64.0%):  40%|████      | 4/10 [00:57<01:14, 12.45s/it]
+Average Metric: 3.20 / 5 (64.0%):  50%|█████     | 5/10 [00:57<00:55, 11.13s/it]
+  [Call 153] MODE=program-level
+    example  : pos_bernoulli_induction (positive)
+    trace    : final_eval
+    score    : 1.00
+
+Average Metric: 4.20 / 6 (70.0%):  50%|█████     | 5/10 [01:06<00:55, 11.13s/it]
+Average Metric: 4.20 / 6 (70.0%):  60%|██████    | 6/10 [01:06<00:42, 10.63s/it]
+  [Call 154] MODE=program-level
+    example  : neg_nlg_3 (negative_nlg)
+    trace    : final_eval
+    score    : 0.80
+
+Average Metric: 5.00 / 7 (71.4%):  60%|██████    | 6/10 [01:21<00:42, 10.63s/it]
+Average Metric: 5.00 / 7 (71.4%):  70%|███████   | 7/10 [01:21<00:35, 11.87s/it]
+  [Call 155] MODE=program-level
+    example  : pos_power_mean (positive)
+    trace    : final_eval
+    score    : 1.00
+
+Average Metric: 6.00 / 8 (75.0%):  70%|███████   | 7/10 [01:30<00:35, 11.87s/it]
+Average Metric: 6.00 / 8 (75.0%):  80%|████████  | 8/10 [01:30<00:22, 11.12s/it]
+  [Call 156] MODE=program-level
+    example  : pos_triangle_reals (positive)
+    trace    : final_eval
+    score    : 1.00
+
+Average Metric: 7.00 / 9 (77.8%):  80%|████████  | 8/10 [01:39<00:22, 11.12s/it]
+Average Metric: 7.00 / 9 (77.8%):  90%|█████████ | 9/10 [01:39<00:10, 10.20s/it]
+  [Call 157] MODE=program-level
+    example  : neg_nce_1 (negative_nce)
+    trace    : final_eval
+    score    : 0.60
+
+Average Metric: 7.60 / 10 (76.0%):  90%|█████████ | 9/10 [01:49<00:10, 10.20s/it]
+Average Metric: 7.60 / 10 (76.0%): 100%|██████████| 10/10 [01:49<00:00, 10.41s/it]
+Average Metric: 7.60 / 10 (76.0%): 100%|██████████| 10/10 [01:49<00:00, 10.99s/it]
+
+  [Call 158] MODE=predictor-level
+    predictor : agent.nce_judge.predict
+    example   : pos_markov (positive)
+    trace     : optimization
+    predicted : PASS
+    expected  : PASS
+    correct   : ✅
+    score     : 1.00  ← per-judge score
+    reason    : The proof is logically sound and follows a standard approach to proving Markov's
+
+  [Call 159] MODE=predictor-level
+    predictor : agent.nce_judge.predict
+    example   : neg_nlg_2 (negative_nlg)
+    trace     : optimization
+    predicted : FAIL
+    expected  : PASS
+    correct   : ❌
+    score     : 0.00  ← per-judge score
+    reason    : The proof provides no actual steps or reasoning to justify the inequality. It si
+
+  [Call 160] MODE=predictor-level
+    predictor : agent.nce_judge.predict
+    example   : neg_nae_1 (negative_nae)
+    trace     : optimization
+    predicted : FAIL
+    expected  : PASS
+    correct   : ❌
+    score     : 0.00  ← per-judge score
+    reason    : The proof contains significant mathematical errors, including incorrect applicat
+
+  [Call 161] MODE=predictor-level
+    predictor : agent.nce_judge.predict
+    example   : neg_ntc_1 (negative_ntc)
+    trace     : optimization
+    predicted : FAIL
+    expected  : PASS
+    correct   : ❌
+    score     : 0.00  ← per-judge score
+    reason    : The proof makes an invalid argument in Step 3. Showing the inequality holds for 
+
+  [Call 162] MODE=predictor-level
+    predictor : agent.nce_judge.predict
+    example   : pos_cauchy_schwarz_2d (positive)
+    trace     : optimization
+    predicted : PASS
+    expected  : PASS
+    correct   : ✅
+    score     : 1.00  ← per-judge score
+    reason    : The proof is correct and well-structured. The expansion and simplification are a
+
+  [Call 163] MODE=predictor-level
+    predictor : agent.nce_judge.predict
+    example   : pos_bernoulli_induction (positive)
+    trace     : optimization
+    predicted : PASS
+    expected  : PASS
+    correct   : ✅
+    score     : 1.00  ← per-judge score
+    reason    : The proof is a standard inductive proof of Bernoulli's inequality, and all steps
+
+  [Call 164] MODE=predictor-level
+    predictor : agent.nce_judge.predict
+    example   : neg_nlg_3 (negative_nlg)
+    trace     : optimization
+    predicted : FAIL
+    expected  : PASS
+    correct   : ❌
+    score     : 0.00  ← per-judge score
+    reason    : The proof lacks sufficient detail to be verifiable. It relies on vague statement
+
+  [Call 165] MODE=predictor-level
+    predictor : agent.nce_judge.predict
+    example   : pos_power_mean (positive)
+    trace     : optimization
+    predicted : PASS
+    expected  : PASS
+    correct   : ✅
+    score     : 1.00  ← per-judge score
+    reason    : The proof is logically sound and arithmetically correct, starting from the initi
+
+  [Call 166] MODE=predictor-level
+    predictor : agent.nce_judge.predict
+    example   : pos_triangle_reals (positive)
+    trace     : optimization
+    predicted : PASS
+    expected  : PASS
+    correct   : ✅
+    score     : 1.00  ← per-judge score
+    reason    : The proof is correct and well-structured. The steps are logically sound and lead
+
+  [Call 167] MODE=predictor-level
+    predictor : agent.nce_judge.predict
+    example   : neg_nce_1 (negative_nce)
+    trace     : optimization
+    predicted : FAIL
+    expected  : FAIL
+    correct   : ✅
+    score     : 1.00  ← per-judge score
+    reason    : The expansion of (a+b)² is incorrect. It should be a² + 2ab + b², not a² + b².
+
+  [Call 168] MODE=program-level
+    example  : pos_markov (positive)
+    trace    : final_eval
+    score    : 1.00
+
+  [Call 169] MODE=program-level
+    example  : neg_nlg_2 (negative_nlg)
+    trace    : final_eval
+    score    : 0.60
+
+  [Call 170] MODE=program-level
+    example  : neg_nae_1 (negative_nae)
+    trace    : final_eval
+    score    : 0.40
+
+  [Call 171] MODE=program-level
+    example  : neg_ntc_1 (negative_ntc)
+    trace    : final_eval
+    score    : 0.40
+
+  [Call 172] MODE=program-level
+    example  : pos_cauchy_schwarz_2d (positive)
+    trace    : final_eval
+    score    : 1.00
+
+  [Call 173] MODE=program-level
+    example  : pos_bernoulli_induction (positive)
+    trace    : final_eval
+    score    : 1.00
+
+  [Call 174] MODE=program-level
+    example  : neg_nlg_3 (negative_nlg)
+    trace    : final_eval
+    score    : 0.80
+
+  [Call 175] MODE=program-level
+    example  : pos_power_mean (positive)
+    trace    : final_eval
+    score    : 1.00
+
+  [Call 176] MODE=program-level
+    example  : pos_triangle_reals (positive)
+    trace    : final_eval
+    score    : 1.00
+
+  [Call 177] MODE=program-level
+    example  : neg_nce_1 (negative_nce)
+    trace    : final_eval
+    score    : 0.60
+
+  [Call 178] MODE=program-level
+    example  : pos_squares_nonneg (positive)
+    trace    : final_eval
+    score    : 1.00
+
+  [Call 179] MODE=program-level
+    example  : neg_nce_2 (negative_nce)
+    trace    : final_eval
+    score    : 0.60
+
+  [Call 180] MODE=program-level
+    example  : pos_jensen_convex (positive)
+    trace    : final_eval
+    score    : 1.00
+
+  [Call 181] MODE=program-level
+    example  : pos_chebyshev_2terms (positive)
+    trace    : final_eval
+    score    : 1.00
+
+  [Call 182] MODE=program-level
+    example  : neg_ntc_3 (negative_ntc)
+    trace    : final_eval
+    score    : 0.40
+
+  [Call 183] MODE=program-level
+    example  : pos_am_gm_2 (positive)
+    trace    : final_eval
+    score    : 1.00
+
+  [Call 184] MODE=program-level
+    example  : neg_nlg_1 (negative_nlg)
+    trace    : final_eval
+    score    : 0.60
+
+  [Call 185] MODE=program-level
+    example  : pos_young_special (positive)
+    trace    : final_eval
+    score    : 1.00
+
+  [Call 186] MODE=program-level
+    example  : neg_nae_3 (negative_nae)
+    trace    : final_eval
+    score    : 0.40
+
+============================================================
+  GEPA OPTIMIZATION STATS
+============================================================
+  Total metric calls    : 136
+  Full val evaluations  : 4
+  Candidates proposed   : 4
+  Best candidate index  : 2
+  Best candidate score  : 0.7778
+  Log dir               : results/google_gemini-2.0-flash-001_optimized_bad/gepa_logs
+
+  All candidate scores:
+    Candidate  0: score=0.7333  discovered at metric_call=0
+    Candidate  1: score=0.7333  discovered at metric_call=29
+    Candidate  2: score=0.7778  discovered at metric_call=58 ← BEST
+    Candidate  3: score=0.7778  discovered at metric_call=127
+
+  Per-val-instance best candidates:
+    markovs              best candidate: 0
+    cauchy_schwarz       best candidate: 1
+    chebyshevs_neg       best candidate: 2
+    markovs_neg          best candidate: 3
+    youngs_neg           best candidate: 4
+    jensens_neg          best candidate: 5
+    jensens              best candidate: 6
+    youngs               best candidate: 7
+    chebyshevs           best candidate: 8
+
+  💾 GEPA stats → results/google_gemini-2.0-flash-001_optimized_bad/gepa_stats.json
+
+============================================================
+  OPTIMIZED evaluation on TEST set
+============================================================
+  [positive       ] markovs              score=1.00
+  [positive       ] cauchy_schwarz       score=1.00
+  [negative_ntc   ] chebyshevs_neg       score=0.00
+  [negative_nlg   ] markovs_neg          score=0.00
+  [negative_nce   ] youngs_neg           score=0.00
+  [negative_ntc   ] jensens_neg          score=0.00
+  [positive       ] jensens              score=1.00
+  [positive       ] youngs               score=1.00
+  [positive       ] chebyshevs           score=0.00
+  [negative_nce   ] cauchy_schwarz_neg   score=0.00
+  [positive       ] triangle             score=1.00
+  [positive       ] bernoullis           score=1.00
+  [negative_nae   ] bernoullis_neg       score=0.00
+  [negative_nlg   ] triangle_neg         score=0.00
+
+  Computing per-judge baseline from saved JSONs...
+  Computing per-judge optimized results...
+
+============================================================
+  FINAL RESULTS — Overall
+============================================================
+  Example              Label             Baseline  Optimized        Δ
+  ─────────────────────────────────────────────────────────────────
+  markovs              positive              1.00       1.00    +0.00
+  cauchy_schwarz       positive              1.00       1.00    +0.00
+  chebyshevs_neg       negative_ntc          0.00       0.00    +0.00
+  markovs_neg          negative_nlg          0.00       0.00    +0.00
+  youngs_neg           negative_nce          0.00       0.00    +0.00
+  jensens_neg          negative_ntc          0.00       0.00    +0.00
+  jensens              positive              1.00       1.00    +0.00
+  youngs               positive              1.00       1.00    +0.00
+  chebyshevs           positive              0.00       0.00    +0.00
+  cauchy_schwarz_neg   negative_nce          0.00       0.00    +0.00
+  triangle             positive              1.00       1.00    +0.00
+  bernoullis           positive              1.00       1.00    +0.00
+  bernoullis_neg       negative_nae          0.00       0.00    +0.00
+  triangle_neg         negative_nlg          0.00       0.00    +0.00
+  ─────────────────────────────────────────────────────────────────
+  AVERAGE                                  0.4286     0.4286  +0.0000  ➡️
+
+============================================================
+  PER-JUDGE BREAKDOWN — NEGATIVE EXAMPLES ONLY
+============================================================
+
+  Example                Label            Judge  Expected   Baseline     Optimized    Δ
+  ────────────────────────────────────────────────────────────────────────────────
+  chebyshevs_neg         negative_ntc     FA     PASS       ✅ PASS      ✅ PASS      ✅ same
+                                          NTC    FAIL       ✅ FAIL      ✅ FAIL      ✅ same
+                                          NLG    PASS       ❌ FAIL      ❌ FAIL      ❌ same
+                                          NAE    PASS       ❌ FAIL      ❌ FAIL      ❌ same
+                                          NCE    PASS       ❌ FAIL      ❌ FAIL      ❌ same
+  ────────────────────────────────────────────────────────────────────────────────
+  markovs_neg            negative_nlg     FA     PASS       ✅ PASS      ✅ PASS      ✅ same
+                                          NTC    PASS       ❌ FAIL      ❌ FAIL      ❌ same
+                                          NLG    FAIL       ✅ FAIL      ✅ FAIL      ✅ same
+                                          NAE    PASS       ❌ FAIL      ❌ FAIL      ❌ same
+                                          NCE    PASS       ❌ FAIL      ❌ FAIL      ❌ same
+  ────────────────────────────────────────────────────────────────────────────────
+  youngs_neg             negative_nce     FA     PASS       ✅ PASS      ✅ PASS      ✅ same
+                                          NTC    PASS       ❌ FAIL      ✅ PASS      ⬆️ FIXED
+                                          NLG    PASS       ❌ FAIL      ❌ FAIL      ❌ same
+                                          NAE    PASS       ❌ FAIL      ❌ FAIL      ❌ same
+                                          NCE    FAIL       ✅ FAIL      ✅ FAIL      ✅ same
+  ────────────────────────────────────────────────────────────────────────────────
+  jensens_neg            negative_ntc     FA     PASS       ❌ FAIL      ✅ PASS      ⬆️ FIXED
+                                          NTC    FAIL       ✅ FAIL      ✅ FAIL      ✅ same
+                                          NLG    PASS       ❌ FAIL      ❌ FAIL      ❌ same
+                                          NAE    PASS       ❌ FAIL      ❌ FAIL      ❌ same
+                                          NCE    PASS       ❌ FAIL      ❌ FAIL      ❌ same
+  ────────────────────────────────────────────────────────────────────────────────
+  cauchy_schwarz_neg     negative_nce     FA     PASS       ✅ PASS      ✅ PASS      ✅ same
+                                          NTC    PASS       ❌ FAIL      ✅ PASS      ⬆️ FIXED
+                                          NLG    PASS       ✅ PASS      ✅ PASS      ✅ same
+                                          NAE    PASS       ✅ PASS      ✅ PASS      ✅ same
+                                          NCE    FAIL       ✅ FAIL      ✅ FAIL      ✅ same
+  ────────────────────────────────────────────────────────────────────────────────
+  bernoullis_neg         negative_nae     FA     PASS       ✅ PASS      ✅ PASS      ✅ same
+                                          NTC    PASS       ❌ FAIL      ❌ FAIL      ❌ same
+                                          NLG    PASS       ❌ FAIL      ❌ FAIL      ❌ same
+                                          NAE    FAIL       ✅ FAIL      ✅ FAIL      ✅ same
+                                          NCE    PASS       ❌ FAIL      ❌ FAIL      ❌ same
+  ────────────────────────────────────────────────────────────────────────────────
+  triangle_neg           negative_nlg     FA     PASS       ✅ PASS      ✅ PASS      ✅ same
+                                          NTC    PASS       ❌ FAIL      ✅ PASS      ⬆️ FIXED
+                                          NLG    FAIL       ✅ FAIL      ✅ FAIL      ✅ same
+                                          NAE    PASS       ❌ FAIL      ❌ FAIL      ❌ same
+                                          NCE    PASS       ❌ FAIL      ❌ FAIL      ❌ same
+  ────────────────────────────────────────────────────────────────────────────────
+
+  PER-JUDGE ACCURACY ON NEGATIVES (7 examples)
+  Judge    Baseline  Optimized        Δ
+  ────────────────────────────────────────
+  FA           0.86       1.00    +0.14 ⬆️
+  NTC          0.29       0.71    +0.43 ⬆️
+  NLG          0.43       0.43    +0.00 ➡️
+  NAE          0.29       0.29    +0.00 ➡️
+  NCE          0.29       0.29    +0.00 ➡️
+
+============================================================
+  FINAL RESULTS
+============================================================
+  Example              Label             Baseline  Optimized        Δ
+  ─────────────────────────────────────────────────────────────────
+  markovs              positive              1.00       1.00    +0.00
+  cauchy_schwarz       positive              1.00       1.00    +0.00
+  chebyshevs_neg       negative_ntc          0.00       0.00    +0.00
+  markovs_neg          negative_nlg          0.00       0.00    +0.00
+  youngs_neg           negative_nce          0.00       0.00    +0.00
+  jensens_neg          negative_ntc          0.00       0.00    +0.00
+  jensens              positive              1.00       1.00    +0.00
+  youngs               positive              1.00       1.00    +0.00
+  chebyshevs           positive              0.00       0.00    +0.00
+  cauchy_schwarz_neg   negative_nce          0.00       0.00    +0.00
+  triangle             positive              1.00       1.00    +0.00
+  bernoullis           positive              1.00       1.00    +0.00
+  bernoullis_neg       negative_nae          0.00       0.00    +0.00
+  triangle_neg         negative_nlg          0.00       0.00    +0.00
+  ─────────────────────────────────────────────────────────────────
+  AVERAGE                                  0.4286     0.4286  +0.0000  ➡️
+
+  💾 Report          → results/google_gemini-2.0-flash-001_optimized_bad/optimization_report.json
+  💾 Optimized agent → results/google_gemini-2.0-flash-001_optimized_bad/optimized_judge_agent.json

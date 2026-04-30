@@ -1,0 +1,38 @@
+{
+  "inequality_key": "cauchy_schwarz_neg",
+  "inequality_name": "Cauchy Schwarz Neg",
+  "label": "negative_nce",
+  "model": "google/gemini-2.0-flash-001",
+  "problem_statement": "==============================================================\nMATHEMATICAL PROBLEM\n==============================================================\n\n\nLet a₁, a₂, …, aₙ and b₁, b₂, …, bₙ be real numbers.\n\nConsider the following relation:\n\n    ( Σᵢ aᵢ · bᵢ )²     ( )     ( Σᵢ aᵢ² ) · ( Σᵢ bᵢ² )\n\nOptions:\n  (A) ≤    (B) ≥    (C) =    (D) <    (E) >    (F) None of the above\n\nDetermine the correct relation to fill in the blank ( ).\nAlso determine exactly when equality holds.\n\n\n--------------------------------------------------------------\nYou must respond in EXACTLY the three sections below.\nDo NOT merge sections. Label each section exactly as shown.\n--------------------------------------------------------------\n\n## PART 1 – ANSWER\n\nState which option (A–F) is correct and write the complete, precise\nmathematical statement using the correct inequality or equality sign.\nState the exact condition under which equality holds.\n\n\n## PART 2 – PROOF\n\nProvide a complete, rigorous, self-contained proof for your answer above.\nStructure your proof as clearly numbered steps. Each step must:\n  - Be a single, atomic mathematical claim or algebraic manipulation\n  - Explicitly justify why the claim holds\n  - State any intermediate result before using it in the next step\nDo NOT skip steps. Do NOT assume the reader knows what technique you are using.\n\n\n## PART 3 – THEOREMS & LEMMAS USED\n\nList every theorem, lemma, algebraic identity, or mathematical property\nthat you used anywhere in PART 2.\nFor each entry provide:\n  • Name of the theorem / property\n  • Precise statement of it as you used it in this proof\n  • The step number(s) in PART 2 where you applied it",
+  "proof": "\nStep 1: Consider P(t) = Σ(aᵢt + bᵢ)².\nStep 2: Expand: P(t) = (Σaᵢ²)t² + 2(ΣaᵢbI)t + (Σbᵢ²).\nStep 3: For P(t) ≥ 0, discriminant D = (2ΣaᵢbI)² - (Σaᵢ²)(Σbᵢ²) ≤ 0.\nStep 4: Therefore (ΣaᵢbI)² ≤ (Σaᵢ²)(Σbᵢ²). ∎\n",
+  "verification": {
+    "judges": {
+      "final_answer": {
+        "verdict": "PASS",
+        "reason": "The predicted answer correctly identifies the inequality. Although it doesn't include the condition for equality, the problem only explicitly asks for the relation."
+      },
+      "ntc": {
+        "verdict": "FAIL",
+        "confidence": "8",
+        "reason": "The proof correctly derives the Cauchy-Schwarz inequality but fails to state the condition for equality. The condition for equality is when the vectors (a₁, a₂, ..., aₙ) and (b₁, b₂, ..., bₙ) are linearly dependent, i.e., there exists a constant t such that aᵢt + bᵢ = 0 for all i. The proof only shows the inequality but not the equality condition. Also, there is a typo in step 2 and 3."
+      },
+      "nlg": {
+        "verdict": "PASS",
+        "confidence": "95%",
+        "reason": "The proof correctly derives the Cauchy-Schwarz inequality. However, it does not explicitly state the condition for equality. The condition for equality is that there exists a t such that aᵢt + bᵢ = 0 for all i, which means the vectors (a₁, ..., aₙ) and (b₁, ..., bₙ) are linearly dependent."
+      },
+      "nae": {
+        "verdict": "PASS",
+        "confidence": "10",
+        "reason": "The proof is a standard and correct derivation of the Cauchy-Schwarz inequality. No approximations are used."
+      },
+      "nce": {
+        "verdict": "FAIL",
+        "confidence": "10",
+        "reason": "The discriminant calculation in Step 3 is incorrect. It should be (2Σaᵢbᵢ)² - 4(Σaᵢ²)(Σbᵢ²), leading to the correct Cauchy-Schwarz inequality. The current discriminant leads to an incorrect inequality."
+      }
+    },
+    "overall_verdict": "FAIL"
+  },
+  "baseline_score": 0.0
+}

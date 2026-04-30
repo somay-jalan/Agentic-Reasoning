@@ -1,0 +1,38 @@
+{
+  "inequality_key": "bernoullis_neg",
+  "inequality_name": "Bernoullis Neg",
+  "label": "negative_nae",
+  "model": "google/gemini-2.0-flash-001",
+  "problem_statement": "==============================================================\nMATHEMATICAL PROBLEM\n==============================================================\n\n\nLet x > −1 be a real number and let n be a positive integer (n ≥ 1).\n\nConsider the following relation:\n\n    (1 + x)ⁿ     ( )     1 + n·x\n\nOptions:\n  (A) ≤    (B) ≥    (C) =    (D) <    (E) >    (F) None of the above\n\nDetermine the correct relation to fill in the blank ( ).\nAlso determine exactly when equality holds.\n\n\n--------------------------------------------------------------\nYou must respond in EXACTLY the three sections below.\nDo NOT merge sections. Label each section exactly as shown.\n--------------------------------------------------------------\n\n## PART 1 – ANSWER\n\nState which option (A–F) is correct and write the complete, precise\nmathematical statement using the correct inequality or equality sign.\nState the exact conditions under which equality holds.\n\n\n## PART 2 – PROOF\n\nProvide a complete, rigorous, self-contained proof for your answer above.\nStructure your proof as clearly numbered steps. Each step must:\n  - Be a single, atomic mathematical claim or algebraic manipulation\n  - Explicitly justify why the claim holds\n  - State any intermediate result before using it in the next step\nDo NOT skip steps. Do NOT assume the reader knows what technique you are using.\n\n\n## PART 3 – THEOREMS & LEMMAS USED\n\nList every theorem, lemma, algebraic identity, or mathematical property\nthat you used anywhere in PART 2.\nFor each entry provide:\n  • Name of the theorem / property\n  • Precise statement of it as you used it in this proof\n  • The step number(s) in PART 2 where you applied it",
+  "proof": "\nStep 1: For small x, eˣ ≈ 1+x, so (1+x)ⁿ ≈ eⁿˣ ≈ 1+nx.\nStep 2: The approximation shows (1+x)ⁿ ≥ 1+nx for all x > -1.\nStep 3: Therefore Bernoulli's inequality holds. ∎\n",
+  "verification": {
+    "judges": {
+      "final_answer": {
+        "verdict": "PASS",
+        "reason": "The predicted answer correctly identifies the inequality and the conditions for equality. The reasoning provides a valid inductive proof."
+      },
+      "ntc": {
+        "verdict": "FAIL",
+        "confidence": "2",
+        "reason": "The proof is not rigorous and relies on an approximation without proper justification. It doesn't provide a complete proof of Bernoulli's inequality and doesn't address the equality condition. The toy case is not proved."
+      },
+      "nlg": {
+        "verdict": "FAIL",
+        "confidence": "10",
+        "reason": "The proof is not rigorous and relies on approximations and unsubstantiated claims. It doesn't provide a complete and valid argument for Bernoulli's inequality."
+      },
+      "nae": {
+        "verdict": "FAIL",
+        "confidence": "10",
+        "reason": "The proof relies on an approximation to justify the inequality, which is not a rigorous mathematical argument. A proper proof of Bernoulli's inequality is required."
+      },
+      "nce": {
+        "verdict": "FAIL",
+        "confidence": "10",
+        "reason": "The proof is not rigorous and relies on approximations without proper justification. It doesn't provide a valid argument for Bernoulli's inequality."
+      }
+    },
+    "overall_verdict": "FAIL"
+  },
+  "baseline_score": 0.0
+}

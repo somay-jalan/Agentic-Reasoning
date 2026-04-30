@@ -1,0 +1,38 @@
+{
+  "inequality_key": "cauchy_schwarz",
+  "inequality_name": "Cauchy Schwarz",
+  "label": "negative_nce",
+  "model": "google/gemini-2.0-flash-001",
+  "problem_statement": "",
+  "proof": "\nStep 1: Expand (a + b)² = a² + b².\nStep 2: Since a² + b² ≥ 0, we have (a + b)² ≥ 0.\nStep 3: Taking square roots, a + b ≥ 0. ∎\n",
+  "verification": {
+    "judges": {
+      "final_answer": {
+        "verdict": "PASS",
+        "reason": "The predicted inequality symbol matches the ground truth."
+      },
+      "ntc": {
+        "verdict": "FAIL",
+        "confidence": "HIGH",
+        "reason": "The proof begins with the incorrect expansion of (a+b)^2 = a^2 + b^2, which is only true when a=0 or b=0, thus using a special case to draw a general conclusion."
+      },
+      "nlg": {
+        "verdict": "FAIL",
+        "confidence": "HIGH",
+        "reason": "The expansion of (a+b)² is incorrect, making the entire proof invalid."
+      },
+      "nae": {
+        "verdict": "FAIL",
+        "confidence": "HIGH",
+        "reason": "Step 1 contains an algebraic error: (a+b)^2 is not equal to a^2 + b^2."
+      },
+      "nce": {
+        "verdict": "FAIL",
+        "confidence": "HIGH",
+        "reason": "The expansion of (a+b)^2 is incorrect; it should be a^2 + 2ab + b^2, not a^2 + b^2."
+      }
+    },
+    "overall_verdict": "FAIL"
+  },
+  "baseline_score": 0.4
+}

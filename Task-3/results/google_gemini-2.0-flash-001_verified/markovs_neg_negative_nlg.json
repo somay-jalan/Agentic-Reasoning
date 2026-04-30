@@ -1,0 +1,38 @@
+{
+  "inequality_key": "markovs_neg",
+  "inequality_name": "Markovs Neg",
+  "label": "negative_nlg",
+  "model": "google/gemini-2.0-flash-001",
+  "problem_statement": "==============================================================\nMATHEMATICAL PROBLEM\n==============================================================\n\n\nLet X be a non-negative random variable with finite expectation E[X].\nLet a > 0 be a real constant.\n\nConsider the following relation:\n\n    P( X ≥ a )     ( )     E[X] / a\n\nOptions:\n  (A) ≤    (B) ≥    (C) =    (D) <    (E) >    (F) None of the above\n\nDetermine the correct relation to fill in the blank ( ).\nAlso determine exactly when equality holds.\n\n\n--------------------------------------------------------------\nYou must respond in EXACTLY the three sections below.\nDo NOT merge sections. Label each section exactly as shown.\n--------------------------------------------------------------\n\n## PART 1 – ANSWER\n\nState which option (A–F) is correct and write the complete, precise\nmathematical statement using the correct inequality or equality sign.\nState the exact condition under which equality holds.\n\n\n## PART 2 – PROOF\n\nProvide a complete, rigorous, self-contained proof for your answer above.\nStructure your proof as clearly numbered steps. Each step must:\n  - Be a single, atomic mathematical claim or algebraic manipulation\n  - Explicitly justify why the claim holds\n  - State any intermediate result before using it in the next step\nDo NOT skip steps. Do NOT assume the reader knows what technique you are using.\n\n\n## PART 3 – THEOREMS & LEMMAS USED\n\nList every theorem, lemma, algebraic identity, or mathematical property\nthat you used anywhere in PART 2.\nFor each entry provide:\n  • Name of the theorem / property\n  • Precise statement of it as you used it in this proof\n  • The step number(s) in PART 2 where you applied it",
+  "proof": "\nStep 1: X is non-negative with finite mean E[X].\nStep 2: Intuitively, large values of X are less likely.\nStep 3: Therefore P(X ≥ a) ≤ E[X]/a. ∎\n",
+  "verification": {
+    "judges": {
+      "final_answer": {
+        "verdict": "PASS",
+        "reason": "The predicted inequality sign '≤' matches the correct option A, which is the correct answer based on Chebyshev's inequality."
+      },
+      "ntc": {
+        "verdict": "FAIL",
+        "confidence": "HIGH",
+        "reason": "The proof is based on intuition and lacks mathematical rigor, making it impossible to determine if a toy case was used, but the lack of justification suggests a potential flaw."
+      },
+      "nlg": {
+        "verdict": "FAIL",
+        "confidence": "HIGH",
+        "reason": "The proof skips the crucial steps involving the definition of expectation and indicator random variables, making a large unjustified leap from the problem statement to the conclusion."
+      },
+      "nae": {
+        "verdict": "FAIL",
+        "confidence": "HIGH",
+        "reason": "The proof lacks mathematical rigor and jumps to the conclusion without proper justification, treating an intuitive idea as a proven fact."
+      },
+      "nce": {
+        "verdict": "FAIL",
+        "confidence": "HIGH",
+        "reason": "The proof lacks mathematical rigor and skips crucial steps in applying Chebyshev's inequality, leading to an unsubstantiated conclusion."
+      }
+    },
+    "overall_verdict": "FAIL"
+  },
+  "baseline_score": 0.0
+}

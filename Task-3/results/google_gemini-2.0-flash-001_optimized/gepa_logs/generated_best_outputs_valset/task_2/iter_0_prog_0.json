@@ -1,0 +1,29 @@
+{
+    "judges": {
+        "final_answer": {
+            "verdict": "PASS",
+            "reason": "The predicted inequality sign matches the inequality sign in the problem statement."
+        },
+        "ntc": {
+            "verdict": "PASS",
+            "confidence": "HIGH",
+            "reason": "The proof correctly uses the definition of convexity and does not rely on any specific or toy cases."
+        },
+        "nlg": {
+            "verdict": "PASS",
+            "confidence": "HIGH",
+            "reason": "The proof directly applies the definition of convexity, with no logical gaps."
+        },
+        "nae": {
+            "verdict": "PASS",
+            "confidence": "HIGH",
+            "reason": "The proof uses the definition of convexity directly without any approximations."
+        },
+        "nce": {
+            "verdict": "PASS",
+            "confidence": "HIGH",
+            "reason": "No calculation errors found."
+        }
+    },
+    "overall_verdict": "PASS"
+}

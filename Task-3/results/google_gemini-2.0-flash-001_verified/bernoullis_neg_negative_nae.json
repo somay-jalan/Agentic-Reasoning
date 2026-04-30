@@ -1,0 +1,38 @@
+{
+  "inequality_key": "bernoullis_neg",
+  "inequality_name": "Bernoullis Neg",
+  "label": "negative_nae",
+  "model": "google/gemini-2.0-flash-001",
+  "problem_statement": "==============================================================\nMATHEMATICAL PROBLEM\n==============================================================\n\n\nLet x > −1 be a real number and let n be a positive integer (n ≥ 1).\n\nConsider the following relation:\n\n    (1 + x)ⁿ     ( )     1 + n·x\n\nOptions:\n  (A) ≤    (B) ≥    (C) =    (D) <    (E) >    (F) None of the above\n\nDetermine the correct relation to fill in the blank ( ).\nAlso determine exactly when equality holds.\n\n\n--------------------------------------------------------------\nYou must respond in EXACTLY the three sections below.\nDo NOT merge sections. Label each section exactly as shown.\n--------------------------------------------------------------\n\n## PART 1 – ANSWER\n\nState which option (A–F) is correct and write the complete, precise\nmathematical statement using the correct inequality or equality sign.\nState the exact conditions under which equality holds.\n\n\n## PART 2 – PROOF\n\nProvide a complete, rigorous, self-contained proof for your answer above.\nStructure your proof as clearly numbered steps. Each step must:\n  - Be a single, atomic mathematical claim or algebraic manipulation\n  - Explicitly justify why the claim holds\n  - State any intermediate result before using it in the next step\nDo NOT skip steps. Do NOT assume the reader knows what technique you are using.\n\n\n## PART 3 – THEOREMS & LEMMAS USED\n\nList every theorem, lemma, algebraic identity, or mathematical property\nthat you used anywhere in PART 2.\nFor each entry provide:\n  • Name of the theorem / property\n  • Precise statement of it as you used it in this proof\n  • The step number(s) in PART 2 where you applied it",
+  "proof": "\nStep 1: For small x, eˣ ≈ 1+x, so (1+x)ⁿ ≈ eⁿˣ ≈ 1+nx.\nStep 2: The approximation shows (1+x)ⁿ ≥ 1+nx for all x > -1.\nStep 3: Therefore Bernoulli's inequality holds. ∎\n",
+  "verification": {
+    "judges": {
+      "final_answer": {
+        "verdict": "UNKNOWN",
+        "reason": "Cannot determine pass/fail without knowing the ground truth option."
+      },
+      "ntc": {
+        "verdict": "FAIL",
+        "confidence": "HIGH",
+        "reason": "The proof uses an approximation for small x to suggest the general inequality (1+x)^n >= 1+nx, which is a toy-case argument."
+      },
+      "nlg": {
+        "verdict": "FAIL",
+        "confidence": "HIGH",
+        "reason": "The proof relies on approximations and intuition without providing a rigorous step-by-step derivation of Bernoulli's inequality."
+      },
+      "nae": {
+        "verdict": "FAIL",
+        "confidence": "HIGH",
+        "reason": "The proof uses an approximation eˣ ≈ 1+x without justification, and then incorrectly concludes that (1+x)ⁿ ≥ 1+nx based on this approximation."
+      },
+      "nce": {
+        "verdict": "FAIL",
+        "confidence": "LOW",
+        "reason": "The proof is not rigorous and relies on approximations without proper justification, making it impossible to verify the absence of calculation errors."
+      }
+    },
+    "overall_verdict": "FAIL"
+  },
+  "baseline_score": 0.0
+}

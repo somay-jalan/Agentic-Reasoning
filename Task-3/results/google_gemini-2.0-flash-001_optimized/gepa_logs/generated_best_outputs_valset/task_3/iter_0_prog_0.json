@@ -1,0 +1,29 @@
+{
+    "judges": {
+        "final_answer": {
+            "verdict": "PASS",
+            "reason": "The predicted inequality sign matches the inequality in the problem statement."
+        },
+        "ntc": {
+            "verdict": "PASS",
+            "confidence": "HIGH",
+            "reason": "The proof is correct and does not use any toy cases to draw a general conclusion."
+        },
+        "nlg": {
+            "verdict": "PASS",
+            "confidence": "HIGH",
+            "reason": "No logical gaps are found in the proof."
+        },
+        "nae": {
+            "verdict": "PASS",
+            "confidence": "HIGH",
+            "reason": "The proof consists of exact algebraic manipulations and does not contain any approximations."
+        },
+        "nce": {
+            "verdict": "PASS",
+            "confidence": "HIGH",
+            "reason": "No calculation errors found."
+        }
+    },
+    "overall_verdict": "PASS"
+}
